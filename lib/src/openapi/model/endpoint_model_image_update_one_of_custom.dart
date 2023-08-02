@@ -60,24 +60,24 @@ class EndpointModelImageUpdateOneOfCustom {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.credentials != null) {
-      json[r'credentials'] = this.credentials;
+    if (credentials != null) {
+      json[r'credentials'] = credentials;
     } else {
       json[r'credentials'] = null;
     }
-    json[r'env'] = this.env;
-    if (this.healthRoute != null) {
-      json[r'health_route'] = this.healthRoute;
+    json[r'env'] = env;
+    if (healthRoute != null) {
+      json[r'health_route'] = healthRoute;
     } else {
       json[r'health_route'] = null;
     }
-    if (this.port != null) {
-      json[r'port'] = this.port;
+    if (port != null) {
+      json[r'port'] = port;
     } else {
       json[r'port'] = null;
     }
-    if (this.url != null) {
-      json[r'url'] = this.url;
+    if (url != null) {
+      json[r'url'] = url;
     } else {
       json[r'url'] = null;
     }
@@ -95,12 +95,12 @@ class EndpointModelImageUpdateOneOfCustom {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointModelImageUpdateOneOfCustom[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointModelImageUpdateOneOfCustom[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

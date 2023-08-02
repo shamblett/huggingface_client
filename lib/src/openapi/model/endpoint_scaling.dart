@@ -44,8 +44,8 @@ class EndpointScaling {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'maxReplica'] = this.maxReplica;
-    json[r'minReplica'] = this.minReplica;
+    json[r'maxReplica'] = maxReplica;
+    json[r'minReplica'] = minReplica;
     return json;
   }
 
@@ -60,12 +60,12 @@ class EndpointScaling {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointScaling[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointScaling[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

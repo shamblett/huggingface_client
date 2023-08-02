@@ -56,16 +56,16 @@ class EndpointModel {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'framework'] = this.framework;
-    json[r'image'] = this.image;
-    json[r'repository'] = this.repository;
-    if (this.revision != null) {
-      json[r'revision'] = this.revision;
+    json[r'framework'] = framework;
+    json[r'image'] = image;
+    json[r'repository'] = repository;
+    if (revision != null) {
+      json[r'revision'] = revision;
     } else {
       json[r'revision'] = null;
     }
-    if (this.task != null) {
-      json[r'task'] = this.task;
+    if (task != null) {
+      json[r'task'] = task;
     } else {
       json[r'task'] = null;
     }
@@ -83,12 +83,12 @@ class EndpointModel {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointModel[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointModel[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

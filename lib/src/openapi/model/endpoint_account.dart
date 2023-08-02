@@ -37,8 +37,8 @@ class EndpointAccount {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'id'] = this.id;
-    json[r'name'] = this.name;
+    json[r'id'] = id;
+    json[r'name'] = name;
     return json;
   }
 
@@ -53,12 +53,12 @@ class EndpointAccount {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointAccount[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointAccount[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

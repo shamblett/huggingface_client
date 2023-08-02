@@ -39,8 +39,8 @@ class EndpointImageCredentials {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'password'] = this.password;
-    json[r'username'] = this.username;
+    json[r'password'] = password;
+    json[r'username'] = username;
     return json;
   }
 
@@ -55,12 +55,12 @@ class EndpointImageCredentials {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointImageCredentials[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointImageCredentials[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

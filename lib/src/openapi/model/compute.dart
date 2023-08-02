@@ -95,24 +95,24 @@ class Compute {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'accelerator'] = this.accelerator;
-    json[r'architecture'] = this.architecture;
-    if (this.gpuMemoryGb != null) {
-      json[r'gpuMemoryGb'] = this.gpuMemoryGb;
+    json[r'accelerator'] = accelerator;
+    json[r'architecture'] = architecture;
+    if (gpuMemoryGb != null) {
+      json[r'gpuMemoryGb'] = gpuMemoryGb;
     } else {
       json[r'gpuMemoryGb'] = null;
     }
-    json[r'instanceSize'] = this.instanceSize;
-    json[r'instanceType'] = this.instanceType;
-    json[r'memoryGb'] = this.memoryGb;
-    json[r'numAccelerators'] = this.numAccelerators;
-    if (this.numCpus != null) {
-      json[r'numCpus'] = this.numCpus;
+    json[r'instanceSize'] = instanceSize;
+    json[r'instanceType'] = instanceType;
+    json[r'memoryGb'] = memoryGb;
+    json[r'numAccelerators'] = numAccelerators;
+    if (numCpus != null) {
+      json[r'numCpus'] = numCpus;
     } else {
       json[r'numCpus'] = null;
     }
-    json[r'pricePerHour'] = this.pricePerHour;
-    json[r'status'] = this.status;
+    json[r'pricePerHour'] = pricePerHour;
+    json[r'status'] = status;
     return json;
   }
 
@@ -127,12 +127,12 @@ class Compute {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "Compute[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "Compute[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

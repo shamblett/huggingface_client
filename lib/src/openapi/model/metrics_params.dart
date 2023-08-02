@@ -51,14 +51,14 @@ class MetricsParams {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'dnsPrefix'] = this.dnsPrefix;
-    json[r'from'] = this.from;
-    if (this.step != null) {
-      json[r'step'] = this.step;
+    json[r'dnsPrefix'] = dnsPrefix;
+    json[r'from'] = from;
+    if (step != null) {
+      json[r'step'] = step;
     } else {
       json[r'step'] = null;
     }
-    json[r'to'] = this.to;
+    json[r'to'] = to;
     return json;
   }
 
@@ -73,12 +73,12 @@ class MetricsParams {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "MetricsParams[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "MetricsParams[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

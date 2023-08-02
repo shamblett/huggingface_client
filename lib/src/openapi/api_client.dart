@@ -19,18 +19,8 @@ class ApiClient {
   final Authentication? authentication;
   final String endpointScope;
 
-  var _client = Client();
+  var client = Client();
   final _defaultHeaderMap = <String, String>{};
-
-  /// Returns the current HTTP [Client] instance to use in this class.
-  ///
-  /// The return value is guaranteed to never be null.
-  Client get client => _client;
-
-  /// Requests to use a new HTTP [Client] in this class.
-  set client(Client newClient) {
-    _client = newClient;
-  }
 
   Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
 
@@ -77,7 +67,7 @@ class ApiClient {
               onError: (Object error, StackTrace trace) => request.sink.close(),
               cancelOnError: true,
             );
-        final response = await _client.send(request);
+        final response = await client.send(request);
         return Response.fromStream(response);
       }
 
@@ -87,7 +77,7 @@ class ApiClient {
         request.files.addAll(body.files);
         request.headers.addAll(body.headers);
         request.headers.addAll(headerParams);
-        final response = await _client.send(request);
+        final response = await client.send(request);
         return Response.fromStream(response);
       }
 
@@ -98,36 +88,36 @@ class ApiClient {
 
       switch (method) {
         case 'POST':
-          return await _client.post(
+          return await client.post(
             uri,
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'PUT':
-          return await _client.put(
+          return await client.put(
             uri,
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'DELETE':
-          return await _client.delete(
+          return await client.delete(
             uri,
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'PATCH':
-          return await _client.patch(
+          return await client.patch(
             uri,
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'HEAD':
-          return await _client.head(
+          return await client.head(
             uri,
             headers: nullableHeaderParams,
           );
         case 'GET':
-          return await _client.get(
+          return await client.get(
             uri,
             headers: nullableHeaderParams,
           );

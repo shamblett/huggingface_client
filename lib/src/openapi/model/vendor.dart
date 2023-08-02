@@ -42,9 +42,9 @@ class Vendor {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'regions'] = this.regions;
-    json[r'status'] = this.status;
+    json[r'name'] = name;
+    json[r'regions'] = regions;
+    json[r'status'] = status;
     return json;
   }
 
@@ -59,12 +59,12 @@ class Vendor {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "Vendor[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "Vendor[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

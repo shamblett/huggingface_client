@@ -50,10 +50,10 @@ class EndpointCompute {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'accelerator'] = this.accelerator;
-    json[r'instanceSize'] = this.instanceSize;
-    json[r'instanceType'] = this.instanceType;
-    json[r'scaling'] = this.scaling;
+    json[r'accelerator'] = accelerator;
+    json[r'instanceSize'] = instanceSize;
+    json[r'instanceType'] = instanceType;
+    json[r'scaling'] = scaling;
     return json;
   }
 
@@ -68,12 +68,12 @@ class EndpointCompute {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointCompute[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointCompute[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

@@ -50,23 +50,23 @@ class EndpointComputeUpdate {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.accelerator != null) {
-      json[r'accelerator'] = this.accelerator;
+    if (accelerator != null) {
+      json[r'accelerator'] = accelerator;
     } else {
       json[r'accelerator'] = null;
     }
-    if (this.instanceSize != null) {
-      json[r'instanceSize'] = this.instanceSize;
+    if (instanceSize != null) {
+      json[r'instanceSize'] = instanceSize;
     } else {
       json[r'instanceSize'] = null;
     }
-    if (this.instanceType != null) {
-      json[r'instanceType'] = this.instanceType;
+    if (instanceType != null) {
+      json[r'instanceType'] = instanceType;
     } else {
       json[r'instanceType'] = null;
     }
-    if (this.scaling != null) {
-      json[r'scaling'] = this.scaling;
+    if (scaling != null) {
+      json[r'scaling'] = scaling;
     } else {
       json[r'scaling'] = null;
     }
@@ -84,12 +84,12 @@ class EndpointComputeUpdate {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointComputeUpdate[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointComputeUpdate[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

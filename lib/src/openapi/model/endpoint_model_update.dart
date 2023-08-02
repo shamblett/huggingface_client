@@ -56,28 +56,28 @@ class EndpointModelUpdate {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.framework != null) {
-      json[r'framework'] = this.framework;
+    if (framework != null) {
+      json[r'framework'] = framework;
     } else {
       json[r'framework'] = null;
     }
-    if (this.image != null) {
-      json[r'image'] = this.image;
+    if (image != null) {
+      json[r'image'] = image;
     } else {
       json[r'image'] = null;
     }
-    if (this.repository != null) {
-      json[r'repository'] = this.repository;
+    if (repository != null) {
+      json[r'repository'] = repository;
     } else {
       json[r'repository'] = null;
     }
-    if (this.revision != null) {
-      json[r'revision'] = this.revision;
+    if (revision != null) {
+      json[r'revision'] = revision;
     } else {
       json[r'revision'] = null;
     }
-    if (this.task != null) {
-      json[r'task'] = this.task;
+    if (task != null) {
+      json[r'task'] = task;
     } else {
       json[r'task'] = null;
     }
@@ -95,12 +95,12 @@ class EndpointModelUpdate {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointModelUpdate[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointModelUpdate[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

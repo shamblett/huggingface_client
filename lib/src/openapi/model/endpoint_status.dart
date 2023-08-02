@@ -89,21 +89,21 @@ class EndpointStatus {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'createdAt'] = this.createdAt.toUtc().toIso8601String();
-    json[r'createdBy'] = this.createdBy;
-    json[r'message'] = this.message;
-    if (this.private != null) {
-      json[r'private'] = this.private;
+    json[r'createdAt'] = createdAt.toUtc().toIso8601String();
+    json[r'createdBy'] = createdBy;
+    json[r'message'] = message;
+    if (private != null) {
+      json[r'private'] = private;
     } else {
       json[r'private'] = null;
     }
-    json[r'readyReplica'] = this.readyReplica;
-    json[r'state'] = this.state;
-    json[r'targetReplica'] = this.targetReplica;
-    json[r'updatedAt'] = this.updatedAt.toUtc().toIso8601String();
-    json[r'updatedBy'] = this.updatedBy;
-    if (this.url != null) {
-      json[r'url'] = this.url;
+    json[r'readyReplica'] = readyReplica;
+    json[r'state'] = state;
+    json[r'targetReplica'] = targetReplica;
+    json[r'updatedAt'] = updatedAt.toUtc().toIso8601String();
+    json[r'updatedBy'] = updatedBy;
+    if (url != null) {
+      json[r'url'] = url;
     } else {
       json[r'url'] = null;
     }
@@ -121,12 +121,12 @@ class EndpointStatus {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "EndpointStatus[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "EndpointStatus[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 
