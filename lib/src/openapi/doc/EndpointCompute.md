@@ -1,0 +1,18 @@
+# openapi.model.EndpointCompute
+
+## Load the model package
+```dart
+import 'package:openapi/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**accelerator** | [**EndpointAccelerator**](EndpointAccelerator.md) |  | 
+**instanceSize** | **String** |  | 
+**instanceType** | **String** | Compute instance type | 
+**scaling** | [**EndpointScaling**](EndpointScaling.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

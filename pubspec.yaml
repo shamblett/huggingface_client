@@ -1,0 +1,25 @@
+name: 'huggingface_client'
+version: '1.0.0'
+description: 'A server and browser based Hugging Face inference and inference endpoint API REST client'
+repository: https://github.com/shamblett/huggingface_client
+homepage: https://github.com/shamblett/huggingface_client
+
+funding:
+  - https://www.darticulate.com/#funding
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+
+dependencies:
+  async: '^2.11.0'
+  http: '^1.1.0'
+  intl: '^0.18.1'
+  meta: '^1.9.1'
+
+dev_dependencies:
+  test: '^1.24.4'
+  lints: '^2.1.1'
+  build_runner: '^2.4.6'
+  build_test: '^2.2.0'
+  build_web_compilers: '^4.0.4'
