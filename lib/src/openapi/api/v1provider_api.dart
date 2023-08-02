@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,9 +9,9 @@
 
 part of openapi.api;
 
-
 class V1providerApi {
-  V1providerApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  V1providerApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -29,11 +28,14 @@ class V1providerApi {
   ///
   /// * [String] region (required):
   ///   Vendor region
-  Future<Response> listComputesWithHttpInfo(String vendor, String region,) async {
+  Future<Response> listComputesWithHttpInfo(
+    String vendor,
+    String region,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/provider/{vendor}/region/{region}/compute'
-      .replaceAll('{vendor}', vendor)
-      .replaceAll('{region}', region);
+        .replaceAll('{vendor}', vendor)
+        .replaceAll('{region}', region);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -43,7 +45,6 @@ class V1providerApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -67,17 +68,26 @@ class V1providerApi {
   ///
   /// * [String] region (required):
   ///   Vendor region
-  Future<ComputeList?> listComputes(String vendor, String region,) async {
-    final response = await listComputesWithHttpInfo(vendor, region,);
+  Future<ComputeList?> listComputes(
+    String vendor,
+    String region,
+  ) async {
+    final response = await listComputesWithHttpInfo(
+      vendor,
+      region,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ComputeList',) as ComputeList;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ComputeList',
+      ) as ComputeList;
     }
     return null;
   }
@@ -92,10 +102,11 @@ class V1providerApi {
   ///
   /// * [String] vendor (required):
   ///   Provider vendor
-  Future<Response> listRegionsWithHttpInfo(String vendor,) async {
+  Future<Response> listRegionsWithHttpInfo(
+    String vendor,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/provider/{vendor}/region'
-      .replaceAll('{vendor}', vendor);
+    final path = r'/provider/{vendor}/region'.replaceAll('{vendor}', vendor);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -105,7 +116,6 @@ class V1providerApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -126,17 +136,24 @@ class V1providerApi {
   ///
   /// * [String] vendor (required):
   ///   Provider vendor
-  Future<RegionList?> listRegions(String vendor,) async {
-    final response = await listRegionsWithHttpInfo(vendor,);
+  Future<RegionList?> listRegions(
+    String vendor,
+  ) async {
+    final response = await listRegionsWithHttpInfo(
+      vendor,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RegionList',) as RegionList;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'RegionList',
+      ) as RegionList;
     }
     return null;
   }
@@ -158,7 +175,6 @@ class V1providerApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -182,9 +198,12 @@ class V1providerApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'VendorList',) as VendorList;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'VendorList',
+      ) as VendorList;
     }
     return null;
   }

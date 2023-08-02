@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -62,55 +61,58 @@ class Compute {
   Status status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Compute &&
-     other.accelerator == accelerator &&
-     other.architecture == architecture &&
-     other.gpuMemoryGb == gpuMemoryGb &&
-     other.instanceSize == instanceSize &&
-     other.instanceType == instanceType &&
-     other.memoryGb == memoryGb &&
-     other.numAccelerators == numAccelerators &&
-     other.numCpus == numCpus &&
-     other.pricePerHour == pricePerHour &&
-     other.status == status;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Compute &&
+          other.accelerator == accelerator &&
+          other.architecture == architecture &&
+          other.gpuMemoryGb == gpuMemoryGb &&
+          other.instanceSize == instanceSize &&
+          other.instanceType == instanceType &&
+          other.memoryGb == memoryGb &&
+          other.numAccelerators == numAccelerators &&
+          other.numCpus == numCpus &&
+          other.pricePerHour == pricePerHour &&
+          other.status == status;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accelerator.hashCode) +
-    (architecture.hashCode) +
-    (gpuMemoryGb == null ? 0 : gpuMemoryGb!.hashCode) +
-    (instanceSize.hashCode) +
-    (instanceType.hashCode) +
-    (memoryGb.hashCode) +
-    (numAccelerators.hashCode) +
-    (numCpus == null ? 0 : numCpus!.hashCode) +
-    (pricePerHour.hashCode) +
-    (status.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accelerator.hashCode) +
+      (architecture.hashCode) +
+      (gpuMemoryGb == null ? 0 : gpuMemoryGb!.hashCode) +
+      (instanceSize.hashCode) +
+      (instanceType.hashCode) +
+      (memoryGb.hashCode) +
+      (numAccelerators.hashCode) +
+      (numCpus == null ? 0 : numCpus!.hashCode) +
+      (pricePerHour.hashCode) +
+      (status.hashCode);
 
   @override
-  String toString() => 'Compute[accelerator=$accelerator, architecture=$architecture, gpuMemoryGb=$gpuMemoryGb, instanceSize=$instanceSize, instanceType=$instanceType, memoryGb=$memoryGb, numAccelerators=$numAccelerators, numCpus=$numCpus, pricePerHour=$pricePerHour, status=$status]';
+  String toString() =>
+      'Compute[accelerator=$accelerator, architecture=$architecture, gpuMemoryGb=$gpuMemoryGb, instanceSize=$instanceSize, instanceType=$instanceType, memoryGb=$memoryGb, numAccelerators=$numAccelerators, numCpus=$numCpus, pricePerHour=$pricePerHour, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'accelerator'] = this.accelerator;
-      json[r'architecture'] = this.architecture;
+    json[r'accelerator'] = this.accelerator;
+    json[r'architecture'] = this.architecture;
     if (this.gpuMemoryGb != null) {
       json[r'gpuMemoryGb'] = this.gpuMemoryGb;
     } else {
       json[r'gpuMemoryGb'] = null;
     }
-      json[r'instanceSize'] = this.instanceSize;
-      json[r'instanceType'] = this.instanceType;
-      json[r'memoryGb'] = this.memoryGb;
-      json[r'numAccelerators'] = this.numAccelerators;
+    json[r'instanceSize'] = this.instanceSize;
+    json[r'instanceType'] = this.instanceType;
+    json[r'memoryGb'] = this.memoryGb;
+    json[r'numAccelerators'] = this.numAccelerators;
     if (this.numCpus != null) {
       json[r'numCpus'] = this.numCpus;
     } else {
       json[r'numCpus'] = null;
     }
-      json[r'pricePerHour'] = this.pricePerHour;
-      json[r'status'] = this.status;
+    json[r'pricePerHour'] = this.pricePerHour;
+    json[r'status'] = this.status;
     return json;
   }
 
@@ -126,8 +128,10 @@ class Compute {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Compute[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Compute[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Compute[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Compute[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -148,7 +152,10 @@ class Compute {
     return null;
   }
 
-  static List<Compute> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Compute> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Compute>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -176,13 +183,19 @@ class Compute {
   }
 
   // maps a json object with a list of Compute-objects as value to a dart map
-  static Map<String, List<Compute>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Compute>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Compute>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Compute.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Compute.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -200,4 +213,3 @@ class Compute {
     'status',
   };
 }
-

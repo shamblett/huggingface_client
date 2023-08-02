@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -29,22 +28,25 @@ class EndpointComputeUpdate {
   EndpointScalingUpdate? scaling;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointComputeUpdate &&
-     other.accelerator == accelerator &&
-     other.instanceSize == instanceSize &&
-     other.instanceType == instanceType &&
-     other.scaling == scaling;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointComputeUpdate &&
+          other.accelerator == accelerator &&
+          other.instanceSize == instanceSize &&
+          other.instanceType == instanceType &&
+          other.scaling == scaling;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accelerator == null ? 0 : accelerator!.hashCode) +
-    (instanceSize == null ? 0 : instanceSize!.hashCode) +
-    (instanceType == null ? 0 : instanceType!.hashCode) +
-    (scaling == null ? 0 : scaling!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accelerator == null ? 0 : accelerator!.hashCode) +
+      (instanceSize == null ? 0 : instanceSize!.hashCode) +
+      (instanceType == null ? 0 : instanceType!.hashCode) +
+      (scaling == null ? 0 : scaling!.hashCode);
 
   @override
-  String toString() => 'EndpointComputeUpdate[accelerator=$accelerator, instanceSize=$instanceSize, instanceType=$instanceType, scaling=$scaling]';
+  String toString() =>
+      'EndpointComputeUpdate[accelerator=$accelerator, instanceSize=$instanceSize, instanceType=$instanceType, scaling=$scaling]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -83,8 +85,10 @@ class EndpointComputeUpdate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointComputeUpdate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointComputeUpdate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointComputeUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointComputeUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,7 +103,10 @@ class EndpointComputeUpdate {
     return null;
   }
 
-  static List<EndpointComputeUpdate> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointComputeUpdate> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointComputeUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,20 +134,24 @@ class EndpointComputeUpdate {
   }
 
   // maps a json object with a list of EndpointComputeUpdate-objects as value to a dart map
-  static Map<String, List<EndpointComputeUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointComputeUpdate>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointComputeUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointComputeUpdate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointComputeUpdate.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

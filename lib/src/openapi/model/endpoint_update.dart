@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -22,15 +21,17 @@ class EndpointUpdate {
   EndpointModelUpdate? model;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointUpdate &&
-     other.compute == compute &&
-     other.model == model;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointUpdate &&
+          other.compute == compute &&
+          other.model == model;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (compute == null ? 0 : compute!.hashCode) +
-    (model == null ? 0 : model!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (compute == null ? 0 : compute!.hashCode) +
+      (model == null ? 0 : model!.hashCode);
 
   @override
   String toString() => 'EndpointUpdate[compute=$compute, model=$model]';
@@ -62,8 +63,10 @@ class EndpointUpdate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointUpdate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointUpdate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -76,7 +79,10 @@ class EndpointUpdate {
     return null;
   }
 
-  static List<EndpointUpdate> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointUpdate> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,20 +110,24 @@ class EndpointUpdate {
   }
 
   // maps a json object with a list of EndpointUpdate-objects as value to a dart map
-  static Map<String, List<EndpointUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointUpdate>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointUpdate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointUpdate.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

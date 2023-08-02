@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -23,23 +22,25 @@ class EndpointModelImageUpdate {
   EndpointModelImageUpdateOneOfCustom custom;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointModelImageUpdate &&
-     other.huggingface == huggingface &&
-     other.custom == custom;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointModelImageUpdate &&
+          other.huggingface == huggingface &&
+          other.custom == custom;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (huggingface.hashCode) +
-    (custom.hashCode);
+      // ignore: unnecessary_parenthesis
+      (huggingface.hashCode) + (custom.hashCode);
 
   @override
-  String toString() => 'EndpointModelImageUpdate[huggingface=$huggingface, custom=$custom]';
+  String toString() =>
+      'EndpointModelImageUpdate[huggingface=$huggingface, custom=$custom]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'huggingface'] = this.huggingface;
-      json[r'custom'] = this.custom;
+    json[r'huggingface'] = this.huggingface;
+    json[r'custom'] = this.custom;
     return json;
   }
 
@@ -55,8 +56,10 @@ class EndpointModelImageUpdate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointModelImageUpdate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointModelImageUpdate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointModelImageUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointModelImageUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -69,7 +72,10 @@ class EndpointModelImageUpdate {
     return null;
   }
 
-  static List<EndpointModelImageUpdate> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointModelImageUpdate> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointModelImageUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,13 +103,19 @@ class EndpointModelImageUpdate {
   }
 
   // maps a json object with a list of EndpointModelImageUpdate-objects as value to a dart map
-  static Map<String, List<EndpointModelImageUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointModelImageUpdate>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointModelImageUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointModelImageUpdate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointModelImageUpdate.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -115,4 +127,3 @@ class EndpointModelImageUpdate {
     'custom',
   };
 }
-

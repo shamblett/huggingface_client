@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -26,26 +25,26 @@ class Vendor {
   Status status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Vendor &&
-     other.name == name &&
-     other.regions == regions &&
-     other.status == status;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Vendor &&
+          other.name == name &&
+          other.regions == regions &&
+          other.status == status;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (regions.hashCode) +
-    (status.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) + (regions.hashCode) + (status.hashCode);
 
   @override
   String toString() => 'Vendor[name=$name, regions=$regions, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
-      json[r'regions'] = this.regions;
-      json[r'status'] = this.status;
+    json[r'name'] = this.name;
+    json[r'regions'] = this.regions;
+    json[r'status'] = this.status;
     return json;
   }
 
@@ -61,8 +60,10 @@ class Vendor {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Vendor[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Vendor[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Vendor[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Vendor[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -76,7 +77,10 @@ class Vendor {
     return null;
   }
 
-  static List<Vendor> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Vendor> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Vendor>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,13 +108,19 @@ class Vendor {
   }
 
   // maps a json object with a list of Vendor-objects as value to a dart map
-  static Map<String, List<Vendor>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Vendor>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Vendor>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Vendor.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Vendor.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -123,4 +133,3 @@ class Vendor {
     'status',
   };
 }
-

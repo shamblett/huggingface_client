@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,23 +23,24 @@ class EndpointProvider {
   String vendor;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointProvider &&
-     other.region == region &&
-     other.vendor == vendor;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointProvider &&
+          other.region == region &&
+          other.vendor == vendor;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (region.hashCode) +
-    (vendor.hashCode);
+      // ignore: unnecessary_parenthesis
+      (region.hashCode) + (vendor.hashCode);
 
   @override
   String toString() => 'EndpointProvider[region=$region, vendor=$vendor]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'region'] = this.region;
-      json[r'vendor'] = this.vendor;
+    json[r'region'] = this.region;
+    json[r'vendor'] = this.vendor;
     return json;
   }
 
@@ -56,8 +56,10 @@ class EndpointProvider {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointProvider[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointProvider[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointProvider[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointProvider[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +72,10 @@ class EndpointProvider {
     return null;
   }
 
-  static List<EndpointProvider> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointProvider> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointProvider>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,13 +103,19 @@ class EndpointProvider {
   }
 
   // maps a json object with a list of EndpointProvider-objects as value to a dart map
-  static Map<String, List<EndpointProvider>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointProvider>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointProvider>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointProvider.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointProvider.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -116,4 +127,3 @@ class EndpointProvider {
     'vendor',
   };
 }
-

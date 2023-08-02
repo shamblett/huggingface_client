@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -37,24 +36,27 @@ class EndpointModelImageUpdateOneOfCustom {
   String? url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointModelImageUpdateOneOfCustom &&
-     other.credentials == credentials &&
-     other.env == env &&
-     other.healthRoute == healthRoute &&
-     other.port == port &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointModelImageUpdateOneOfCustom &&
+          other.credentials == credentials &&
+          other.env == env &&
+          other.healthRoute == healthRoute &&
+          other.port == port &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (credentials == null ? 0 : credentials!.hashCode) +
-    (env.hashCode) +
-    (healthRoute == null ? 0 : healthRoute!.hashCode) +
-    (port == null ? 0 : port!.hashCode) +
-    (url == null ? 0 : url!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (credentials == null ? 0 : credentials!.hashCode) +
+      (env.hashCode) +
+      (healthRoute == null ? 0 : healthRoute!.hashCode) +
+      (port == null ? 0 : port!.hashCode) +
+      (url == null ? 0 : url!.hashCode);
 
   @override
-  String toString() => 'EndpointModelImageUpdateOneOfCustom[credentials=$credentials, env=$env, healthRoute=$healthRoute, port=$port, url=$url]';
+  String toString() =>
+      'EndpointModelImageUpdateOneOfCustom[credentials=$credentials, env=$env, healthRoute=$healthRoute, port=$port, url=$url]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -63,7 +65,7 @@ class EndpointModelImageUpdateOneOfCustom {
     } else {
       json[r'credentials'] = null;
     }
-      json[r'env'] = this.env;
+    json[r'env'] = this.env;
     if (this.healthRoute != null) {
       json[r'health_route'] = this.healthRoute;
     } else {
@@ -94,8 +96,10 @@ class EndpointModelImageUpdateOneOfCustom {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointModelImageUpdateOneOfCustom[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointModelImageUpdateOneOfCustom[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointModelImageUpdateOneOfCustom[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointModelImageUpdateOneOfCustom[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -111,7 +115,10 @@ class EndpointModelImageUpdateOneOfCustom {
     return null;
   }
 
-  static List<EndpointModelImageUpdateOneOfCustom> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointModelImageUpdateOneOfCustom> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointModelImageUpdateOneOfCustom>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -124,7 +131,8 @@ class EndpointModelImageUpdateOneOfCustom {
     return result.toList(growable: growable);
   }
 
-  static Map<String, EndpointModelImageUpdateOneOfCustom> mapFromJson(dynamic json) {
+  static Map<String, EndpointModelImageUpdateOneOfCustom> mapFromJson(
+      dynamic json) {
     final map = <String, EndpointModelImageUpdateOneOfCustom>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -139,20 +147,24 @@ class EndpointModelImageUpdateOneOfCustom {
   }
 
   // maps a json object with a list of EndpointModelImageUpdateOneOfCustom-objects as value to a dart map
-  static Map<String, List<EndpointModelImageUpdateOneOfCustom>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointModelImageUpdateOneOfCustom>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointModelImageUpdateOneOfCustom>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointModelImageUpdateOneOfCustom.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointModelImageUpdateOneOfCustom.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

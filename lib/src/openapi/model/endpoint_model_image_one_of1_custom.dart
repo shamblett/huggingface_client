@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -37,24 +36,27 @@ class EndpointModelImageOneOf1Custom {
   String url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointModelImageOneOf1Custom &&
-     other.credentials == credentials &&
-     other.env == env &&
-     other.healthRoute == healthRoute &&
-     other.port == port &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointModelImageOneOf1Custom &&
+          other.credentials == credentials &&
+          other.env == env &&
+          other.healthRoute == healthRoute &&
+          other.port == port &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (credentials == null ? 0 : credentials!.hashCode) +
-    (env.hashCode) +
-    (healthRoute == null ? 0 : healthRoute!.hashCode) +
-    (port == null ? 0 : port!.hashCode) +
-    (url.hashCode);
+      // ignore: unnecessary_parenthesis
+      (credentials == null ? 0 : credentials!.hashCode) +
+      (env.hashCode) +
+      (healthRoute == null ? 0 : healthRoute!.hashCode) +
+      (port == null ? 0 : port!.hashCode) +
+      (url.hashCode);
 
   @override
-  String toString() => 'EndpointModelImageOneOf1Custom[credentials=$credentials, env=$env, healthRoute=$healthRoute, port=$port, url=$url]';
+  String toString() =>
+      'EndpointModelImageOneOf1Custom[credentials=$credentials, env=$env, healthRoute=$healthRoute, port=$port, url=$url]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -63,7 +65,7 @@ class EndpointModelImageOneOf1Custom {
     } else {
       json[r'credentials'] = null;
     }
-      json[r'env'] = this.env;
+    json[r'env'] = this.env;
     if (this.healthRoute != null) {
       json[r'health_route'] = this.healthRoute;
     } else {
@@ -74,7 +76,7 @@ class EndpointModelImageOneOf1Custom {
     } else {
       json[r'port'] = null;
     }
-      json[r'url'] = this.url;
+    json[r'url'] = this.url;
     return json;
   }
 
@@ -90,8 +92,10 @@ class EndpointModelImageOneOf1Custom {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointModelImageOneOf1Custom[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointModelImageOneOf1Custom[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointModelImageOneOf1Custom[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointModelImageOneOf1Custom[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -107,7 +111,10 @@ class EndpointModelImageOneOf1Custom {
     return null;
   }
 
-  static List<EndpointModelImageOneOf1Custom> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointModelImageOneOf1Custom> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointModelImageOneOf1Custom>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -135,13 +142,19 @@ class EndpointModelImageOneOf1Custom {
   }
 
   // maps a json object with a list of EndpointModelImageOneOf1Custom-objects as value to a dart map
-  static Map<String, List<EndpointModelImageOneOf1Custom>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointModelImageOneOf1Custom>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointModelImageOneOf1Custom>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointModelImageOneOf1Custom.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointModelImageOneOf1Custom.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -152,4 +165,3 @@ class EndpointModelImageOneOf1Custom {
     'url',
   };
 }
-

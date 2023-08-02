@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -34,9 +33,13 @@ class EndpointType {
     private,
   ];
 
-  static EndpointType? fromJson(dynamic value) => EndpointTypeTypeTransformer().decode(value);
+  static EndpointType? fromJson(dynamic value) =>
+      EndpointTypeTypeTransformer().decode(value);
 
-  static List<EndpointType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -53,7 +56,8 @@ class EndpointType {
 /// Transformation class that can [encode] an instance of [EndpointType] to String,
 /// and [decode] dynamic data back to [EndpointType].
 class EndpointTypeTypeTransformer {
-  factory EndpointTypeTypeTransformer() => _instance ??= const EndpointTypeTypeTransformer._();
+  factory EndpointTypeTypeTransformer() =>
+      _instance ??= const EndpointTypeTypeTransformer._();
 
   const EndpointTypeTypeTransformer._();
 
@@ -70,9 +74,12 @@ class EndpointTypeTypeTransformer {
   EndpointType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'public': return EndpointType.public;
-        case r'protected': return EndpointType.protected;
-        case r'private': return EndpointType.private;
+        case r'public':
+          return EndpointType.public;
+        case r'protected':
+          return EndpointType.protected;
+        case r'private':
+          return EndpointType.private;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -85,4 +92,3 @@ class EndpointTypeTypeTransformer {
   /// Singleton [EndpointTypeTypeTransformer] instance.
   static EndpointTypeTypeTransformer? _instance;
 }
-

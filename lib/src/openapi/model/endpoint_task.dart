@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,7 +8,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 part of openapi.api;
-
 
 class EndpointTask {
   /// Instantiate a new enum with the provided [value].
@@ -24,7 +22,8 @@ class EndpointTask {
   String toJson() => value;
 
   static const textClassification = EndpointTask._(r'text-classification');
-  static const zeroShotClassification = EndpointTask._(r'zero-shot-classification');
+  static const zeroShotClassification =
+      EndpointTask._(r'zero-shot-classification');
   static const tokenClassification = EndpointTask._(r'token-classification');
   static const questionAnswering = EndpointTask._(r'question-answering');
   static const fillMask = EndpointTask._(r'fill-mask');
@@ -34,11 +33,13 @@ class EndpointTask {
   static const textGeneration = EndpointTask._(r'text-generation');
   static const featureExtraction = EndpointTask._(r'feature-extraction');
   static const imageClassification = EndpointTask._(r'image-classification');
-  static const automaticSpeechRecognition = EndpointTask._(r'automatic-speech-recognition');
+  static const automaticSpeechRecognition =
+      EndpointTask._(r'automatic-speech-recognition');
   static const audioClassification = EndpointTask._(r'audio-classification');
   static const objectDetection = EndpointTask._(r'object-detection');
   static const imageSegmentation = EndpointTask._(r'image-segmentation');
-  static const tableQuestionAnswering = EndpointTask._(r'table-question-answering');
+  static const tableQuestionAnswering =
+      EndpointTask._(r'table-question-answering');
   static const conversational = EndpointTask._(r'conversational');
   static const sentenceSimilarity = EndpointTask._(r'sentence-similarity');
   static const sentenceEmbeddings = EndpointTask._(r'sentence-embeddings');
@@ -72,9 +73,13 @@ class EndpointTask {
     custom,
   ];
 
-  static EndpointTask? fromJson(dynamic value) => EndpointTaskTypeTransformer().decode(value);
+  static EndpointTask? fromJson(dynamic value) =>
+      EndpointTaskTypeTransformer().decode(value);
 
-  static List<EndpointTask> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointTask> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointTask>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -91,7 +96,8 @@ class EndpointTask {
 /// Transformation class that can [encode] an instance of [EndpointTask] to String,
 /// and [decode] dynamic data back to [EndpointTask].
 class EndpointTaskTypeTransformer {
-  factory EndpointTaskTypeTransformer() => _instance ??= const EndpointTaskTypeTransformer._();
+  factory EndpointTaskTypeTransformer() =>
+      _instance ??= const EndpointTaskTypeTransformer._();
 
   const EndpointTaskTypeTransformer._();
 
@@ -108,28 +114,50 @@ class EndpointTaskTypeTransformer {
   EndpointTask? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'text-classification': return EndpointTask.textClassification;
-        case r'zero-shot-classification': return EndpointTask.zeroShotClassification;
-        case r'token-classification': return EndpointTask.tokenClassification;
-        case r'question-answering': return EndpointTask.questionAnswering;
-        case r'fill-mask': return EndpointTask.fillMask;
-        case r'summarization': return EndpointTask.summarization;
-        case r'translation': return EndpointTask.translation;
-        case r'text2text-generation': return EndpointTask.text2textGeneration;
-        case r'text-generation': return EndpointTask.textGeneration;
-        case r'feature-extraction': return EndpointTask.featureExtraction;
-        case r'image-classification': return EndpointTask.imageClassification;
-        case r'automatic-speech-recognition': return EndpointTask.automaticSpeechRecognition;
-        case r'audio-classification': return EndpointTask.audioClassification;
-        case r'object-detection': return EndpointTask.objectDetection;
-        case r'image-segmentation': return EndpointTask.imageSegmentation;
-        case r'table-question-answering': return EndpointTask.tableQuestionAnswering;
-        case r'conversational': return EndpointTask.conversational;
-        case r'sentence-similarity': return EndpointTask.sentenceSimilarity;
-        case r'sentence-embeddings': return EndpointTask.sentenceEmbeddings;
-        case r'sentence-ranking': return EndpointTask.sentenceRanking;
-        case r'text-to-image': return EndpointTask.textToImage;
-        case r'custom': return EndpointTask.custom;
+        case r'text-classification':
+          return EndpointTask.textClassification;
+        case r'zero-shot-classification':
+          return EndpointTask.zeroShotClassification;
+        case r'token-classification':
+          return EndpointTask.tokenClassification;
+        case r'question-answering':
+          return EndpointTask.questionAnswering;
+        case r'fill-mask':
+          return EndpointTask.fillMask;
+        case r'summarization':
+          return EndpointTask.summarization;
+        case r'translation':
+          return EndpointTask.translation;
+        case r'text2text-generation':
+          return EndpointTask.text2textGeneration;
+        case r'text-generation':
+          return EndpointTask.textGeneration;
+        case r'feature-extraction':
+          return EndpointTask.featureExtraction;
+        case r'image-classification':
+          return EndpointTask.imageClassification;
+        case r'automatic-speech-recognition':
+          return EndpointTask.automaticSpeechRecognition;
+        case r'audio-classification':
+          return EndpointTask.audioClassification;
+        case r'object-detection':
+          return EndpointTask.objectDetection;
+        case r'image-segmentation':
+          return EndpointTask.imageSegmentation;
+        case r'table-question-answering':
+          return EndpointTask.tableQuestionAnswering;
+        case r'conversational':
+          return EndpointTask.conversational;
+        case r'sentence-similarity':
+          return EndpointTask.sentenceSimilarity;
+        case r'sentence-embeddings':
+          return EndpointTask.sentenceEmbeddings;
+        case r'sentence-ranking':
+          return EndpointTask.sentenceRanking;
+        case r'text-to-image':
+          return EndpointTask.textToImage;
+        case r'custom':
+          return EndpointTask.custom;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -142,4 +170,3 @@ class EndpointTaskTypeTransformer {
   /// Singleton [EndpointTaskTypeTransformer] instance.
   static EndpointTaskTypeTransformer? _instance;
 }
-

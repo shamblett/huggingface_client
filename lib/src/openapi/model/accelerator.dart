@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -32,9 +31,13 @@ class Accelerator {
     gpu,
   ];
 
-  static Accelerator? fromJson(dynamic value) => AcceleratorTypeTransformer().decode(value);
+  static Accelerator? fromJson(dynamic value) =>
+      AcceleratorTypeTransformer().decode(value);
 
-  static List<Accelerator> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Accelerator> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Accelerator>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -51,7 +54,8 @@ class Accelerator {
 /// Transformation class that can [encode] an instance of [Accelerator] to String,
 /// and [decode] dynamic data back to [Accelerator].
 class AcceleratorTypeTransformer {
-  factory AcceleratorTypeTransformer() => _instance ??= const AcceleratorTypeTransformer._();
+  factory AcceleratorTypeTransformer() =>
+      _instance ??= const AcceleratorTypeTransformer._();
 
   const AcceleratorTypeTransformer._();
 
@@ -68,8 +72,10 @@ class AcceleratorTypeTransformer {
   Accelerator? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'cpu': return Accelerator.cpu;
-        case r'gpu': return Accelerator.gpu;
+        case r'cpu':
+          return Accelerator.cpu;
+        case r'gpu':
+          return Accelerator.gpu;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -82,4 +88,3 @@ class AcceleratorTypeTransformer {
   /// Singleton [AcceleratorTypeTransformer] instance.
   static AcceleratorTypeTransformer? _instance;
 }
-

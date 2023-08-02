@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -36,26 +35,29 @@ class Endpoint {
   EndpointType type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Endpoint &&
-     other.accountId == accountId &&
-     other.compute == compute &&
-     other.model == model &&
-     other.name == name &&
-     other.provider == provider &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Endpoint &&
+          other.accountId == accountId &&
+          other.compute == compute &&
+          other.model == model &&
+          other.name == name &&
+          other.provider == provider &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accountId == null ? 0 : accountId!.hashCode) +
-    (compute.hashCode) +
-    (model.hashCode) +
-    (name.hashCode) +
-    (provider.hashCode) +
-    (type.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accountId == null ? 0 : accountId!.hashCode) +
+      (compute.hashCode) +
+      (model.hashCode) +
+      (name.hashCode) +
+      (provider.hashCode) +
+      (type.hashCode);
 
   @override
-  String toString() => 'Endpoint[accountId=$accountId, compute=$compute, model=$model, name=$name, provider=$provider, type=$type]';
+  String toString() =>
+      'Endpoint[accountId=$accountId, compute=$compute, model=$model, name=$name, provider=$provider, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -64,11 +66,11 @@ class Endpoint {
     } else {
       json[r'accountId'] = null;
     }
-      json[r'compute'] = this.compute;
-      json[r'model'] = this.model;
-      json[r'name'] = this.name;
-      json[r'provider'] = this.provider;
-      json[r'type'] = this.type;
+    json[r'compute'] = this.compute;
+    json[r'model'] = this.model;
+    json[r'name'] = this.name;
+    json[r'provider'] = this.provider;
+    json[r'type'] = this.type;
     return json;
   }
 
@@ -84,8 +86,10 @@ class Endpoint {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Endpoint[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Endpoint[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Endpoint[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Endpoint[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -102,7 +106,10 @@ class Endpoint {
     return null;
   }
 
-  static List<Endpoint> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Endpoint> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Endpoint>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,13 +137,19 @@ class Endpoint {
   }
 
   // maps a json object with a list of Endpoint-objects as value to a dart map
-  static Map<String, List<Endpoint>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Endpoint>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Endpoint>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Endpoint.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Endpoint.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -151,4 +164,3 @@ class Endpoint {
     'type',
   };
 }
-

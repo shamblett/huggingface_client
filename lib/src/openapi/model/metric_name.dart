@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,7 +8,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 part of openapi.api;
-
 
 class MetricName {
   /// Instantiate a new enum with the provided [value].
@@ -56,9 +54,13 @@ class MetricName {
     serverErrorRate,
   ];
 
-  static MetricName? fromJson(dynamic value) => MetricNameTypeTransformer().decode(value);
+  static MetricName? fromJson(dynamic value) =>
+      MetricNameTypeTransformer().decode(value);
 
-  static List<MetricName> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MetricName> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MetricName>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -75,7 +77,8 @@ class MetricName {
 /// Transformation class that can [encode] an instance of [MetricName] to String,
 /// and [decode] dynamic data back to [MetricName].
 class MetricNameTypeTransformer {
-  factory MetricNameTypeTransformer() => _instance ??= const MetricNameTypeTransformer._();
+  factory MetricNameTypeTransformer() =>
+      _instance ??= const MetricNameTypeTransformer._();
 
   const MetricNameTypeTransformer._();
 
@@ -92,20 +95,34 @@ class MetricNameTypeTransformer {
   MetricName? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'request-count': return MetricName.requestCount;
-        case r'median-latency': return MetricName.medianLatency;
-        case r'p95-latency': return MetricName.p95Latency;
-        case r'success-throughput': return MetricName.successThroughput;
-        case r'bad-request-throughput': return MetricName.badRequestThroughput;
-        case r'server-error-throughput': return MetricName.serverErrorThroughput;
-        case r'cpu-usage': return MetricName.cpuUsage;
-        case r'memory-usage': return MetricName.memoryUsage;
-        case r'gpu-usage': return MetricName.gpuUsage;
-        case r'gpu-memory-usage': return MetricName.gpuMemoryUsage;
-        case r'average-latency': return MetricName.averageLatency;
-        case r'success-rate': return MetricName.successRate;
-        case r'bad-request-rate': return MetricName.badRequestRate;
-        case r'server-error-rate': return MetricName.serverErrorRate;
+        case r'request-count':
+          return MetricName.requestCount;
+        case r'median-latency':
+          return MetricName.medianLatency;
+        case r'p95-latency':
+          return MetricName.p95Latency;
+        case r'success-throughput':
+          return MetricName.successThroughput;
+        case r'bad-request-throughput':
+          return MetricName.badRequestThroughput;
+        case r'server-error-throughput':
+          return MetricName.serverErrorThroughput;
+        case r'cpu-usage':
+          return MetricName.cpuUsage;
+        case r'memory-usage':
+          return MetricName.memoryUsage;
+        case r'gpu-usage':
+          return MetricName.gpuUsage;
+        case r'gpu-memory-usage':
+          return MetricName.gpuMemoryUsage;
+        case r'average-latency':
+          return MetricName.averageLatency;
+        case r'success-rate':
+          return MetricName.successRate;
+        case r'bad-request-rate':
+          return MetricName.badRequestRate;
+        case r'server-error-rate':
+          return MetricName.serverErrorRate;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -118,4 +135,3 @@ class MetricNameTypeTransformer {
   /// Singleton [MetricNameTypeTransformer] instance.
   static MetricNameTypeTransformer? _instance;
 }
-

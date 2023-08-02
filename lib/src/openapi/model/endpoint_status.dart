@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -56,50 +55,53 @@ class EndpointStatus {
   String? url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointStatus &&
-     other.createdAt == createdAt &&
-     other.createdBy == createdBy &&
-     other.message == message &&
-     other.private == private &&
-     other.readyReplica == readyReplica &&
-     other.state == state &&
-     other.targetReplica == targetReplica &&
-     other.updatedAt == updatedAt &&
-     other.updatedBy == updatedBy &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointStatus &&
+          other.createdAt == createdAt &&
+          other.createdBy == createdBy &&
+          other.message == message &&
+          other.private == private &&
+          other.readyReplica == readyReplica &&
+          other.state == state &&
+          other.targetReplica == targetReplica &&
+          other.updatedAt == updatedAt &&
+          other.updatedBy == updatedBy &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (createdAt.hashCode) +
-    (createdBy.hashCode) +
-    (message.hashCode) +
-    (private == null ? 0 : private!.hashCode) +
-    (readyReplica.hashCode) +
-    (state.hashCode) +
-    (targetReplica.hashCode) +
-    (updatedAt.hashCode) +
-    (updatedBy.hashCode) +
-    (url == null ? 0 : url!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (createdAt.hashCode) +
+      (createdBy.hashCode) +
+      (message.hashCode) +
+      (private == null ? 0 : private!.hashCode) +
+      (readyReplica.hashCode) +
+      (state.hashCode) +
+      (targetReplica.hashCode) +
+      (updatedAt.hashCode) +
+      (updatedBy.hashCode) +
+      (url == null ? 0 : url!.hashCode);
 
   @override
-  String toString() => 'EndpointStatus[createdAt=$createdAt, createdBy=$createdBy, message=$message, private=$private, readyReplica=$readyReplica, state=$state, targetReplica=$targetReplica, updatedAt=$updatedAt, updatedBy=$updatedBy, url=$url]';
+  String toString() =>
+      'EndpointStatus[createdAt=$createdAt, createdBy=$createdBy, message=$message, private=$private, readyReplica=$readyReplica, state=$state, targetReplica=$targetReplica, updatedAt=$updatedAt, updatedBy=$updatedBy, url=$url]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'createdAt'] = this.createdAt.toUtc().toIso8601String();
-      json[r'createdBy'] = this.createdBy;
-      json[r'message'] = this.message;
+    json[r'createdAt'] = this.createdAt.toUtc().toIso8601String();
+    json[r'createdBy'] = this.createdBy;
+    json[r'message'] = this.message;
     if (this.private != null) {
       json[r'private'] = this.private;
     } else {
       json[r'private'] = null;
     }
-      json[r'readyReplica'] = this.readyReplica;
-      json[r'state'] = this.state;
-      json[r'targetReplica'] = this.targetReplica;
-      json[r'updatedAt'] = this.updatedAt.toUtc().toIso8601String();
-      json[r'updatedBy'] = this.updatedBy;
+    json[r'readyReplica'] = this.readyReplica;
+    json[r'state'] = this.state;
+    json[r'targetReplica'] = this.targetReplica;
+    json[r'updatedAt'] = this.updatedAt.toUtc().toIso8601String();
+    json[r'updatedBy'] = this.updatedBy;
     if (this.url != null) {
       json[r'url'] = this.url;
     } else {
@@ -120,8 +122,10 @@ class EndpointStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointStatus[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointStatus[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointStatus[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -142,7 +146,10 @@ class EndpointStatus {
     return null;
   }
 
-  static List<EndpointStatus> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointStatus> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -170,13 +177,19 @@ class EndpointStatus {
   }
 
   // maps a json object with a list of EndpointStatus-objects as value to a dart map
-  static Map<String, List<EndpointStatus>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointStatus>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointStatus>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointStatus.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointStatus.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -194,4 +207,3 @@ class EndpointStatus {
     'updatedBy',
   };
 }
-

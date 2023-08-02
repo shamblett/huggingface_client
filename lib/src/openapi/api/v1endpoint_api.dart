@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,9 +9,9 @@
 
 part of openapi.api;
 
-
 class V1endpointApi {
-  V1endpointApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  V1endpointApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -25,7 +24,9 @@ class V1endpointApi {
   /// Parameters:
   ///
   /// * [Endpoint] endpoint (required):
-  Future<Response> createEndpointWithHttpInfo(Endpoint endpoint,) async {
+  Future<Response> createEndpointWithHttpInfo(
+    Endpoint endpoint,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/endpoint';
 
@@ -37,7 +38,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -57,17 +57,24 @@ class V1endpointApi {
   /// Parameters:
   ///
   /// * [Endpoint] endpoint (required):
-  Future<EndpointWithStatus?> createEndpoint(Endpoint endpoint,) async {
-    final response = await createEndpointWithHttpInfo(endpoint,);
+  Future<EndpointWithStatus?> createEndpoint(
+    Endpoint endpoint,
+  ) async {
+    final response = await createEndpointWithHttpInfo(
+      endpoint,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EndpointWithStatus',) as EndpointWithStatus;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'EndpointWithStatus',
+      ) as EndpointWithStatus;
     }
     return null;
   }
@@ -82,10 +89,11 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> deleteEndpointWithHttpInfo(String name,) async {
+  Future<Response> deleteEndpointWithHttpInfo(
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/endpoint/{name}'
-      .replaceAll('{name}', name);
+    final path = r'/endpoint/{name}'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -95,7 +103,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -116,17 +123,24 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Object?> deleteEndpoint(String name,) async {
-    final response = await deleteEndpointWithHttpInfo(name,);
+  Future<Object?> deleteEndpoint(
+    String name,
+  ) async {
+    final response = await deleteEndpointWithHttpInfo(
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -141,10 +155,11 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> getEndpointWithHttpInfo(String name,) async {
+  Future<Response> getEndpointWithHttpInfo(
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/endpoint/{name}'
-      .replaceAll('{name}', name);
+    final path = r'/endpoint/{name}'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -154,7 +169,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -175,17 +189,24 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<EndpointWithStatus?> getEndpoint(String name,) async {
-    final response = await getEndpointWithHttpInfo(name,);
+  Future<EndpointWithStatus?> getEndpoint(
+    String name,
+  ) async {
+    final response = await getEndpointWithHttpInfo(
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EndpointWithStatus',) as EndpointWithStatus;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'EndpointWithStatus',
+      ) as EndpointWithStatus;
     }
     return null;
   }
@@ -200,10 +221,11 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> getEndpointLogsWithHttpInfo(String name,) async {
+  Future<Response> getEndpointLogsWithHttpInfo(
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/endpoint/{name}/logs'
-      .replaceAll('{name}', name);
+    final path = r'/endpoint/{name}/logs'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -213,7 +235,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -234,17 +255,24 @@ class V1endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<String?> getEndpointLogs(String name,) async {
-    final response = await getEndpointLogsWithHttpInfo(name,);
+  Future<String?> getEndpointLogs(
+    String name,
+  ) async {
+    final response = await getEndpointLogsWithHttpInfo(
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'String',
+      ) as String;
     }
     return null;
   }
@@ -261,11 +289,14 @@ class V1endpointApi {
   ///   Endpoint name
   ///
   /// * [MetricName] metric (required):
-  Future<Response> getEndpointMetricWithHttpInfo(String name, MetricName metric,) async {
+  Future<Response> getEndpointMetricWithHttpInfo(
+    String name,
+    MetricName metric,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/endpoint/{name}/metrics/{metric}'
-      .replaceAll('{name}', name)
-      .replaceAll('{metric}', metric.toString());
+        .replaceAll('{name}', name)
+        .replaceAll('{metric}', metric.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -275,7 +306,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -298,8 +328,14 @@ class V1endpointApi {
   ///   Endpoint name
   ///
   /// * [MetricName] metric (required):
-  Future<void> getEndpointMetric(String name, MetricName metric,) async {
-    final response = await getEndpointMetricWithHttpInfo(name, metric,);
+  Future<void> getEndpointMetric(
+    String name,
+    MetricName metric,
+  ) async {
+    final response = await getEndpointMetricWithHttpInfo(
+      name,
+      metric,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -323,7 +359,6 @@ class V1endpointApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -346,9 +381,12 @@ class V1endpointApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EndpointWithStatusList',) as EndpointWithStatusList;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'EndpointWithStatusList',
+      ) as EndpointWithStatusList;
     }
     return null;
   }
@@ -365,10 +403,12 @@ class V1endpointApi {
   ///   Endpoint name
   ///
   /// * [EndpointUpdate] endpointUpdate (required):
-  Future<Response> updateEndpointWithHttpInfo(String name, EndpointUpdate endpointUpdate,) async {
+  Future<Response> updateEndpointWithHttpInfo(
+    String name,
+    EndpointUpdate endpointUpdate,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/endpoint/{name}'
-      .replaceAll('{name}', name);
+    final path = r'/endpoint/{name}'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = endpointUpdate;
@@ -378,7 +418,6 @@ class V1endpointApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -401,17 +440,26 @@ class V1endpointApi {
   ///   Endpoint name
   ///
   /// * [EndpointUpdate] endpointUpdate (required):
-  Future<EndpointWithStatus?> updateEndpoint(String name, EndpointUpdate endpointUpdate,) async {
-    final response = await updateEndpointWithHttpInfo(name, endpointUpdate,);
+  Future<EndpointWithStatus?> updateEndpoint(
+    String name,
+    EndpointUpdate endpointUpdate,
+  ) async {
+    final response = await updateEndpointWithHttpInfo(
+      name,
+      endpointUpdate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EndpointWithStatus',) as EndpointWithStatus;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'EndpointWithStatus',
+      ) as EndpointWithStatus;
     }
     return null;
   }

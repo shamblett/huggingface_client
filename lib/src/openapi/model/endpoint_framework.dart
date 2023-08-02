@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,7 +8,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 part of openapi.api;
-
 
 class EndpointFramework {
   /// Instantiate a new enum with the provided [value].
@@ -34,9 +32,13 @@ class EndpointFramework {
     tensorflow,
   ];
 
-  static EndpointFramework? fromJson(dynamic value) => EndpointFrameworkTypeTransformer().decode(value);
+  static EndpointFramework? fromJson(dynamic value) =>
+      EndpointFrameworkTypeTransformer().decode(value);
 
-  static List<EndpointFramework> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointFramework> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointFramework>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -53,7 +55,8 @@ class EndpointFramework {
 /// Transformation class that can [encode] an instance of [EndpointFramework] to String,
 /// and [decode] dynamic data back to [EndpointFramework].
 class EndpointFrameworkTypeTransformer {
-  factory EndpointFrameworkTypeTransformer() => _instance ??= const EndpointFrameworkTypeTransformer._();
+  factory EndpointFrameworkTypeTransformer() =>
+      _instance ??= const EndpointFrameworkTypeTransformer._();
 
   const EndpointFrameworkTypeTransformer._();
 
@@ -70,9 +73,12 @@ class EndpointFrameworkTypeTransformer {
   EndpointFramework? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'custom': return EndpointFramework.custom;
-        case r'pytorch': return EndpointFramework.pytorch;
-        case r'tensorflow': return EndpointFramework.tensorflow;
+        case r'custom':
+          return EndpointFramework.custom;
+        case r'pytorch':
+          return EndpointFramework.pytorch;
+        case r'tensorflow':
+          return EndpointFramework.tensorflow;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -85,4 +91,3 @@ class EndpointFrameworkTypeTransformer {
   /// Singleton [EndpointFrameworkTypeTransformer] instance.
   static EndpointFrameworkTypeTransformer? _instance;
 }
-

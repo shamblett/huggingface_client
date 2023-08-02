@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -30,29 +29,32 @@ class Region {
   Status status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Region &&
-     other.computes == computes &&
-     other.label == label &&
-     other.name == name &&
-     other.status == status;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Region &&
+          other.computes == computes &&
+          other.label == label &&
+          other.name == name &&
+          other.status == status;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (computes.hashCode) +
-    (label.hashCode) +
-    (name.hashCode) +
-    (status.hashCode);
+      // ignore: unnecessary_parenthesis
+      (computes.hashCode) +
+      (label.hashCode) +
+      (name.hashCode) +
+      (status.hashCode);
 
   @override
-  String toString() => 'Region[computes=$computes, label=$label, name=$name, status=$status]';
+  String toString() =>
+      'Region[computes=$computes, label=$label, name=$name, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'computes'] = this.computes;
-      json[r'label'] = this.label;
-      json[r'name'] = this.name;
-      json[r'status'] = this.status;
+    json[r'computes'] = this.computes;
+    json[r'label'] = this.label;
+    json[r'name'] = this.name;
+    json[r'status'] = this.status;
     return json;
   }
 
@@ -68,8 +70,10 @@ class Region {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Region[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Region[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Region[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Region[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -84,7 +88,10 @@ class Region {
     return null;
   }
 
-  static List<Region> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Region> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Region>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,13 +119,19 @@ class Region {
   }
 
   // maps a json object with a list of Region-objects as value to a dart map
-  static Map<String, List<Region>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Region>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Region>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Region.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Region.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -132,4 +145,3 @@ class Region {
     'status',
   };
 }
-

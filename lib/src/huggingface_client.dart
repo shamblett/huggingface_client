@@ -12,17 +12,14 @@ part of huggingface_client;
 /// Provides a thin wrapper around the Open API implementation
 class HuggingFaceClient {
   /// Get an API client with API Key authentication
-  static ApiClient getApiKeyAuthClient(String apiKey) => ApiClient(
-      authentication: ApiKeyAuth('header', 'Authorization')..apiKey = apiKey);
-
-  /// Get an API client with Basic HTTP authentication
-  static ApiClient getApiHttpBasicClient(
-          {String userName = '', String password = ''}) =>
+  static ApiClient getApiKeyAuthClient(
+          String apiKey, String endpointScope, String basePath) =>
       ApiClient(
-          authentication:
-              HttpBasicAuth(username: userName, password: password));
+          authentication: ApiKeyAuth('header', 'Authorization')
+            ..apiKey = apiKey,
+          endpointScope: endpointScope,
+          basePath: basePath);
 
   /// Client version
   static const version = '1.0.0';
-
 }

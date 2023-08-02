@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -39,28 +38,31 @@ class EndpointWithStatus {
   EndpointType type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointWithStatus &&
-     other.accountId == accountId &&
-     other.compute == compute &&
-     other.model == model &&
-     other.name == name &&
-     other.provider == provider &&
-     other.status == status &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointWithStatus &&
+          other.accountId == accountId &&
+          other.compute == compute &&
+          other.model == model &&
+          other.name == name &&
+          other.provider == provider &&
+          other.status == status &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accountId == null ? 0 : accountId!.hashCode) +
-    (compute.hashCode) +
-    (model.hashCode) +
-    (name.hashCode) +
-    (provider.hashCode) +
-    (status.hashCode) +
-    (type.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accountId == null ? 0 : accountId!.hashCode) +
+      (compute.hashCode) +
+      (model.hashCode) +
+      (name.hashCode) +
+      (provider.hashCode) +
+      (status.hashCode) +
+      (type.hashCode);
 
   @override
-  String toString() => 'EndpointWithStatus[accountId=$accountId, compute=$compute, model=$model, name=$name, provider=$provider, status=$status, type=$type]';
+  String toString() =>
+      'EndpointWithStatus[accountId=$accountId, compute=$compute, model=$model, name=$name, provider=$provider, status=$status, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -69,12 +71,12 @@ class EndpointWithStatus {
     } else {
       json[r'accountId'] = null;
     }
-      json[r'compute'] = this.compute;
-      json[r'model'] = this.model;
-      json[r'name'] = this.name;
-      json[r'provider'] = this.provider;
-      json[r'status'] = this.status;
-      json[r'type'] = this.type;
+    json[r'compute'] = this.compute;
+    json[r'model'] = this.model;
+    json[r'name'] = this.name;
+    json[r'provider'] = this.provider;
+    json[r'status'] = this.status;
+    json[r'type'] = this.type;
     return json;
   }
 
@@ -90,8 +92,10 @@ class EndpointWithStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointWithStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointWithStatus[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointWithStatus[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointWithStatus[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -109,7 +113,10 @@ class EndpointWithStatus {
     return null;
   }
 
-  static List<EndpointWithStatus> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointWithStatus> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointWithStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -137,13 +144,19 @@ class EndpointWithStatus {
   }
 
   // maps a json object with a list of EndpointWithStatus-objects as value to a dart map
-  static Map<String, List<EndpointWithStatus>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointWithStatus>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointWithStatus>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointWithStatus.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointWithStatus.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -159,4 +172,3 @@ class EndpointWithStatus {
     'type',
   };
 }
-

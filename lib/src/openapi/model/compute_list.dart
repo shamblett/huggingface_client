@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -20,20 +19,20 @@ class ComputeList {
   List<Compute> items;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ComputeList &&
-     other.items == items;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ComputeList && other.items == items;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (items.hashCode);
+      // ignore: unnecessary_parenthesis
+      (items.hashCode);
 
   @override
   String toString() => 'ComputeList[items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'items'] = this.items;
+    json[r'items'] = this.items;
     return json;
   }
 
@@ -49,8 +48,10 @@ class ComputeList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ComputeList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ComputeList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ComputeList[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ComputeList[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +63,10 @@ class ComputeList {
     return null;
   }
 
-  static List<ComputeList> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ComputeList> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ComputeList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,13 +94,19 @@ class ComputeList {
   }
 
   // maps a json object with a list of ComputeList-objects as value to a dart map
-  static Map<String, List<ComputeList>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ComputeList>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ComputeList>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ComputeList.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = ComputeList.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -107,4 +117,3 @@ class ComputeList {
     'items',
   };
 }
-

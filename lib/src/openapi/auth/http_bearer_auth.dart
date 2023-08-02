@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,13 +20,17 @@ class HttpBearerAuth implements Authentication {
 
   set accessToken(dynamic accessToken) {
     if (accessToken is! String && accessToken is! HttpBearerAuthProvider) {
-      throw ArgumentError('accessToken value must be either a String or a String Function().');
+      throw ArgumentError(
+          'accessToken value must be either a String or a String Function().');
     }
     _accessToken = accessToken;
   }
 
   @override
-  Future<void> applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams,) async {
+  Future<void> applyToParams(
+    List<QueryParam> queryParams,
+    Map<String, String> headerParams,
+  ) async {
     if (_accessToken == null) {
       return;
     }

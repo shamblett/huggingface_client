@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -32,9 +31,13 @@ class EndpointAccelerator {
     gpu,
   ];
 
-  static EndpointAccelerator? fromJson(dynamic value) => EndpointAcceleratorTypeTransformer().decode(value);
+  static EndpointAccelerator? fromJson(dynamic value) =>
+      EndpointAcceleratorTypeTransformer().decode(value);
 
-  static List<EndpointAccelerator> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointAccelerator> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointAccelerator>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -51,7 +54,8 @@ class EndpointAccelerator {
 /// Transformation class that can [encode] an instance of [EndpointAccelerator] to String,
 /// and [decode] dynamic data back to [EndpointAccelerator].
 class EndpointAcceleratorTypeTransformer {
-  factory EndpointAcceleratorTypeTransformer() => _instance ??= const EndpointAcceleratorTypeTransformer._();
+  factory EndpointAcceleratorTypeTransformer() =>
+      _instance ??= const EndpointAcceleratorTypeTransformer._();
 
   const EndpointAcceleratorTypeTransformer._();
 
@@ -68,8 +72,10 @@ class EndpointAcceleratorTypeTransformer {
   EndpointAccelerator? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'cpu': return EndpointAccelerator.cpu;
-        case r'gpu': return EndpointAccelerator.gpu;
+        case r'cpu':
+          return EndpointAccelerator.cpu;
+        case r'gpu':
+          return EndpointAccelerator.gpu;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -82,4 +88,3 @@ class EndpointAcceleratorTypeTransformer {
   /// Singleton [EndpointAcceleratorTypeTransformer] instance.
   static EndpointAcceleratorTypeTransformer? _instance;
 }
-

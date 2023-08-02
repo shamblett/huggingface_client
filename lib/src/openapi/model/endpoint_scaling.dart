@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,23 +27,25 @@ class EndpointScaling {
   int minReplica;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointScaling &&
-     other.maxReplica == maxReplica &&
-     other.minReplica == minReplica;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointScaling &&
+          other.maxReplica == maxReplica &&
+          other.minReplica == minReplica;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (maxReplica.hashCode) +
-    (minReplica.hashCode);
+      // ignore: unnecessary_parenthesis
+      (maxReplica.hashCode) + (minReplica.hashCode);
 
   @override
-  String toString() => 'EndpointScaling[maxReplica=$maxReplica, minReplica=$minReplica]';
+  String toString() =>
+      'EndpointScaling[maxReplica=$maxReplica, minReplica=$minReplica]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'maxReplica'] = this.maxReplica;
-      json[r'minReplica'] = this.minReplica;
+    json[r'maxReplica'] = this.maxReplica;
+    json[r'minReplica'] = this.minReplica;
     return json;
   }
 
@@ -60,8 +61,10 @@ class EndpointScaling {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointScaling[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointScaling[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointScaling[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointScaling[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -74,7 +77,10 @@ class EndpointScaling {
     return null;
   }
 
-  static List<EndpointScaling> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointScaling> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointScaling>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,13 +108,19 @@ class EndpointScaling {
   }
 
   // maps a json object with a list of EndpointScaling-objects as value to a dart map
-  static Map<String, List<EndpointScaling>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointScaling>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointScaling>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointScaling.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointScaling.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -120,4 +132,3 @@ class EndpointScaling {
     'minReplica',
   };
 }
-

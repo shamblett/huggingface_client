@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -33,24 +32,27 @@ class EndpointModelUpdate {
   EndpointTask? task;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointModelUpdate &&
-     other.framework == framework &&
-     other.image == image &&
-     other.repository == repository &&
-     other.revision == revision &&
-     other.task == task;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointModelUpdate &&
+          other.framework == framework &&
+          other.image == image &&
+          other.repository == repository &&
+          other.revision == revision &&
+          other.task == task;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (framework == null ? 0 : framework!.hashCode) +
-    (image == null ? 0 : image!.hashCode) +
-    (repository == null ? 0 : repository!.hashCode) +
-    (revision == null ? 0 : revision!.hashCode) +
-    (task == null ? 0 : task!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (framework == null ? 0 : framework!.hashCode) +
+      (image == null ? 0 : image!.hashCode) +
+      (repository == null ? 0 : repository!.hashCode) +
+      (revision == null ? 0 : revision!.hashCode) +
+      (task == null ? 0 : task!.hashCode);
 
   @override
-  String toString() => 'EndpointModelUpdate[framework=$framework, image=$image, repository=$repository, revision=$revision, task=$task]';
+  String toString() =>
+      'EndpointModelUpdate[framework=$framework, image=$image, repository=$repository, revision=$revision, task=$task]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -94,8 +96,10 @@ class EndpointModelUpdate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointModelUpdate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointModelUpdate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointModelUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointModelUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -111,7 +115,10 @@ class EndpointModelUpdate {
     return null;
   }
 
-  static List<EndpointModelUpdate> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointModelUpdate> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointModelUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -139,20 +146,24 @@ class EndpointModelUpdate {
   }
 
   // maps a json object with a list of EndpointModelUpdate-objects as value to a dart map
-  static Map<String, List<EndpointModelUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointModelUpdate>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointModelUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointModelUpdate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointModelUpdate.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

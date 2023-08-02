@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -30,33 +29,36 @@ class MetricsParams {
   int to;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MetricsParams &&
-     other.dnsPrefix == dnsPrefix &&
-     other.from == from &&
-     other.step == step &&
-     other.to == to;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MetricsParams &&
+          other.dnsPrefix == dnsPrefix &&
+          other.from == from &&
+          other.step == step &&
+          other.to == to;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (dnsPrefix.hashCode) +
-    (from.hashCode) +
-    (step == null ? 0 : step!.hashCode) +
-    (to.hashCode);
+      // ignore: unnecessary_parenthesis
+      (dnsPrefix.hashCode) +
+      (from.hashCode) +
+      (step == null ? 0 : step!.hashCode) +
+      (to.hashCode);
 
   @override
-  String toString() => 'MetricsParams[dnsPrefix=$dnsPrefix, from=$from, step=$step, to=$to]';
+  String toString() =>
+      'MetricsParams[dnsPrefix=$dnsPrefix, from=$from, step=$step, to=$to]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'dnsPrefix'] = this.dnsPrefix;
-      json[r'from'] = this.from;
+    json[r'dnsPrefix'] = this.dnsPrefix;
+    json[r'from'] = this.from;
     if (this.step != null) {
       json[r'step'] = this.step;
     } else {
       json[r'step'] = null;
     }
-      json[r'to'] = this.to;
+    json[r'to'] = this.to;
     return json;
   }
 
@@ -72,8 +74,10 @@ class MetricsParams {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MetricsParams[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MetricsParams[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MetricsParams[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MetricsParams[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -88,7 +92,10 @@ class MetricsParams {
     return null;
   }
 
-  static List<MetricsParams> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MetricsParams> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MetricsParams>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -116,13 +123,19 @@ class MetricsParams {
   }
 
   // maps a json object with a list of MetricsParams-objects as value to a dart map
-  static Map<String, List<MetricsParams>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MetricsParams>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MetricsParams>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MetricsParams.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = MetricsParams.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -135,4 +148,3 @@ class MetricsParams {
     'to',
   };
 }
-

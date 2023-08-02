@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -44,9 +43,13 @@ class EndpointState {
     scaledToZero,
   ];
 
-  static EndpointState? fromJson(dynamic value) => EndpointStateTypeTransformer().decode(value);
+  static EndpointState? fromJson(dynamic value) =>
+      EndpointStateTypeTransformer().decode(value);
 
-  static List<EndpointState> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointState> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointState>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -63,7 +66,8 @@ class EndpointState {
 /// Transformation class that can [encode] an instance of [EndpointState] to String,
 /// and [decode] dynamic data back to [EndpointState].
 class EndpointStateTypeTransformer {
-  factory EndpointStateTypeTransformer() => _instance ??= const EndpointStateTypeTransformer._();
+  factory EndpointStateTypeTransformer() =>
+      _instance ??= const EndpointStateTypeTransformer._();
 
   const EndpointStateTypeTransformer._();
 
@@ -80,14 +84,22 @@ class EndpointStateTypeTransformer {
   EndpointState? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'pending': return EndpointState.pending;
-        case r'initializing': return EndpointState.initializing;
-        case r'updating': return EndpointState.updating;
-        case r'updateFailed': return EndpointState.updateFailed;
-        case r'running': return EndpointState.running;
-        case r'paused': return EndpointState.paused;
-        case r'failed': return EndpointState.failed;
-        case r'scaledToZero': return EndpointState.scaledToZero;
+        case r'pending':
+          return EndpointState.pending;
+        case r'initializing':
+          return EndpointState.initializing;
+        case r'updating':
+          return EndpointState.updating;
+        case r'updateFailed':
+          return EndpointState.updateFailed;
+        case r'running':
+          return EndpointState.running;
+        case r'paused':
+          return EndpointState.paused;
+        case r'failed':
+          return EndpointState.failed;
+        case r'scaledToZero':
+          return EndpointState.scaledToZero;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -100,4 +112,3 @@ class EndpointStateTypeTransformer {
   /// Singleton [EndpointStateTypeTransformer] instance.
   static EndpointStateTypeTransformer? _instance;
 }
-

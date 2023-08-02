@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,20 +18,21 @@ class EndpointWithStatusList {
   List<EndpointWithStatus> items;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EndpointWithStatusList &&
-     other.items == items;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EndpointWithStatusList && other.items == items;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (items.hashCode);
+      // ignore: unnecessary_parenthesis
+      (items.hashCode);
 
   @override
   String toString() => 'EndpointWithStatusList[items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'items'] = this.items;
+    json[r'items'] = this.items;
     return json;
   }
 
@@ -48,8 +48,10 @@ class EndpointWithStatusList {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EndpointWithStatusList[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EndpointWithStatusList[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EndpointWithStatusList[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EndpointWithStatusList[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -61,7 +63,10 @@ class EndpointWithStatusList {
     return null;
   }
 
-  static List<EndpointWithStatusList> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EndpointWithStatusList> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EndpointWithStatusList>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -89,13 +94,19 @@ class EndpointWithStatusList {
   }
 
   // maps a json object with a list of EndpointWithStatusList-objects as value to a dart map
-  static Map<String, List<EndpointWithStatusList>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EndpointWithStatusList>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EndpointWithStatusList>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EndpointWithStatusList.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EndpointWithStatusList.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -106,4 +117,3 @@ class EndpointWithStatusList {
     'items',
   };
 }
-
