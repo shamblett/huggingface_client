@@ -2,7 +2,7 @@
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 ```
 
 ## Properties

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -27,7 +27,7 @@ Create a new endpoint
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -76,7 +76,7 @@ Delete an endpoint
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -125,7 +125,7 @@ Get endpoint information
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -174,7 +174,7 @@ Endpoint replicas logs
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -223,7 +223,7 @@ Get endpoint metric
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -273,7 +273,7 @@ List endpoints
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');
@@ -318,7 +318,7 @@ Update an endpoint
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 // TODO Configure HTTP Bearer authorization: token
 // Case 1. Use String Token
 //defaultApiClient.getAuthentication<HttpBearerAuth>('token').setAccessToken('YOUR_ACCESS_TOKEN');

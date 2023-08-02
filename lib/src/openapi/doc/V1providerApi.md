@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,7 +23,7 @@ List compute resources available for this provider region\\
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 
 final api_instance = V1providerApi();
 final vendor = aws; // String | Provider vendor
@@ -68,7 +68,7 @@ List vendor regions
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 
 final api_instance = V1providerApi();
 final vendor = aws; // String | Provider vendor
@@ -111,7 +111,7 @@ List vendors
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 
 final api_instance = V1providerApi();
 

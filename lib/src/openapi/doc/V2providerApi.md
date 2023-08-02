@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,7 +21,7 @@ List vendors, regions and compute resources available
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:huggingface_client/huggingface_client.dart';
 
 final api_instance = V2providerApi();
 
