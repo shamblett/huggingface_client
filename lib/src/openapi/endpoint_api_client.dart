@@ -9,8 +9,8 @@
 
 part of openapi.api;
 
-class ApiClient {
-  ApiClient(
+class EndpointApiClient {
+  EndpointApiClient(
       {this.basePath = 'http://localhost',
       this.authentication,
       required this.endpointScope});
@@ -368,7 +368,7 @@ Future<dynamic> deserializeAsync(DeserializationMessage message) async {
   // If the expected target type is String, nothing to do...
   return targetType == 'String'
       ? message.json
-      : ApiClient._deserialize(
+      : EndpointApiClient._deserialize(
           jsonDecode(message.json),
           targetType,
           growable: message.growable,

@@ -10,10 +10,10 @@
 part of openapi.api;
 
 class V2endpointApi {
-  V2endpointApi([ApiClient? apiClient])
+  V2endpointApi([EndpointApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 
-  final ApiClient apiClient;
+  final EndpointApiClient apiClient;
 
   /// Create a new endpoint
   ///
