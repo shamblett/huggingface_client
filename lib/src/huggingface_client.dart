@@ -9,12 +9,13 @@ part of huggingface_client;
 
 ///
 /// Hugging Face client class.
-/// Provides a thin wrapper around the Open API implementation
+/// Provides a thin wrapper around the Open API implementation.
+///
 class HuggingFaceClient {
-  /// Get an API client with API Key authentication
-  static ApiClient getApiKeyAuthClient(
+  /// Get an Inference Endpoint API client with API Key authentication
+  static EndpointApiClient getApiKeyAuthClient(
           String apiKey, String endpointScope, String basePath) =>
-      ApiClient(
+      EndpointApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
             ..apiKey = apiKey,
           endpointScope: endpointScope,
