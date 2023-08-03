@@ -20,7 +20,4 @@ class HuggingFaceClient {
             ..apiKey = apiKey,
           endpointScope: endpointScope,
           basePath: basePath);
-
-  /// Client version
-  static const version = '1.0.0';
 }
