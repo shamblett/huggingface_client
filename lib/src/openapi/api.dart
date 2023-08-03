@@ -17,7 +17,7 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
-part 'endpoint_api_client.dart';
+part 'api_client.dart';
 part 'api_helper.dart';
 part 'api_exception.dart';
 part 'auth/authentication.dart';
@@ -78,4 +78,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-EndpointApiClient defaultApiClient = EndpointApiClient(endpointScope: '');
+ApiClient defaultApiClient = ApiClient(endpointScope: '');

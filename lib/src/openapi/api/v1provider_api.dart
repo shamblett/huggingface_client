@@ -10,10 +10,10 @@
 part of openapi.api;
 
 class V1providerApi {
-  V1providerApi([EndpointApiClient? apiClient])
+  V1providerApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 
-  final EndpointApiClient apiClient;
+  final ApiClient apiClient;
 
   /// List compute resources available for this provider region\\
   ///
