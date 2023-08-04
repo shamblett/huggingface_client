@@ -8,14 +8,10 @@
 part of huggingface_client;
 
 class InferenceApiClient {
-  InferenceApiClient(
-      {this.basePath = 'http://localhost',
-      this.authentication,
-      required this.endpointScope});
+  InferenceApiClient({this.basePath = 'http://localhost', this.authentication});
 
   final String basePath;
   final Authentication? authentication;
-  final String endpointScope;
 
   var client = Client();
   final _defaultHeaderMap = <String, String>{};
@@ -211,86 +207,8 @@ class InferenceApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
-        case 'DateTime':
-          return value is DateTime ? value : DateTime.tryParse(value);
-        case 'Accelerator':
-          return AcceleratorTypeTransformer().decode(value);
-        case 'ApiResponseError':
-          return ApiResponseError.fromJson(value);
-        case 'Compute':
-          return Compute.fromJson(value);
-        case 'ComputeList':
-          return ComputeList.fromJson(value);
-        case 'Endpoint':
-          return Endpoint.fromJson(value);
-        case 'EndpointAccelerator':
-          return EndpointAcceleratorTypeTransformer().decode(value);
-        case 'EndpointAccount':
-          return EndpointAccount.fromJson(value);
-        case 'EndpointCompute':
-          return EndpointCompute.fromJson(value);
-        case 'EndpointComputeUpdate':
-          return EndpointComputeUpdate.fromJson(value);
-        case 'EndpointFramework':
-          return EndpointFrameworkTypeTransformer().decode(value);
-        case 'EndpointImageCredentials':
-          return EndpointImageCredentials.fromJson(value);
-        case 'EndpointModel':
-          return EndpointModel.fromJson(value);
-        case 'EndpointModelImage':
-          return EndpointModelImage.fromJson(value);
-        case 'EndpointModelImageOneOf':
-          return EndpointModelImageOneOf.fromJson(value);
-        case 'EndpointModelImageOneOf1':
-          return EndpointModelImageOneOf1.fromJson(value);
-        case 'EndpointModelImageOneOf1Custom':
-          return EndpointModelImageOneOf1Custom.fromJson(value);
-        case 'EndpointModelImageUpdate':
-          return EndpointModelImageUpdate.fromJson(value);
-        case 'EndpointModelImageUpdateOneOf':
-          return EndpointModelImageUpdateOneOf.fromJson(value);
-        case 'EndpointModelImageUpdateOneOfCustom':
-          return EndpointModelImageUpdateOneOfCustom.fromJson(value);
-        case 'EndpointModelUpdate':
-          return EndpointModelUpdate.fromJson(value);
-        case 'EndpointProvider':
-          return EndpointProvider.fromJson(value);
-        case 'EndpointScaling':
-          return EndpointScaling.fromJson(value);
-        case 'EndpointScalingUpdate':
-          return EndpointScalingUpdate.fromJson(value);
-        case 'EndpointState':
-          return EndpointStateTypeTransformer().decode(value);
-        case 'EndpointStatus':
-          return EndpointStatus.fromJson(value);
-        case 'EndpointStatusPrivate':
-          return EndpointStatusPrivate.fromJson(value);
-        case 'EndpointTask':
-          return EndpointTaskTypeTransformer().decode(value);
-        case 'EndpointType':
-          return EndpointTypeTypeTransformer().decode(value);
-        case 'EndpointUpdate':
-          return EndpointUpdate.fromJson(value);
-        case 'EndpointWithStatus':
-          return EndpointWithStatus.fromJson(value);
-        case 'EndpointWithStatusList':
-          return EndpointWithStatusList.fromJson(value);
-        case 'MetricName':
-          return MetricNameTypeTransformer().decode(value);
-        case 'MetricsParams':
-          return MetricsParams.fromJson(value);
-        case 'Region':
-          return Region.fromJson(value);
-        case 'RegionList':
-          return RegionList.fromJson(value);
-        case 'Status':
-          return StatusTypeTransformer().decode(value);
-        case 'Vendor':
-          return Vendor.fromJson(value);
-        case 'VendorList':
-          return VendorList.fromJson(value);
-        case 'Vendors':
-          return Vendors.fromJson(value);
+        // TODO SJH case 'Query':
+        // return value is DateTime ? value : DateTime.tryParse(value);
         default:
           dynamic match;
           if (value is List &&
