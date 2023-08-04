@@ -23,10 +23,11 @@ class HuggingFaceClient {
 
   /// Get an Inference API client with API Key authentication
   static InferenceApiClient getInferenceClient(
-          String apiKey, String endpointScope, String basePath) =>
+          String apiKey, String basePath) =>
       InferenceApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
-            ..apiKey = apiKey,
+            ..apiKey = apiKey
+            ..apiKeyPrefix = 'Bearer',
           basePath: basePath);
 
   static String inferenceBasePath =

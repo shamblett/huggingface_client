@@ -18,8 +18,11 @@ part 'src/huggingface_client.dart';
 part 'src/api/endpoint_api_client.dart';
 part 'src/api/inference_api_client.dart';
 part 'src/api/api/inference_api.dart';
+part 'src/api/model/api_response_query_standard.dart';
 
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
+
+InferenceApiClient defaultInferenceApiClient = InferenceApiClient();

@@ -207,8 +207,8 @@ class InferenceApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
-        // TODO SJH case 'Query':
-        // return value is DateTime ? value : DateTime.tryParse(value);
+        case 'QueryStandard':
+          return ApiResponseQueryStandard.fromJson(value[0])?.responseText;
         default:
           dynamic match;
           if (value is List &&

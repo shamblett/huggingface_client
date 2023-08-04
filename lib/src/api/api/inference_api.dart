@@ -8,10 +8,10 @@
 part of huggingface_client;
 
 class InferenceApi {
-  InferenceApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  InferenceApi([InferenceApiClient? apiClient])
+      : apiClient = apiClient ?? defaultInferenceApiClient;
 
-  final ApiClient apiClient;
+  final InferenceApiClient apiClient;
 
   ///
   /// query
@@ -25,7 +25,7 @@ class InferenceApi {
   /// [model]
   /// The model to perform inference on
   Future<Response> queryWithHttpInfo(String queryString, String model) async {
-    final path = r'$model';
+    final path = '/$model';
 
     Object? postBody;
     postBody = json.encode(queryString);
@@ -38,7 +38,7 @@ class InferenceApi {
 
     return apiClient.invokeAPI(
       path,
-      'GET',
+      'POST',
       queryParams,
       postBody,
       headerParams,
@@ -57,7 +57,8 @@ class InferenceApi {
   ///
   /// [model]
   /// The model to perform inference on
-  Future<String?> query(String queryString, String model) async {
+  Future<String?> query(
+      {required String queryString, required String model}) async {
     final response = await queryWithHttpInfo(queryString, model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -69,7 +70,7 @@ class InferenceApi {
     if (response.body.isNotEmpty &&
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'String')
+      return (await apiClient.deserializeAsync(responseBody, 'QueryStandard')
           as String);
     }
     return null;
