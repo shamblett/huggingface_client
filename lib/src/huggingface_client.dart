@@ -13,11 +13,22 @@ part of huggingface_client;
 ///
 class HuggingFaceClient {
   /// Get an Inference Endpoint API client with API Key authentication
-  static EndpointApiClient getApiKeyAuthClient(
+  static EndpointApiClient getEndpointClient(
           String apiKey, String endpointScope, String basePath) =>
       EndpointApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
             ..apiKey = apiKey,
           endpointScope: endpointScope,
           basePath: basePath);
+
+  /// Get an Inference API client with API Key authentication
+  static InferenceApiClient getInferenceClient(
+          String apiKey, String endpointScope, String basePath) =>
+      InferenceApiClient(
+          authentication: ApiKeyAuth('header', 'Authorization')
+            ..apiKey = apiKey,
+          basePath: basePath);
+
+  static String inferenceBasePath =
+      'https://api-inference.huggingface.co/models';
 }
