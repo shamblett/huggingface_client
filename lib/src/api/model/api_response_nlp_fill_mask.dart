@@ -9,28 +9,44 @@ part of huggingface_client;
 
 class ApiResponseNLPFillMask {
   /// Returns a new [ApiResponseNLPFillMask] instance.
-  ApiResponseNLPFillMask({
-    required this.responseText,
-  });
+  ApiResponseNLPFillMask(
+      {required this.sequence,
+      required this.score,
+      required this.token,
+      required this.tokenStr});
 
-  String responseText;
+  /// The actual sequence of tokens that ran against the model (may contain special tokens)
+  String sequence;
+
+  /// The probability for this token.
+  double score;
+
+  /// The id of the token
+  int token;
+
+  /// The string representation of the token
+  String tokenStr;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiResponseNLPFillMask && other.responseText == responseText;
+      other is ApiResponseNLPFillMask && other.sequence == sequence;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (responseText.hashCode);
+      (sequence.hashCode);
 
   @override
-  String toString() => 'ApiResponseQueryStandard[Response Text=$responseText]';
+  String toString() =>
+      'ApiResponseNLPFillMask - [Sequence=$sequence, Score=$score, Token=$token, Token String=$tokenStr]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'generated_text'] = responseText;
+    json[r'sequnce'] = sequence;
+    json[r'score'] = score;
+    json[r'token'] = token;
+    json[r'token_str'] = tokenStr;
     return json;
   }
 
@@ -55,7 +71,10 @@ class ApiResponseNLPFillMask {
       }());
 
       return ApiResponseNLPFillMask(
-        responseText: mapValueOfType<String>(json, r'generated_text')!,
+        sequence: mapValueOfType<String>(json, r'sequence')!,
+        score: mapValueOfType<double>(json, r'score')!,
+        token: mapValueOfType<int>(json, r'token')!,
+        tokenStr: mapValueOfType<String>(json, r'token_str')!,
       );
     }
     return null;
@@ -91,7 +110,7 @@ class ApiResponseNLPFillMask {
     return map;
   }
 
-  // maps a json object with a list of ApiResponseError-objects as value to a dart map
+  // maps a json object with a list of ApiResponseNLPFillMask-objects as value to a dart map
   static Map<String, List<ApiResponseNLPFillMask>> mapListFromJson(
     dynamic json, {
     bool growable = false,
@@ -112,6 +131,9 @@ class ApiResponseNLPFillMask {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'generated_text',
+    'sequence',
+    'score',
+    'token',
+    'token_str'
   };
 }

@@ -209,6 +209,8 @@ class InferenceApiClient {
           return valueString == 'true' || valueString == '1';
         case 'QueryStandard':
           return ApiResponseQueryStandard.fromJson(value[0])?.responseText;
+        case 'List<QueryNLPFillTask>':
+          return ApiResponseNLPFillMask.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&

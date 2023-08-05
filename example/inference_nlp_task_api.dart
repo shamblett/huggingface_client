@@ -8,8 +8,8 @@
 import 'package:huggingface_client/huggingface_client.dart';
 import 'api_key.dart';
 
-/// Examples of how to use the Hugging Face Inference API to perform basic
-/// model queries.
+/// Examples of how to use the Hugging Face Inference API to perform NLP
+/// task based model queries.
 
 void main() async {
 // Get an inference client with your Hugging Face API key as authentication.
@@ -20,21 +20,25 @@ void main() async {
   final apiInstance = InferenceApi(client);
 
 //
-// Standard no task based inference query using the gpt2 model
+// Fill mask task
 //
   print('');
-  print('*** Inference API standard query ***');
+  print('*** Fill Mask Task ***');
   print('');
   try {
-    final result =
-        await apiInstance.query(queryString: 'Where is Paris?', model: 'gpt2');
+    final input = 'The answer to the universe is [MASK].';
+    final params = ApiQueryNLPFillMask(inputs: [input]);
+    final result = await apiInstance.queryNLPFillMask(
+        taskParameters: params, model: 'bert-base-uncased');
     if (result!.isNotEmpty) {
-      print(result);
+      for (final row in result) {
+        print(row);
+      }
     } else {
-      print('Inference API standard query returned empty result');
+      print('Inference task API Fill Mask returned empty result');
     }
   } catch (e) {
-    print('Exception when calling Inference API standard query: $e - exiting');
+    print('Exception when calling Inference task API Fill Mask: $e - exiting');
     return;
   }
 

@@ -26,7 +26,7 @@ class ApiResponseQueryStandard {
       (responseText.hashCode);
 
   @override
-  String toString() => 'ApiResponseQueryStandard[Response Text=$responseText]';
+  String toString() => 'ApiResponseQueryStandard - [Response Text=$responseText]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -91,7 +91,7 @@ class ApiResponseQueryStandard {
     return map;
   }
 
-  // maps a json object with a list of ApiResponseError-objects as value to a dart map
+  // maps a json object with a list of ApiResponseQueryStandard-objects as value to a dart map
   static Map<String, List<ApiResponseQueryStandard>> mapListFromJson(
     dynamic json, {
     bool growable = false,

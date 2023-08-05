@@ -45,7 +45,7 @@ class InferenceApi {
   ///
   /// query
   ///
-  /// Simple inference query
+  /// Simple inference query.
   ///
   /// [queryString]
   /// The inference query string
@@ -102,7 +102,9 @@ class InferenceApi {
   ///
   /// queryNLPFillMask
   ///
-  /// NLP query for a fill mask task
+  /// NLP query for a fill mask task.
+  /// Tries to fill in a hole with a missing word (token to be precise).
+  /// That’s the base task for BERT models.
   ///
   /// [taskParameters]
   /// Parameter set for the fill mask operation
@@ -110,7 +112,7 @@ class InferenceApi {
   /// [model
   /// The model to use for the task
   ///
-  Future<ApiResponseNLPFillMask?> queryNLPFillMask(
+  Future<List<ApiResponseNLPFillMask?>?> queryNLPFillMask(
       {required ApiQueryNLPFillMask taskParameters,
       required String model}) async {
     final response = await _queryNLPFillMaskWithHttpInfo(taskParameters, model);
@@ -125,7 +127,7 @@ class InferenceApi {
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(
-          responseBody, 'QueryNLPFillTask'));
+          responseBody, 'List<QueryNLPFillTask>'));
     }
     return null;
   }
