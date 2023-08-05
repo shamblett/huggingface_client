@@ -26,7 +26,8 @@ class ApiResponseQueryStandard {
       (responseText.hashCode);
 
   @override
-  String toString() => 'ApiResponseQueryStandard - [Response Text=$responseText]';
+  String toString() =>
+      'ApiResponseQueryStandard - [Response Text=$responseText]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
