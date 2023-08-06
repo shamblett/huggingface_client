@@ -7,9 +7,9 @@
 
 part of huggingface_client;
 
-class ApiResponseQueryNLPSummarisation {
-  /// Returns a new [ApiResponseQueryNLPSummarisation] instance.
-  ApiResponseQueryNLPSummarisation({
+class ApiResponseNLPSummarisation {
+  /// Returns a new [ApiResponseNLPSummarisation] instance.
+  ApiResponseNLPSummarisation({
     required this.summaryText,
   });
 
@@ -19,8 +19,7 @@ class ApiResponseQueryNLPSummarisation {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiResponseQueryNLPSummarisation &&
-          other.summaryText == summaryText;
+      other is ApiResponseNLPSummarisation && other.summaryText == summaryText;
 
   @override
   int get hashCode =>
@@ -29,7 +28,7 @@ class ApiResponseQueryNLPSummarisation {
 
   @override
   String toString() =>
-      'ApiResponseQueryNLPSummarisation - [Summary Text=$summaryText]';
+      'ApiResponseNLPSummarisation - [Summary Text=$summaryText]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -37,10 +36,10 @@ class ApiResponseQueryNLPSummarisation {
     return json;
   }
 
-  /// Returns a new [ApiResponseQueryNLPSummarisation] instance and imports its values from
+  /// Returns a new [ApiResponseNLPSummarisation] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ApiResponseQueryNLPSummarisation? fromJson(dynamic value) {
+  static ApiResponseNLPSummarisation? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,21 +56,21 @@ class ApiResponseQueryNLPSummarisation {
         return true;
       }());
 
-      return ApiResponseQueryNLPSummarisation(
-        summaryText: mapValueOfType<String>(json, r'generated_text')!,
+      return ApiResponseNLPSummarisation(
+        summaryText: mapValueOfType<String>(json, r'summary_text')!,
       );
     }
     return null;
   }
 
-  static List<ApiResponseQueryNLPSummarisation> listFromJson(
+  static List<ApiResponseNLPSummarisation> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ApiResponseQueryNLPSummarisation>[];
+    final result = <ApiResponseNLPSummarisation>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApiResponseQueryNLPSummarisation.fromJson(row);
+        final value = ApiResponseNLPSummarisation.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -80,13 +79,12 @@ class ApiResponseQueryNLPSummarisation {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ApiResponseQueryNLPSummarisation> mapFromJson(
-      dynamic json) {
-    final map = <String, ApiResponseQueryNLPSummarisation>{};
+  static Map<String, ApiResponseNLPSummarisation> mapFromJson(dynamic json) {
+    final map = <String, ApiResponseNLPSummarisation>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApiResponseQueryNLPSummarisation.fromJson(entry.value);
+        final value = ApiResponseNLPSummarisation.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,17 +93,17 @@ class ApiResponseQueryNLPSummarisation {
     return map;
   }
 
-  // maps a json object with a list of ApiResponseQueryStandard-objects as value to a dart map
-  static Map<String, List<ApiResponseQueryNLPSummarisation>> mapListFromJson(
+  // maps a json object with a list of ApiResponseNLPSummarisation-objects as value to a dart map
+  static Map<String, List<ApiResponseNLPSummarisation>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ApiResponseQueryNLPSummarisation>>{};
+    final map = <String, List<ApiResponseNLPSummarisation>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApiResponseQueryNLPSummarisation.listFromJson(
+        map[entry.key] = ApiResponseNLPSummarisation.listFromJson(
           entry.value,
           growable: growable,
         );
