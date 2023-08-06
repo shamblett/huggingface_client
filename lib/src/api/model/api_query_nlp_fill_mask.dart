@@ -7,12 +7,15 @@
 
 part of huggingface_client;
 
+/// Tries to fill in a hole with a missing word (token to be precise).
+/// That’s the base task for BERT models.
+///
 class ApiQueryNLPFillMask {
   /// Returns a new [ApiQueryNLPFillMask] instance.
   ApiQueryNLPFillMask(
       {required this.inputs, this.useCache = true, this.waitForModel = false});
 
-  /// A string to be filled from, must contain the [MASK] token
+  /// Strings to be filled from, must contain the [MASK] token
   /// (check model card for exact name of the mask)
   List<String> inputs;
 

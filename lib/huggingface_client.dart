@@ -21,6 +21,7 @@ part 'src/api/api/inference_api.dart';
 part 'src/api/model/api_response_query_standard.dart';
 part 'src/api/model/api_query_nlp_fill_mask.dart';
 part 'src/api/model/api_response_nlp_fill_mask.dart';
+part 'src/api/model/api_query_nlp_summarisation.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
