@@ -35,7 +35,7 @@ class ApiQueryNLPQA {
   ApiQueryNLPQA({required this.inputs});
 
   /// Input question and context strings
-  List<ApiQuestionContext> inputs;
+  ApiQuestionContext inputs;
 
   @override
   bool operator ==(Object other) =>
@@ -52,11 +52,7 @@ class ApiQueryNLPQA {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    final inputParam = [<String, dynamic>{}];
-    for (final input in inputs) {
-      inputParam.add(input.toJson());
-    }
-    json[r'inputs'] = inputParam;
+    json[r'inputs'] = inputs.toJson();
     return json;
   }
 
@@ -81,7 +77,7 @@ class ApiQueryNLPQA {
       }());
 
       return ApiQueryNLPQA(
-          inputs: mapValueOfType<List<ApiQuestionContext>>(json, r'inputs')!);
+          inputs: mapValueOfType<ApiQuestionContext>(json, r'inputs')!);
     }
     return null;
   }

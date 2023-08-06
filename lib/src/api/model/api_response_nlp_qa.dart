@@ -13,7 +13,7 @@ class ApiResponseNLPQA {
       {required this.answer,
       required this.score,
       required this.start,
-      required this.stop});
+      required this.end});
 
   /// A string that’s the answer within the text.
   String answer;
@@ -25,7 +25,7 @@ class ApiResponseNLPQA {
   int start;
 
   /// The index (string wise) of the stop of the answer within context.
-  int stop;
+  int end;
 
   @override
   bool operator ==(Object other) =>
@@ -39,14 +39,14 @@ class ApiResponseNLPQA {
 
   @override
   String toString() =>
-      'ApiResponseNLPQA - [Answer=$answer, Score=$score, Start=$start, Stop=$stop]';
+      'ApiResponseNLPQA - [Answer=$answer, Score=$score, Start=$start, Stop=$end]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'answer'] = answer;
     json[r'score'] = score;
     json[r'start'] = start;
-    json[r'stop'] = stop;
+    json[r'stop'] = end;
     return json;
   }
 
@@ -74,7 +74,7 @@ class ApiResponseNLPQA {
         answer: mapValueOfType<String>(json, r'answer')!,
         score: mapValueOfType<double>(json, r'score')!,
         start: mapValueOfType<int>(json, r'start')!,
-        stop: mapValueOfType<int>(json, r'stop')!,
+        end: mapValueOfType<int>(json, r'end')!,
       );
     }
     return null;
@@ -130,5 +130,5 @@ class ApiResponseNLPQA {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{'answer', 'score', 'start', 'stop'};
+  static const requiredKeys = <String>{'answer', 'score', 'start', 'end'};
 }

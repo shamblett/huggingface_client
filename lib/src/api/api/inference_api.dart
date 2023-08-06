@@ -233,7 +233,7 @@ class InferenceApi {
   /// [model
   /// The model to use for the task
   ///
-  Future<List<ApiResponseNLPQA?>?> queryNLPQA(
+  Future<ApiResponseNLPQA?> queryNLPQA(
       {required ApiQueryNLPQA taskParameters, required String model}) async {
     final response = await _queryNLPQAWithHttpInfo(taskParameters, model);
 
@@ -246,8 +246,7 @@ class InferenceApi {
     if (response.body.isNotEmpty &&
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(
-          responseBody, 'List<QueryNLPQATask>'));
+      return (await apiClient.deserializeAsync(responseBody, 'QueryNLPQATask'));
     }
     return null;
   }

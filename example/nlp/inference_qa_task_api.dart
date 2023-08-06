@@ -29,16 +29,10 @@ void main() async {
     final input = ApiQuestionContext(
         question: 'What is my name?',
         context: 'My name is Clara and I live in Berkeley.');
-    final params = ApiQueryNLPQA(inputs: [input]);
+    final params = ApiQueryNLPQA(inputs: input);
     final result = await apiInstance.queryNLPQA(
         taskParameters: params, model: 'deepset/roberta-base-squad2');
-    if (result!.isNotEmpty) {
-      for (final row in result) {
-        print(row);
-      }
-    } else {
-      print('Inference task API Question and Answer returned empty result');
-    }
+    print(result!);
   } catch (e) {
     print(
         'Exception when calling Inference task API Question Answer: $e - exiting');
