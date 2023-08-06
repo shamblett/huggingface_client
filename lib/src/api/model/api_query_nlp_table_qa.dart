@@ -68,6 +68,11 @@ class ApiQueryNLPTableQA {
       inputParams.add(input.toJson());
     }
     json[r'inputs'] = inputParams;
+    final options = <String, bool>{
+      'use_cache': useCache,
+      'wait_for_model': waitForModel
+    };
+    json[r'options'] = options;
     return json;
   }
 
