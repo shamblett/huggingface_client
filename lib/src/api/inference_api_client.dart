@@ -213,6 +213,8 @@ class InferenceApiClient {
           return ApiResponseNLPFillMask.listFromJson(value);
         case 'List<QueryNLPSummarisationTask>':
           return ApiResponseNLPSummarisation.listFromJson(value);
+        case 'List<QueryNLPQATask>':
+          return ApiResponseNLPQA.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&

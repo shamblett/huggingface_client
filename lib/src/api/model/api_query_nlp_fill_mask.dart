@@ -113,7 +113,7 @@ class ApiQueryNLPFillMask {
     return map;
   }
 
-  // maps a json object with a list of ApiResponseError-objects as value to a dart map
+  // maps a json object with a list of ApiQueryNLPFillMask-objects as value to a dart map
   static Map<String, List<ApiQueryNLPFillMask>> mapListFromJson(
     dynamic json, {
     bool growable = false,
