@@ -7,16 +7,20 @@
 
 part of huggingface_client;
 
-/// Tries to fill in a hole with a missing word (token to be precise).
-/// That’s the base task for BERT models.
+/// Calculate the semantic similarity between one text and a list of other
+/// sentences by comparing their embeddings.
 ///
-class ApiQueryNLPFillMask {
-  /// Returns a new [ApiQueryNLPFillMask] instance.
-  ApiQueryNLPFillMask({required this.inputs, this.options});
+class ApiQueryNLPSentenceSimilarity {
+  /// Returns a new [ApiQueryNLPSentenceSimilarity] instance.
+  ApiQueryNLPSentenceSimilarity(
+      {required this.sourceSentence, required this.sentences, this.options});
 
-  /// Strings to be filled from, must contain the [MASK] token
-  /// (check model card for exact name of the mask)
-  List<String> inputs;
+  /// The string that you wish to compare the other strings with. This can be a phrase,
+  /// sentence, or longer passage, depending on the model being used.
+  String sourceSentence;
+
+  /// A list of strings which will be compared against the [sourceSentence].
+  List<String> sentences;
 
   /// Common inference options
   InferenceOptions? options = InferenceOptions();
@@ -24,27 +28,33 @@ class ApiQueryNLPFillMask {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiQueryNLPFillMask && other.inputs == inputs;
+      other is ApiQueryNLPSentenceSimilarity &&
+          other.sourceSentence == sourceSentence;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (inputs.hashCode);
+      (sourceSentence.hashCode);
 
   @override
-  String toString() => 'ApiQueryNLPFillMask - [Inputs=$inputs, Options=$options}]';
+  String toString() =>
+      'ApiQueryNLPSentenceSimilarity - [Source Sentence=$sourceSentence, Sentences=$sentences, Options=$options}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'inputs'] = inputs;
+    Map<String, dynamic> inputParams = {
+      'source_sentence': sourceSentence,
+      'sentences': sentences
+    };
+    json[r'inputs'] = inputParams;
     json[r'options'] = options?.toJson();
     return json;
   }
 
-  /// Returns a new [ApiQueryNLPFillMask] instance and imports its values from
+  /// Returns a new [ApiQueryNLPSentenceSimilarity] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ApiQueryNLPFillMask? fromJson(dynamic value) {
+  static ApiQueryNLPSentenceSimilarity? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -61,21 +71,22 @@ class ApiQueryNLPFillMask {
         return true;
       }());
 
-      return ApiQueryNLPFillMask(
-          inputs: mapValueOfType<List<String>>(json, r'inputs')!,
+      return ApiQueryNLPSentenceSimilarity(
+          sourceSentence: mapValueOfType<String>(json, r'source_sentence')!,
+          sentences: mapValueOfType<List<String>>(json, r'sentences')!,
           options: mapValueOfType<InferenceOptions>(json, r'options')!);
     }
     return null;
   }
 
-  static List<ApiQueryNLPFillMask> listFromJson(
+  static List<ApiQueryNLPSentenceSimilarity> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ApiQueryNLPFillMask>[];
+    final result = <ApiQueryNLPSentenceSimilarity>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApiQueryNLPFillMask.fromJson(row);
+        final value = ApiQueryNLPSentenceSimilarity.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -84,12 +95,12 @@ class ApiQueryNLPFillMask {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ApiQueryNLPFillMask> mapFromJson(dynamic json) {
-    final map = <String, ApiQueryNLPFillMask>{};
+  static Map<String, ApiQueryNLPSentenceSimilarity> mapFromJson(dynamic json) {
+    final map = <String, ApiQueryNLPSentenceSimilarity>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApiQueryNLPFillMask.fromJson(entry.value);
+        final value = ApiQueryNLPSentenceSimilarity.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -98,17 +109,17 @@ class ApiQueryNLPFillMask {
     return map;
   }
 
-  // maps a json object with a list of ApiQueryNLPFillMask-objects as value to a dart map
-  static Map<String, List<ApiQueryNLPFillMask>> mapListFromJson(
+  // maps a json object with a list of ApiQueryNLPSentenceSimilarity-objects as value to a dart map
+  static Map<String, List<ApiQueryNLPSentenceSimilarity>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ApiQueryNLPFillMask>>{};
+    final map = <String, List<ApiQueryNLPSentenceSimilarity>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApiQueryNLPFillMask.listFromJson(
+        map[entry.key] = ApiQueryNLPSentenceSimilarity.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -118,7 +129,5 @@ class ApiQueryNLPFillMask {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-    'inputs',
-  };
+  static const requiredKeys = <String>{'source_sentence', 'sentences'};
 }
