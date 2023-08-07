@@ -22,8 +22,7 @@ class ApiQueryNLPSummarisation {
       this.temperature = 1.0,
       this.repetitionPenalty = -1.0,
       this.maxTime = -1.0,
-      this.useCache = true,
-      this.waitForModel = false});
+      this.options});
 
   /// Strings to be summarised
   List<String> inputs;
@@ -54,16 +53,8 @@ class ApiQueryNLPSummarisation {
   /// Network can cause some overhead so it will be a soft limit.
   double maxTime;
 
-  /// (Default: true). Boolean. There is a cache layer on the inference API to speedup requests we have already seen.
-  /// Most models can use those results as is as models are deterministic (meaning the results will be the same anyway).
-  /// However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being
-  /// used resulting in a real new query.
-  bool useCache = true;
-
-  /// (Default: false) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests
-  /// required to get your inference done. It is advised to only set this flag to true after receiving a 503
-  /// error as it will limit hanging in your application to known places.
-  bool waitForModel = false;
+  /// Common inference options
+  InferenceOptions? options = InferenceOptions();
 
   @override
   bool operator ==(Object other) =>
@@ -84,7 +75,7 @@ class ApiQueryNLPSummarisation {
       'Temperature=${temperature.toStringAsFixed(3)},'
       'Repetition Penalty=${repetitionPenalty == -1.0 ? 'none' : repetitionPenalty.toStringAsFixed(3)},'
       'Max Time=${maxTime == -1.0 ? 'none' : maxTime.toStringAsFixed(3)},'
-      'Cache=${useCache ? 'true' : 'false'}, Wait for model=${waitForModel ? 'true' : 'false'}]';
+      'Options=$options]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -114,11 +105,7 @@ class ApiQueryNLPSummarisation {
     if (parameters.isNotEmpty) {
       json[r'parameters'] = parameters;
     }
-    final options = <String, bool>{
-      'use_cache': useCache,
-      'wait_for_model': waitForModel
-    };
-    json[r'options'] = options;
+    json[r'options'] = options?.toJson();
     return json;
   }
 
@@ -144,8 +131,15 @@ class ApiQueryNLPSummarisation {
 
       return ApiQueryNLPSummarisation(
           inputs: mapValueOfType<List<String>>(json, r'inputs')!,
-          useCache: json[r'options'][r'use_cache'],
-          waitForModel: json[r'options'][r'wait_for_model']);
+          minLength: mapValueOfType<int>(json, r'min_value')!,
+          maxLength: mapValueOfType<int>(json, r'max_value')!,
+          topK: mapValueOfType<int>(json, r'top_k')!,
+          topP: mapValueOfType<double>(json, r'top_p')!,
+          temperature: mapValueOfType<double>(json, r'temperature')!,
+          repetitionPenalty:
+              mapValueOfType<double>(json, r'repetition_penalty')!,
+          maxTime: mapValueOfType<double>(json, r'max_time')!,
+          options: mapValueOfType<InferenceOptions>(json, r'options')!);
     }
     return null;
   }

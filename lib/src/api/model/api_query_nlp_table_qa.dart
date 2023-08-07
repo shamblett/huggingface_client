@@ -32,21 +32,13 @@ class ApiTableQuery {
 ///
 class ApiQueryNLPTableQA {
   /// Returns a new [ApiQueryNLPTableQA] instance.
-  ApiQueryNLPTableQA({required this.inputs});
+  ApiQueryNLPTableQA({required this.inputs, this.options});
 
   /// Input question and context strings
   List<ApiTableQuery> inputs;
 
-  /// (Default: true). Boolean. There is a cache layer on the inference API to speedup requests we have already seen.
-  /// Most models can use those results as is as models are deterministic (meaning the results will be the same anyway).
-  /// However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being
-  /// used resulting in a real new query.
-  bool useCache = true;
-
-  /// (Default: false) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests
-  /// required to get your inference done. It is advised to only set this flag to true after receiving a 503
-  /// error as it will limit hanging in your application to known places.
-  bool waitForModel = false;
+  /// Common inference options
+  InferenceOptions? options = InferenceOptions();
 
   @override
   bool operator ==(Object other) =>
@@ -68,11 +60,7 @@ class ApiQueryNLPTableQA {
       inputParams.add(input.toJson());
     }
     json[r'inputs'] = inputParams;
-    final options = <String, bool>{
-      'use_cache': useCache,
-      'wait_for_model': waitForModel
-    };
-    json[r'options'] = options;
+    json[r'options'] = options?.toJson();
     return json;
   }
 
@@ -97,7 +85,8 @@ class ApiQueryNLPTableQA {
       }());
 
       return ApiQueryNLPTableQA(
-          inputs: mapValueOfType<List<ApiTableQuery>>(json, r'inputs')!);
+          inputs: mapValueOfType<List<ApiTableQuery>>(json, r'inputs')!,
+          options: mapValueOfType<InferenceOptions>(json, r'options')!);
     }
     return null;
   }

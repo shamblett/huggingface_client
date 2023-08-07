@@ -13,22 +13,14 @@ part of huggingface_client;
 class ApiQueryNLPFillMask {
   /// Returns a new [ApiQueryNLPFillMask] instance.
   ApiQueryNLPFillMask(
-      {required this.inputs, this.useCache = true, this.waitForModel = false});
+      {required this.inputs, this.options});
 
   /// Strings to be filled from, must contain the [MASK] token
   /// (check model card for exact name of the mask)
   List<String> inputs;
 
-  /// (Default: true). Boolean. There is a cache layer on the inference API to speedup requests we have already seen.
-  /// Most models can use those results as is as models are deterministic (meaning the results will be the same anyway).
-  /// However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being
-  /// used resulting in a real new query.
-  bool useCache = true;
-
-  /// (Default: false) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests
-  /// required to get your inference done. It is advised to only set this flag to true after receiving a 503
-  /// error as it will limit hanging in your application to known places.
-  bool waitForModel = false;
+  /// Common inference options
+  InferenceOptions? options = InferenceOptions();
 
   @override
   bool operator ==(Object other) =>
@@ -42,16 +34,12 @@ class ApiQueryNLPFillMask {
 
   @override
   String toString() =>
-      'ApiQueryNLPFillMask[Inputs=$inputs, Use Cache=${useCache ? 'true' : 'false'}, Wait for model=${waitForModel ? 'true' : 'false'}]';
+      'ApiQueryNLPFillMask[Inputs=$inputs, Options=$options}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'inputs'] = inputs;
-    final options = <String, bool>{
-      'use_cache': useCache,
-      'wait_for_model': waitForModel
-    };
-    json[r'options'] = options;
+    json[r'options'] = options?.toJson();
     return json;
   }
 
@@ -77,8 +65,7 @@ class ApiQueryNLPFillMask {
 
       return ApiQueryNLPFillMask(
           inputs: mapValueOfType<List<String>>(json, r'inputs')!,
-          useCache: json[r'options'][r'use_cache'],
-          waitForModel: json[r'options'][r'wait_for_model']);
+          options: mapValueOfType<InferenceOptions>(json, r'options')!);
     }
     return null;
   }

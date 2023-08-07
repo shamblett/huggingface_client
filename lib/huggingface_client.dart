@@ -18,6 +18,7 @@ part 'src/huggingface_client.dart';
 part 'src/api/endpoint_api_client.dart';
 part 'src/api/inference_api_client.dart';
 part 'src/api/api/inference_api.dart';
+part 'src/api/model/inference_options.dart';
 part 'src/api/model/api_response_query_standard.dart';
 part 'src/api/model/api_query_nlp_fill_mask.dart';
 part 'src/api/model/api_response_nlp_fill_mask.dart';

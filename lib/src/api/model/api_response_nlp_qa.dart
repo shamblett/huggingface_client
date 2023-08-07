@@ -46,7 +46,7 @@ class ApiResponseNLPQA {
     json[r'answer'] = answer;
     json[r'score'] = score;
     json[r'start'] = start;
-    json[r'stop'] = end;
+    json[r'end'] = end;
     return json;
   }
 
