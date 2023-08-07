@@ -20,7 +20,7 @@ void main() async {
   final apiInstance = InferenceApi(client);
 
   //
-  // Question nad answer task
+  // Question and answer task
   //
   print('');
   print('*** Question and Answer Task ***');

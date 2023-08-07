@@ -222,7 +222,7 @@ class InferenceApi {
   }
 
   ///
-  /// queryNLPSummarisation
+  /// queryNLPQA
   ///
   /// NLP query for the question answering task.
   /// Want to have a nice know-it-all bot that can answer any question?.
@@ -247,6 +247,66 @@ class InferenceApi {
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'QueryNLPQATask'));
+    }
+    return null;
+  }
+
+  ///
+  /// _queryNLPTableQAWithHttpInfo
+  /// Note: This method returns the HTTP [Response].
+  ///
+  Future<Response> _queryNLPTableQAWithHttpInfo(
+      ApiQueryNLPTableQA taskParameters, String model) async {
+    final path = '/$model';
+    Object? postBody;
+    postBody = taskParameters.toJson();
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  ///
+  /// queryNLPQA
+  ///
+  /// NLP query for the table question answering task.
+  /// Don’t know SQL? Don’t want to dive into a large spreadsheet? Ask questions in
+  /// plain english!
+  ///
+  /// [taskParameters]
+  /// Parameter set for the question answer operation
+  ///
+  /// [model
+  /// The model to use for the task
+  ///
+  Future<List<ApiResponseNLPTableQA?>?> queryNLPTableQA(
+      {required ApiQueryNLPTableQA taskParameters,
+      required String model}) async {
+    final response = await _queryNLPTableQAWithHttpInfo(taskParameters, model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(
+          responseBody, 'List<QueryNLPTable>QATask'));
     }
     return null;
   }
