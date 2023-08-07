@@ -27,6 +27,7 @@ part 'src/api/model/api_response_nlp_summarisation.dart';
 part 'src/api/model/api_query_nlp_qa.dart';
 part 'src/api/model/api_response_nlp_qa.dart';
 part 'src/api/model/api_query_nlp_table_qa.dart';
+part 'src/api/model/api_response_nlp_table_qa.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
