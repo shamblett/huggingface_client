@@ -12,8 +12,7 @@ part of huggingface_client;
 ///
 class ApiQueryNLPFillMask {
   /// Returns a new [ApiQueryNLPFillMask] instance.
-  ApiQueryNLPFillMask(
-      {required this.inputs, this.options});
+  ApiQueryNLPFillMask({required this.inputs, this.options});
 
   /// Strings to be filled from, must contain the [MASK] token
   /// (check model card for exact name of the mask)
@@ -33,8 +32,7 @@ class ApiQueryNLPFillMask {
       (inputs.hashCode);
 
   @override
-  String toString() =>
-      'ApiQueryNLPFillMask[Inputs=$inputs, Options=$options}]';
+  String toString() => 'ApiQueryNLPFillMask[Inputs=$inputs, Options=$options}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

@@ -305,8 +305,10 @@ class InferenceApi {
     if (response.body.isNotEmpty &&
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(
-          responseBody, 'List<QueryNLPTable>QATask'));
+      return [
+        (await apiClient.deserializeAsync(
+            responseBody, 'List<QueryNLPTableQATask>'))
+      ];
     }
     return null;
   }

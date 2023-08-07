@@ -19,10 +19,10 @@ class ApiResponseNLPTableQA {
   String answer;
 
   /// A list of coordinates of the cells referenced in the answer.
-  List<List<int>> coordinates;
+  List<dynamic> coordinates;
 
   /// A list of coordinates of the cells contents.
-  List<String> cells;
+  List<dynamic> cells;
 
   /// The aggregator used to get the answer.
   String aggregator;
@@ -72,8 +72,8 @@ class ApiResponseNLPTableQA {
 
       return ApiResponseNLPTableQA(
         answer: mapValueOfType<String>(json, r'answer')!,
-        coordinates: mapValueOfType<List<List<int>>>(json, r'coordinates')!,
-        cells: mapValueOfType<List<String>>(json, r'cells')!,
+        coordinates: mapValueOfType<List<dynamic>>(json, r'coordinates')!,
+        cells: mapValueOfType<List<dynamic>>(json, r'cells')!,
         aggregator: mapValueOfType<String>(json, r'aggregator')!,
       );
     }
@@ -110,7 +110,7 @@ class ApiResponseNLPTableQA {
     return map;
   }
 
-  // maps a json object with a list of ApiResponseNLPFillMask-objects as value to a dart map
+  // maps a json object with a list of ApiResponseNLPTableQA-objects as value to a dart map
   static Map<String, List<ApiResponseNLPTableQA>> mapListFromJson(
     dynamic json, {
     bool growable = false,

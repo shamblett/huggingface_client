@@ -215,8 +215,10 @@ class InferenceApiClient {
           return ApiResponseNLPSummarisation.listFromJson(value);
         case 'QueryNLPQATask':
           return ApiResponseNLPQA.fromJson(value);
-        case 'List<QueryNLPTable>QATask':
-          return ApiResponseNLPQA.listFromJson(value);
+        case 'List<QueryNLPTableQATask>':
+          return value is List
+              ? ApiResponseNLPTableQA.listFromJson(value)
+              : ApiResponseNLPTableQA.fromJson(value);
         default:
           dynamic match;
           if (value is List &&
