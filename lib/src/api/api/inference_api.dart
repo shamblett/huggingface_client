@@ -369,7 +369,7 @@ class InferenceApi {
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(
-          responseBody, 'QueryNLPSentenceSimilarityTask>'));
+          responseBody, 'QueryNLPSentenceSimilarityTask'));
     }
     return null;
   }

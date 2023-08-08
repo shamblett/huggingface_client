@@ -32,7 +32,8 @@ class ApiQueryNLPFillMask {
       (inputs.hashCode);
 
   @override
-  String toString() => 'ApiQueryNLPFillMask - [Inputs=$inputs, Options=$options}]';
+  String toString() =>
+      'ApiQueryNLPFillMask - [Inputs=$inputs, Options=$options}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
