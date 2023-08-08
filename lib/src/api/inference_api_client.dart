@@ -233,7 +233,8 @@ class InferenceApiClient {
             throw Exception(
                 'Invalid response from NLP Text Classification query');
           }
-
+        case 'List<QueryNLPTextGenerationTask>':
+          return ApiResponseNLPTextGeneration.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&
