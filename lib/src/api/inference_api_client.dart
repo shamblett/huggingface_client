@@ -221,6 +221,8 @@ class InferenceApiClient {
               : ApiResponseNLPTableQA.fromJson(value);
         case 'QueryNLPSentenceSimilarityTask':
           return ApiResponseNLPSentenceSimilarity.fromJson(value);
+        case 'List<QueryNLPTextClassificationTask>':
+          return ApiResponseNLPTextClassification.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&
