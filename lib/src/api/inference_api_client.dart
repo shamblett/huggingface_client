@@ -222,7 +222,18 @@ class InferenceApiClient {
         case 'QueryNLPSentenceSimilarityTask':
           return ApiResponseNLPSentenceSimilarity.fromJson(value);
         case 'List<QueryNLPTextClassificationTask>':
-          return ApiResponseNLPTextClassification.listFromJson(value);
+          if (value is List) {
+            if ((value).isNotEmpty) {
+              return ApiResponseNLPTextClassification.listFromJson(value[0]);
+            } else {
+              throw Exception(
+                  'Invalid response from NLP Text Classification query');
+            }
+          } else {
+            throw Exception(
+                'Invalid response from NLP Text Classification query');
+          }
+
         default:
           dynamic match;
           if (value is List &&

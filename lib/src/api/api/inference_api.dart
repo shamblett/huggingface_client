@@ -379,7 +379,7 @@ class InferenceApi {
   /// Note: This method returns the HTTP [Response].
   ///
   Future<Response> _queryNLPTextClassificationWithHttpInfo(
-      ApiQueryNLPFillMask taskParameters, String model) async {
+      ApiQueryNLPTextClassification taskParameters, String model) async {
     final path = '/$model';
     Object? postBody;
     postBody = taskParameters.toJson();
@@ -415,7 +415,7 @@ class InferenceApi {
   /// The model to use for the task
   ///
   Future<List<ApiResponseNLPTextClassification?>?> queryNLPTextClassification(
-      {required ApiQueryNLPFillMask taskParameters,
+      {required ApiQueryNLPTextClassification taskParameters,
       required String model}) async {
     final response =
         await _queryNLPTextClassificationWithHttpInfo(taskParameters, model);
@@ -430,7 +430,7 @@ class InferenceApi {
         response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(
-          responseBody, 'List<QueryTextClassificationTask>'));
+          responseBody, 'List<QueryNLPTextClassificationTask>'));
     }
     return null;
   }
