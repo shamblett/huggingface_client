@@ -74,7 +74,8 @@ class ApiQueryNLPSentenceSimilarity {
       return ApiQueryNLPSentenceSimilarity(
           sourceSentence: mapValueOfType<String>(json, r'source_sentence')!,
           sentences: mapValueOfType<List<String>>(json, r'sentences')!,
-          options: mapValueOfType<InferenceOptions>(json, r'options')!);
+          options: mapValueOfTypeWithDefault<InferenceOptions>(
+              json, r'options', InferenceOptions())!);
     }
     return null;
   }

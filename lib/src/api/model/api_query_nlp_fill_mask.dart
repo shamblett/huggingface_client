@@ -64,7 +64,8 @@ class ApiQueryNLPFillMask {
 
       return ApiQueryNLPFillMask(
           inputs: mapValueOfType<List<String>>(json, r'inputs')!,
-          options: mapValueOfType<InferenceOptions>(json, r'options')!);
+          options: mapValueOfTypeWithDefault<InferenceOptions>(
+              json, r'options', InferenceOptions())!);
     }
     return null;
   }

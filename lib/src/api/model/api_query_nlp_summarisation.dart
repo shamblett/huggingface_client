@@ -131,15 +131,17 @@ class ApiQueryNLPSummarisation {
 
       return ApiQueryNLPSummarisation(
           inputs: mapValueOfType<List<String>>(json, r'inputs')!,
-          minLength: mapValueOfType<int>(json, r'min_value')!,
-          maxLength: mapValueOfType<int>(json, r'max_value')!,
-          topK: mapValueOfType<int>(json, r'top_k')!,
-          topP: mapValueOfType<double>(json, r'top_p')!,
-          temperature: mapValueOfType<double>(json, r'temperature')!,
-          repetitionPenalty:
-              mapValueOfType<double>(json, r'repetition_penalty')!,
-          maxTime: mapValueOfType<double>(json, r'max_time')!,
-          options: mapValueOfType<InferenceOptions>(json, r'options')!);
+          minLength: mapValueOfTypeWithDefault<int>(json, r'min_value', 0)!,
+          maxLength: mapValueOfTypeWithDefault<int>(json, r'max_value', 0)!,
+          topK: mapValueOfTypeWithDefault<int>(json, r'top_k', 0)!,
+          topP: mapValueOfTypeWithDefault<double>(json, r'top_p', 0.0)!,
+          temperature:
+              mapValueOfTypeWithDefault<double>(json, r'temperature', 1.0)!,
+          repetitionPenalty: mapValueOfTypeWithDefault<double>(
+              json, r'repetition_penalty', -1.0)!,
+          maxTime: mapValueOfTypeWithDefault<double>(json, r'max_time', -1.0)!,
+          options: mapValueOfTypeWithDefault<InferenceOptions>(
+              json, r'options', InferenceOptions())!);
     }
     return null;
   }
