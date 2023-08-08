@@ -109,6 +109,18 @@ T? mapValueOfType<T>(dynamic map, String key) {
   return value is T ? value : null;
 }
 
+/// Returns a valid [T] value found at the specified Map [key], if no key
+/// is found the supplied default is used.
+T? mapValueOfTypeWithDefault<T>(dynamic map, String key, T defaultValue) {
+  if (map is Map) {
+    if (map.containsKey(key)) {
+      final dynamic value = map[key];
+      return value is T ? value : null;
+    }
+  }
+  return defaultValue;
+}
+
 /// Returns a valid Map<K, V> found at the specified Map [key], null otherwise.
 Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
   final dynamic value = map is Map ? map[key] : null;
