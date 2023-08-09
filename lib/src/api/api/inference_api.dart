@@ -73,33 +73,6 @@ class InferenceApi {
   }
 
   ///
-  /// _queryNLPFillMaskWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPFillMaskWithHttpInfo(
-      ApiQueryNLPFillMask taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
   /// queryNLPFillMask
   ///
   /// NLP query for a fill mask task.
@@ -115,7 +88,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPFillMask?>?> queryNLPFillMask(
       {required ApiQueryNLPFillMask taskParameters,
       required String model}) async {
-    final response = await _queryNLPFillMaskWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -130,33 +103,6 @@ class InferenceApi {
           responseBody, 'List<QueryNLPFillMaskTask>'));
     }
     return null;
-  }
-
-  ///
-  /// _queryNLPSummarisationWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPSummarisationWithHttpInfo(
-      ApiQueryNLPSummarisation taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
   }
 
   ///
@@ -176,8 +122,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPSummarisation?>?> queryNLPSummarisation(
       {required ApiQueryNLPSummarisation taskParameters,
       required String model}) async {
-    final response =
-        await _queryNLPSummarisationWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -195,33 +140,6 @@ class InferenceApi {
   }
 
   ///
-  /// _queryNLPQAWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPQAWithHttpInfo(
-      ApiQueryNLPQA taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
   /// queryNLPQA
   ///
   /// NLP query for the question answering task.
@@ -235,7 +153,7 @@ class InferenceApi {
   ///
   Future<ApiResponseNLPQA?> queryNLPQA(
       {required ApiQueryNLPQA taskParameters, required String model}) async {
-    final response = await _queryNLPQAWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -249,33 +167,6 @@ class InferenceApi {
       return (await apiClient.deserializeAsync(responseBody, 'QueryNLPQATask'));
     }
     return null;
-  }
-
-  ///
-  /// _queryNLPTableQAWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPTableQAWithHttpInfo(
-      ApiQueryNLPTableQA taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
   }
 
   ///
@@ -294,7 +185,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTableQA?>?> queryNLPTableQA(
       {required ApiQueryNLPTableQA taskParameters,
       required String model}) async {
-    final response = await _queryNLPTableQAWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -314,33 +205,6 @@ class InferenceApi {
   }
 
   ///
-  /// _queryNLPSentenceSimilarityWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPSentenceSimilarityWithHttpInfo(
-      ApiQueryNLPSentenceSimilarity taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
   /// queryNLPSentenceSimilarity
   ///
   /// NLP query for the sentence similarity task.
@@ -356,8 +220,7 @@ class InferenceApi {
   Future<ApiResponseNLPSentenceSimilarity?> queryNLPSentenceSimilarity(
       {required ApiQueryNLPSentenceSimilarity taskParameters,
       required String model}) async {
-    final response =
-        await _queryNLPSentenceSimilarityWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -372,33 +235,6 @@ class InferenceApi {
           responseBody, 'QueryNLPSentenceSimilarityTask'));
     }
     return null;
-  }
-
-  ///
-  /// _queryNLPTextClassificationWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPTextClassificationWithHttpInfo(
-      ApiQueryNLPTextClassification taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
   }
 
   ///
@@ -417,8 +253,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTextClassification?>?> queryNLPTextClassification(
       {required ApiQueryNLPTextClassification taskParameters,
       required String model}) async {
-    final response =
-        await _queryNLPTextClassificationWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -436,33 +271,6 @@ class InferenceApi {
   }
 
   ///
-  /// _queryNLPTextGenerationWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPTextGenerationWithHttpInfo(
-      ApiQueryNLPTextGeneration taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  ///
   /// queryNLPTextGeneration
   ///
   /// NLP query for a text generation task.
@@ -477,8 +285,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTextGeneration?>?> queryNLPTextGeneration(
       {required ApiQueryNLPTextGeneration taskParameters,
       required String model}) async {
-    final response =
-        await _queryNLPTextGenerationWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -493,33 +300,6 @@ class InferenceApi {
           responseBody, 'List<QueryNLPTextGenerationTask>'));
     }
     return null;
-  }
-
-  ///
-  /// _queryNLPTokenClassificationWithHttpInfo
-  /// Note: This method returns the HTTP [Response].
-  ///
-  Future<Response> _queryNLPTokenClassificationWithHttpInfo(
-      ApiQueryNLPTokenClassification taskParameters, String model) async {
-    final path = '/$model';
-    Object? postBody;
-    postBody = taskParameters.toJson();
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
   }
 
   ///
@@ -538,8 +318,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTokenClassification?>?> queryNLPTokenClassification(
       {required ApiQueryNLPTokenClassification taskParameters,
       required String model}) async {
-    final response =
-        await _queryNLPTokenClassificationWithHttpInfo(taskParameters, model);
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -554,6 +333,33 @@ class InferenceApi {
           responseBody, 'List<QueryNLPTokenClassificationTask>'));
     }
     return null;
+  }
+
+  ///
+  /// _queryWithHttpInfo
+  /// Note: This method returns the HTTP [Response].
+  ///
+  Future<Response> _withHttpInfo(
+      Map<String, dynamic> taskParameters, String model) async {
+    final path = '/$model';
+    Object? postBody;
+    postBody = taskParameters;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
 
   /// Returns the decoded body as UTF-8 if the given headers indicate an 'application/json'
