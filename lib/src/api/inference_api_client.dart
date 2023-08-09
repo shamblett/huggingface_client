@@ -244,6 +244,18 @@ class InferenceApiClient {
           } else {
             throw Exception('Invalid response from NLP Text Generation query');
           }
+        case 'List<QueryNLPTokenClassificationTask>':
+          if (value is List) {
+            if ((value).isNotEmpty) {
+              return ApiResponseNLPTokenClassification.listFromJson(value[0]);
+            } else {
+              throw Exception(
+                  'Invalid response from NLP Token Classification query');
+            }
+          } else {
+            throw Exception(
+                'Invalid response from NLP Token Classification query');
+          }
         default:
           dynamic match;
           if (value is List &&

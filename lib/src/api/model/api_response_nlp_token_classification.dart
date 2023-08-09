@@ -78,7 +78,7 @@ class ApiResponseNLPTokenClassification {
       }());
 
       return ApiResponseNLPTokenClassification(
-        entityGroup: mapValueOfType<String>(json, r'answer')!,
+        entityGroup: mapValueOfType<String>(json, r'entity_group')!,
         score: mapValueOfType<double>(json, r'score')!,
         word: mapValueOfType<String>(json, r'word')!,
         start: mapValueOfType<int>(json, r'start')!,
