@@ -37,6 +37,7 @@ part 'src/api/model/api_response_nlp_text_generation.dart';
 part 'src/api/model/api_query_nlp_token_classification.dart';
 part 'src/api/model/api_response_nlp_token_classification.dart';
 part 'src/api/model/api_query_nlp_translation.dart';
+part 'src/api/model/api_response_nlp_translation.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');

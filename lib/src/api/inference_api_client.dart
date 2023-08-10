@@ -256,6 +256,8 @@ class InferenceApiClient {
             throw Exception(
                 'Invalid response from NLP Token Classification query');
           }
+        case 'List<QueryNLPTranslationTask>':
+          return ApiResponseNLPTranslation.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&
