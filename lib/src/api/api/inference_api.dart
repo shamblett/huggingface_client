@@ -394,6 +394,40 @@ class InferenceApi {
     return null;
   }
 
+  ///
+  /// queryNLPZeroShotClassification
+  ///
+  /// NLP query for the zero shot classification task.
+  /// This task is super useful to try out classification with zero code, you simply pass a
+  /// sentence/paragraph and the possible labels for that sentence, and you get a result.
+  ///
+  /// [taskParameters]
+  /// Parameter set for the fill mask operation
+  ///
+  /// [model
+  /// The model to use for the task
+  ///
+  Future<List<ApiResponseNLPZeroShotClassification?>?>
+      queryNLPZeroShotClassification(
+          {required ApiQueryNLPZeroShotClassification taskParameters,
+          required String model}) async {
+    final response = await _withHttpInfo(taskParameters.toJson(), model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(
+          responseBody, 'List<QueryNLPZeroShotClassificationTask>'));
+    }
+    return null;
+  }
+
   /// Returns the decoded body as UTF-8 if the given headers indicate an 'application/json'
   /// content type. Otherwise, returns the decoded body as decoded by dart:http package.
   Future<String> _decodeBodyBytes(Response response) async {

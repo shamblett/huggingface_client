@@ -258,6 +258,8 @@ class InferenceApiClient {
           }
         case 'List<QueryNLPTranslationTask>':
           return ApiResponseNLPTranslation.listFromJson(value);
+        case 'List<QueryNLPZeroShotClassificationTask>':
+          return ApiResponseNLPZeroShotClassification.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&
