@@ -16,11 +16,11 @@ class InferenceConversation {
 
   /// List of strings. The last inputs from the user in the conversation,
   /// after the model has run.
-  List<String> pastUserInputs;
+  List<dynamic> pastUserInputs;
 
   /// List of strings. The last outputs from the model in the conversation,
   /// after the model has run.
-  List<String> generatedResponses;
+  List<dynamic> generatedResponses;
 
   @override
   bool operator ==(Object other) =>
@@ -67,9 +67,9 @@ class InferenceConversation {
 
       return InferenceConversation(
         pastUserInputs:
-            mapValueOfType<List<String>>(json, r'past_user_inputs')!,
+            mapValueOfType<List<dynamic>>(json, r'past_user_inputs')!,
         generatedResponses:
-            mapValueOfType<List<String>>(json, r'generated_responses')!,
+            mapValueOfType<List<dynamic>>(json, r'generated_responses')!,
       );
     }
     return null;
@@ -92,7 +92,7 @@ class ApiResponseNLPConversational {
 
   /// A facility dictionary to send back for the next input (with the new
   /// user input addition).
-  InferenceConversation conversation;
+  InferenceConversation? conversation;
 
   @override
   bool operator ==(Object other) =>
@@ -112,7 +112,7 @@ class ApiResponseNLPConversational {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'generated_text'] = generatedText;
-    json[r'conversation'] = conversation.toJson();
+    json[r'conversation'] = conversation?.toJson();
     return json;
   }
 
@@ -137,10 +137,8 @@ class ApiResponseNLPConversational {
       }());
 
       return ApiResponseNLPConversational(
-        generatedText: mapValueOfType<String>(json, r'generated_text')!,
-        conversation:
-            mapValueOfType<InferenceConversation>(json, r'conversation')!,
-      );
+          generatedText: mapValueOfType<String>(json, r'generated_text')!,
+          conversation: InferenceConversation.fromJson(json[r'conversation']!));
     }
     return null;
   }

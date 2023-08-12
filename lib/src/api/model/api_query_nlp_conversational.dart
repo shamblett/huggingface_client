@@ -23,8 +23,7 @@ class ApiQueryNLPConversational {
       this.topP = 0.0,
       this.temperature = 1.0,
       this.repetitionPenalty = -1.0,
-      this.maxTime = -1.0,
-      this.options});
+      this.maxTime = -1.0});
 
   /// The last input from the user in the conversation.
   String text;
@@ -62,9 +61,6 @@ class ApiQueryNLPConversational {
   /// Network can cause some overhead so it will be a soft limit.
   double maxTime;
 
-  /// Common inference options
-  InferenceOptions? options = InferenceOptions();
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -85,8 +81,7 @@ class ApiQueryNLPConversational {
       'Top P=${topP == 0.0 ? 'none' : topP.toStringAsFixed(3)},'
       'Temperature=${temperature.toStringAsFixed(3)},'
       'Repetition Penalty=${repetitionPenalty == -1.0 ? 'none' : repetitionPenalty.toStringAsFixed(3)},'
-      'Max Time=${maxTime == -1.0 ? 'none' : maxTime.toStringAsFixed(3)},'
-      'Options=$options]';
+      'Max Time=${maxTime == -1.0 ? 'none' : maxTime.toStringAsFixed(3)}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -118,7 +113,6 @@ class ApiQueryNLPConversational {
     if (parameters.isNotEmpty) {
       json[r'parameters'] = parameters;
     }
-    json[r'options'] = options?.toJson();
     return json;
   }
 
@@ -156,9 +150,7 @@ class ApiQueryNLPConversational {
               mapValueOfTypeWithDefault<double>(json, r'temperature', 1.0)!,
           repetitionPenalty: mapValueOfTypeWithDefault<double>(
               json, r'repetition_penalty', -1.0)!,
-          maxTime: mapValueOfTypeWithDefault<double>(json, r'max_time', -1.0)!,
-          options: mapValueOfTypeWithDefault<InferenceOptions>(
-              json, r'options', InferenceOptions())!);
+          maxTime: mapValueOfTypeWithDefault<double>(json, r'max_time', -1.0)!);
     }
     return null;
   }
