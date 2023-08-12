@@ -7,14 +7,16 @@
 
 part of huggingface_client;
 
-/// This task is well known to summarize longer text into shorter text. Be careful, some models
-/// have a maximum length of input. That means that the summary cannot handle full books for instance.
-/// Be careful when choosing your model.
+/// This task corresponds to any chatbot like structure. Models tend to have shorter max_length,
+/// so please check with caution when using a given model if you need long range
+/// dependency or not.
 ///
-class ApiQueryNLPSummarisation {
-  /// Returns a new [ApiQueryNLPSummarisation] instance.
-  ApiQueryNLPSummarisation(
-      {required this.inputs,
+class ApiQueryNLPConversational {
+  /// Returns a new [ApiQueryNLPConversational] instance.
+  ApiQueryNLPConversational(
+      {required this.text,
+      required this.generatedResponses,
+      required this.pastUserInputs,
       this.minLength = 0,
       this.maxLength = 0,
       this.topK = 0,
@@ -24,8 +26,15 @@ class ApiQueryNLPSummarisation {
       this.maxTime = -1.0,
       this.options});
 
-  /// Strings to be summarised
-  List<String> inputs;
+  /// The last input from the user in the conversation.
+  String text;
+
+  /// A list of strings corresponding to the earlier replies from the model.
+  List<String> generatedResponses;
+
+  /// A list of strings corresponding to the earlier replies from the user.
+  /// Should be of the same length of [generatedResponses].
+  List<String> pastUserInputs;
 
   /// (Default: None). Integer to define the minimum length in tokens of the output summary.
   int minLength = 0;
@@ -59,16 +68,18 @@ class ApiQueryNLPSummarisation {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiQueryNLPSummarisation && other.inputs == inputs;
+      other is ApiQueryNLPConversational && other.text == text;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (inputs.hashCode);
+      (text.hashCode);
 
   @override
-  String toString() =>
-      'ApiQueryNLPSummarisation - [Inputs=$inputs, Min length=${minLength == 0 ? 'none' : minLength}, '
+  String toString() => 'ApiQueryNLPConversational - [Text=$text, '
+      'Generated Responses=$generatedResponses, '
+      'PastUserInputs=$pastUserInputs, '
+      'Min length=${minLength == 0 ? 'none' : minLength}, '
       'Max length=${maxLength == 0 ? 'none' : maxLength}, '
       'Top K=${topK == 0 ? 'none' : topK},'
       'Top P=${topP == 0.0 ? 'none' : topP.toStringAsFixed(3)},'
@@ -79,7 +90,9 @@ class ApiQueryNLPSummarisation {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'inputs'] = inputs;
+    json[r'text'] = text;
+    json[r'generated_responses'] = generatedResponses;
+    json[r'past_user_inputs'] = pastUserInputs;
     final parameters = <String, dynamic>{};
     if (minLength != 0) {
       parameters[r'min_length'] = minLength;
@@ -109,10 +122,10 @@ class ApiQueryNLPSummarisation {
     return json;
   }
 
-  /// Returns a new [ApiQueryNLPSummarisation] instance and imports its values from
+  /// Returns a new [ApiQueryNLPConversational] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ApiQueryNLPSummarisation? fromJson(dynamic value) {
+  static ApiQueryNLPConversational? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -129,8 +142,12 @@ class ApiQueryNLPSummarisation {
         return true;
       }());
 
-      return ApiQueryNLPSummarisation(
-          inputs: mapValueOfType<List<String>>(json, r'inputs')!,
+      return ApiQueryNLPConversational(
+          text: mapValueOfType<String>(json, r'inputs')!,
+          generatedResponses:
+              mapValueOfType<List<String>>(json, r'generated_responses')!,
+          pastUserInputs:
+              mapValueOfType<List<String>>(json, r'past_user_inputs')!,
           minLength: mapValueOfTypeWithDefault<int>(json, r'min_value', 0)!,
           maxLength: mapValueOfTypeWithDefault<int>(json, r'max_value', 0)!,
           topK: mapValueOfTypeWithDefault<int>(json, r'top_k', 0)!,
@@ -146,14 +163,14 @@ class ApiQueryNLPSummarisation {
     return null;
   }
 
-  static List<ApiQueryNLPSummarisation> listFromJson(
+  static List<ApiQueryNLPConversational> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ApiQueryNLPSummarisation>[];
+    final result = <ApiQueryNLPConversational>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApiQueryNLPSummarisation.fromJson(row);
+        final value = ApiQueryNLPConversational.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -162,12 +179,12 @@ class ApiQueryNLPSummarisation {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ApiQueryNLPSummarisation> mapFromJson(dynamic json) {
-    final map = <String, ApiQueryNLPSummarisation>{};
+  static Map<String, ApiQueryNLPConversational> mapFromJson(dynamic json) {
+    final map = <String, ApiQueryNLPConversational>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApiQueryNLPSummarisation.fromJson(entry.value);
+        final value = ApiQueryNLPConversational.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -176,17 +193,17 @@ class ApiQueryNLPSummarisation {
     return map;
   }
 
-  // maps a json object with a list of ApiQueryNLPSummarisation-objects as value to a dart map
-  static Map<String, List<ApiQueryNLPSummarisation>> mapListFromJson(
+  // maps a json object with a list of ApiQueryNLPConversational-objects as value to a dart map
+  static Map<String, List<ApiQueryNLPConversational>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ApiQueryNLPSummarisation>>{};
+    final map = <String, List<ApiQueryNLPConversational>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApiQueryNLPSummarisation.listFromJson(
+        map[entry.key] = ApiQueryNLPConversational.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -197,6 +214,8 @@ class ApiQueryNLPSummarisation {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'inputs',
+    'text',
+    'generated_responses',
+    'past_user_inputs'
   };
 }
