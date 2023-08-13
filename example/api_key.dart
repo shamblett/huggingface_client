@@ -6,4 +6,4 @@
  */
 
 /// Your Hugging Face API key
-const apiKey = 'YOUR-API-KEY';
+const apiKey = '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';
