@@ -7,12 +7,19 @@
 
 part of huggingface_client;
 
+class Unsafe {
+  final String name;
+  const Unsafe(this.name);
+}
+
 ///
 /// Hugging Face client class.
 /// Provides a thin wrapper around the Open API implementation.
 ///
 class HuggingFaceClient {
   /// Get an Inference Endpoint API client with API Key authentication
+  @Unsafe(
+      'The inference endpoint API is not included in this client version, this may work but is untested - do not use')
   static EndpointApiClient getEndpointClient(
           String apiKey, String endpointScope, String basePath) =>
       EndpointApiClient(
