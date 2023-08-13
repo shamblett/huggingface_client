@@ -22,6 +22,7 @@ void main() async {
   //
   // Zero shot classification task
   //
+  // Note : may not work, see https://huggingface.co/facebook/bart-large-mnli/discussions/20
   print('');
   print('*** Zero Shot Classification Task ***');
   print('');
