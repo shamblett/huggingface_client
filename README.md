@@ -1,5 +1,5 @@
 # huggingface_client
-![Build Status](https://github.com/shamblett/huggingface_client/actions/workflows/ci.yml/badge.svg)](https://github.com/shamblett/huggingface_client/actions/workflows/ci.yml)
+[![Build Status](https://github.com/shamblett/huggingface_client/actions/workflows/ci.yml/badge.svg)](https://github.com/shamblett/huggingface_client/actions/workflows/ci.yml)
 
 A server and browser based [Hugging Face](https://huggingface.co/) REST API client for the inference and inference endpoint APIs.
 
