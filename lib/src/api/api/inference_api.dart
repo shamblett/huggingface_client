@@ -80,7 +80,7 @@ class InferenceApi {
   /// That’s the base task for BERT models.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -114,7 +114,7 @@ class InferenceApi {
   /// full books for instance. Be careful when choosing your model.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -146,7 +146,7 @@ class InferenceApi {
   /// Want to have a nice know-it-all bot that can answer any question?.
   ///
   /// [taskParameters]
-  /// Parameter set for the question answer operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -177,7 +177,7 @@ class InferenceApi {
   /// plain english!
   ///
   /// [taskParameters]
-  /// Parameter set for the question answer operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -212,7 +212,7 @@ class InferenceApi {
   /// by comparing their embeddings.
   ///
   /// [taskParameters]
-  /// Parameter set for the question answer operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -245,7 +245,7 @@ class InferenceApi {
   /// classes of an input.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -277,7 +277,7 @@ class InferenceApi {
   /// Use to continue text from a prompt. This is a very generic task.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -310,7 +310,7 @@ class InferenceApi {
   /// to understand keywords contained within text.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -343,7 +343,12 @@ class InferenceApi {
       Map<String, dynamic> taskParameters, String model) async {
     final path = '/$model';
     Object? postBody;
-    postBody = taskParameters;
+    if ((taskParameters.length == 1) &&
+        (taskParameters.containsKey('mediaFile'))) {
+      postBody = taskParameters[r'mediaFile'];
+    } else {
+      postBody = taskParameters;
+    }
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -369,7 +374,7 @@ class InferenceApi {
   /// This task is well known to translate text from one language to another.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -402,7 +407,7 @@ class InferenceApi {
   /// sentence/paragraph and the possible labels for that sentence, and you get a result.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -437,7 +442,7 @@ class InferenceApi {
   /// if you need long range dependency or not.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -472,7 +477,7 @@ class InferenceApi {
   /// part of a semantic database/semantic search.
   ///
   /// [taskParameters]
-  /// Parameter set for the fill mask operation
+  /// Parameter set for the task
   ///
   /// [model
   /// The model to use for the task
@@ -495,6 +500,39 @@ class InferenceApi {
         (await apiClient.deserializeAsync(
             responseBody, 'List<QueryNLPFeatureExtractionTask>'))
       ];
+    }
+    return null;
+  }
+
+  ///
+  /// queryAudioASR
+  ///
+  /// Audio query for the automatic speech recognition task.
+  /// This task reads some audio input and outputs the said words within
+  /// the audio files.
+  ///
+  /// [taskParameters]
+  /// Parameter set for the task
+  ///
+  /// [model
+  /// The model to use for the task
+  ///
+  Future<ApiResponseAudioASR?> queryAudioASR(
+      {required Uint8List audioFile, required String model}) async {
+    final taskParameters = {'mediaFile': audioFile};
+    final response = await _withHttpInfo(taskParameters, model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(
+          responseBody, 'List<QueryAudioASRTask>'));
     }
     return null;
   }

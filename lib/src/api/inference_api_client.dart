@@ -264,6 +264,8 @@ class InferenceApiClient {
           return ApiResponseNLPConversational.fromJson(value);
         case 'List<QueryNLPFFeatureExtractionTask>':
           return ApiResponseNLPFeatureExtraction.fromJson(value);
+        case 'List<QueryAudioASRTask>':
+          return ApiResponseAudioASR.fromJson(value);
         default:
           dynamic match;
           if (value is List &&
