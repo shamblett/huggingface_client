@@ -75,8 +75,8 @@ class InferenceApiClient {
         return Response.fromStream(response);
       }
 
-      final msgBody = contentType == 'application/x-www-form-urlencoded'
-          ? formParams
+      final msgBody = contentType == 'application/octet-stream'
+          ? body
           : await serializeAsync(body);
       final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
 

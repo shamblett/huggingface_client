@@ -31,13 +31,19 @@ void main() async {
       'audio${Platform.pathSeparator}test${Platform.pathSeparator}asr.mp3';
   final audioFile = File(audioFilePath);
   final audioFileContents = audioFile.readAsBytesSync();
+  audioFileContents.buffer.asByteData();
   print('');
   print('*** Inference API Audio ASR task ***');
   print('');
   try {
     final result = await apiInstance.queryAudioASR(
         audioFile: audioFileContents, model: 'facebook/wav2vec2-base-960h');
+    print('Inference Result');
     print(result?.text);
+    print('');
+    print('Actual audio text');
+    print(
+        'My dear Fanny, you feel these things a great deal too much. I am most happy that you like the chain');
   } catch (e) {
     print('Exception when calling Inference API standard query: $e - exiting');
     return;

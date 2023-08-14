@@ -342,19 +342,20 @@ class InferenceApi {
   Future<Response> _withHttpInfo(
       Map<String, dynamic> taskParameters, String model) async {
     final path = '/$model';
+
+    final headerParams = <String, String>{};
+    final contentTypes = <String>[];
+    final queryParams = <QueryParam>[];
+    final formParams = <String, String>{};
+
     Object? postBody;
     if ((taskParameters.length == 1) &&
         (taskParameters.containsKey('mediaFile'))) {
       postBody = taskParameters[r'mediaFile'];
+      contentTypes.add('application/octet-stream');
     } else {
       postBody = taskParameters;
     }
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
