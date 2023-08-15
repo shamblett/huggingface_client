@@ -272,6 +272,8 @@ class InferenceApiClient {
           return ApiResponseVisionImageClassification.listFromJson(value);
         case 'List<QueryVisionObjectDetectionTask>':
           return ApiResponseVisionObjectDetection.listFromJson(value);
+        case 'List<QueryVisionImageSegmentationTask>':
+          return ApiResponseVisionImageSegmentation.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&

@@ -49,6 +49,7 @@ part 'src/api/model/api_response_audio_asr.dart';
 part 'src/api/model/api_response_audio_classification.dart';
 part 'src/api/model/api_response_vision_image_classification.dart';
 part 'src/api/model/api_response_vision_object_detection.dart';
+part 'src/api/model/api_response_vision_image_segmentation.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
