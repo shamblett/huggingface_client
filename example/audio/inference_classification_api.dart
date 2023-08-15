@@ -39,7 +39,6 @@ void main() async {
   try {
     final result = await apiInstance.queryAudioClassification(
         audioFile: audioFileContents, model: 'superb/hubert-large-superb-er');
-    print('Inference Result');
     if (result!.isNotEmpty) {
       for (final row in result) {
         print(row);
