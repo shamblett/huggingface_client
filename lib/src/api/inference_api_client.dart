@@ -270,6 +270,8 @@ class InferenceApiClient {
           return ApiResponseAudioClassification.listFromJson(value);
         case 'List<QueryVisionImageClassificationTask>':
           return ApiResponseVisionImageClassification.listFromJson(value);
+        case 'List<QueryVisionObjectDetectionTask>':
+          return ApiResponseVisionObjectDetection.listFromJson(value);
         default:
           dynamic match;
           if (value is List &&
