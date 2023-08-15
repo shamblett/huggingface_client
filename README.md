@@ -4,7 +4,7 @@
 A server and browser based [Hugging Face](https://huggingface.co/) REST API client for the inference and inference endpoint APIs.
 
 The client supports standard query based inference and inference tasks for Natural Language Processing(NLP),
-Audio and Video. It also supports the inference endpoint API for creation and control of inference endpoints.
+Audio and Vision. It also supports the inference endpoint API for creation and control of inference endpoints.
 
 The bindings for the inference endpoint API are generated from the [Hugging Face Inference Endpoint OpenApi specification](lib/src/openapi/spec/openapi.json)
 using the [OpenAPI Generator](https://openapi-generator.tech) project.
@@ -22,8 +22,8 @@ instructions on how to obtain this.
 
 Client functionality will be added across several version releases, see below :-
 
-Version 1.0.0(this one) contains inference query and NLP inference task queries.
+Version 1.0.0 contains inference query and NLP inference task queries.
 
-Version 1.1.0 will add Audio and Video inference task queries.
+Version 1.1.0(this one) adds Audio and Vision inference task queries.
 
 Version 1.2.0 will add the inference endpoint API.

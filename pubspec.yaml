@@ -1,5 +1,5 @@
 name: 'huggingface_client'
-version: '1.0.0'
+version: '1.1.0'
 description: 'A server and browser based Hugging Face inference and inference endpoint API REST client'
 repository: https://github.com/shamblett/huggingface_client
 homepage: https://github.com/shamblett/huggingface_client
