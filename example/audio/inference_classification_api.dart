@@ -22,31 +22,34 @@ void main() async {
   final apiInstance = InferenceApi(client);
 
   //
-  // Inference Audio ASR task
+  // Inference Audio Classification task
   //
 
   // Assumes you are running the example from the project root i.e
-  // 'dart example/audio/inference_asr_api.dart'
+  // 'dart example/audio/inference_classification_api.dart'
   final audioFilePath =
       '${Directory.current.path}${Platform.pathSeparator}example${Platform.pathSeparator}'
-      'audio${Platform.pathSeparator}test${Platform.pathSeparator}asr.mp3';
+      'audio${Platform.pathSeparator}test${Platform.pathSeparator}ac.wav';
   final audioFile = File(audioFilePath);
   final audioFileContents = audioFile.readAsBytesSync();
   audioFileContents.buffer.asByteData();
   print('');
-  print('*** Inference API Audio ASR task ***');
+  print('*** Inference API Audio Classification task ***');
   print('');
   try {
-    final result = await apiInstance.queryAudioASR(
-        audioFile: audioFileContents, model: 'facebook/wav2vec2-base-960h');
+    final result = await apiInstance.queryAudioClassification(
+        audioFile: audioFileContents, model: 'superb/hubert-large-superb-er');
     print('Inference Result');
-    print(result?.text);
-    print('');
-    print('Actual audio text');
-    print(
-        'My dear Fanny, you feel these things a great deal too much. I am most happy that you like the chain');
+    if (result!.isNotEmpty) {
+      for (final row in result) {
+        print(row);
+      }
+    } else {
+      print('Inference Audio Classification result is empty');
+    }
   } catch (e) {
-    print('Exception when calling Audio Inference ASR API : $e - exiting');
+    print(
+        'Exception when calling Audio Inference Classification API : $e - exiting');
     return;
   }
 
