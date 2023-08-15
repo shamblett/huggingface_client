@@ -33,9 +33,8 @@ class ApiResponseVisionImageSegmentation {
       (label.hashCode);
 
   @override
-  String toString() =>
-      'ApiResponseVisionImageSegmentation - [Label=$label, '
-          'Score=${score.toStringAsFixed(3)}, Mask=${mask.substring(0, 20)}...]';
+  String toString() => 'ApiResponseVisionImageSegmentation - [Label=$label, '
+      'Score=${score.toStringAsFixed(3)}, Mask=${mask.substring(0, 20)}...]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
