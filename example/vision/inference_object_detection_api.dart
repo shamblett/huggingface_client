@@ -29,7 +29,7 @@ void main() async {
   // 'dart example/vision/inference_object_detection_api.dart'
   final imageFilePath =
       '${Directory.current.path}${Platform.pathSeparator}example${Platform.pathSeparator}'
-      'vision${Platform.pathSeparator}test${Platform.pathSeparator}flower.jpg';
+      'vision${Platform.pathSeparator}test${Platform.pathSeparator}predict-dog.png';
   final imageFile = File(imageFilePath);
   final imageFileContents = imageFile.readAsBytesSync();
   imageFileContents.buffer.asByteData();
