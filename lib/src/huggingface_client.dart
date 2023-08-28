@@ -18,11 +18,12 @@ class Unsafe {
 ///
 class HuggingFaceClient {
   /// Get an Inference Endpoint API client with API Key authentication
-  @Unsafe(
-      'The inference endpoint API is not included in this client version, this may work but is untested - do not use')
-  static EndpointApiClient getEndpointClient(
+  /// [endpointScope] is either your user name or one of your organization name
+  /// [basePath] should be set to your created endpoint e.g from the Hugging Face
+  /// docs 'https://uu149rez6gw9ehej.eu-west-1.aws.endpoints.huggingface.cloud/distilbert-sentiment'
+  static ApiClient getEndpointClient(
           String apiKey, String endpointScope, String basePath) =>
-      EndpointApiClient(
+      ApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
             ..apiKey = apiKey,
           endpointScope: endpointScope,
