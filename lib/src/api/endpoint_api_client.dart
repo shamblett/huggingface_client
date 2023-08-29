@@ -10,6 +10,13 @@ part of huggingface_client;
 ///
 /// The Inference endpoint API client just extends the Open API client
 ///
-class EndpointApi extends V2endpointApi {
-  EndpointApi([apiClient]) : super(apiClient);
+class EndpointApiClient extends ApiClient {
+  EndpointApiClient(
+      {String basePath = 'http://localhost',
+      Authentication? authentication,
+      required String endpointScope})
+      : super(
+            basePath: basePath,
+            authentication: authentication,
+            endpointScope: endpointScope);
 }

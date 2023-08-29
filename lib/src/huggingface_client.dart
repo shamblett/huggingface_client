@@ -21,9 +21,9 @@ class HuggingFaceClient {
   /// [endpointScope] is either your user name or one of your organization name
   /// [basePath] should be set to your created endpoint e.g from the Hugging Face
   /// docs 'https://uu149rez6gw9ehej.eu-west-1.aws.endpoints.huggingface.cloud/distilbert-sentiment'
-  static ApiClient getEndpointClient(
+  static EndpointApiClient getEndpointClient(
           String apiKey, String endpointScope, String basePath) =>
-      ApiClient(
+      EndpointApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
             ..apiKey = apiKey,
           endpointScope: endpointScope,

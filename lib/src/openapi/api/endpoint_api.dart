@@ -5,5 +5,8 @@
  * Copyright :  S.Hamblett
  */
 
-/// Your Hugging Face API key
-const apiKey = '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';
+part of huggingface_client;
+
+class EndpointApi extends V2endpointApi {
+  EndpointApi(EndpointApiClient? apiClient) : super(apiClient);
+}
