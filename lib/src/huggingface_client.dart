@@ -17,10 +17,9 @@ class Unsafe {
 /// Provides a thin wrapper around the Open API implementation.
 ///
 class HuggingFaceClient {
-  /// Get an Inference Endpoint API client with API Key authentication
-  /// [endpointScope] is either your user name or one of your organization name
-  /// [basePath] should be set to your created endpoint e.g from the Hugging Face
-  /// docs 'https://uu149rez6gw9ehej.eu-west-1.aws.endpoints.huggingface.cloud/distilbert-sentiment'
+  /// Get an Inference Endpoint API client with API Key authentication.
+  /// [endpointScope] is either your user name or one of your organization name.
+  /// [basePath] the API base path i.e. [endpointBasePath]
   static EndpointApiClient getEndpointClient(
           String apiKey, String endpointScope, String basePath) =>
       EndpointApiClient(
@@ -29,7 +28,8 @@ class HuggingFaceClient {
           endpointScope: endpointScope,
           basePath: basePath);
 
-  /// Get an Inference API client with API Key authentication
+  /// Get an Inference API client with API Key authentication.
+  /// [basePath] the API base path i.e. [inferenceBasePath]
   static InferenceApiClient getInferenceClient(
           String apiKey, String basePath) =>
       InferenceApiClient(
@@ -40,4 +40,6 @@ class HuggingFaceClient {
 
   static String inferenceBasePath =
       'https://api-inference.huggingface.co/models';
+  static String endpointBasePath =
+      'https://api.endpoints.huggingface.cloud';
 }

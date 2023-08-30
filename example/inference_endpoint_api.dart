@@ -13,22 +13,23 @@ import 'api_key.dart';
 
 void main() async {
   // Get an inference endpoint API client with your Hugging Face API key as authentication.
-  final client = HuggingFaceClient.getEndpointClient(apiKey, 'shamblett',
-      'https://uu149rez6gw9ehej.eu-west-1.aws.endpoints.huggingface.cloud/distilbert-sentiment');
+  final client = HuggingFaceClient.getEndpointClient(
+      apiKey, 'shamblett', HuggingFaceClient.endpointBasePath);
 
-  // Get an instance of the inference API using our client
+  // Get an instance of the inference endpoint API using our client
   final apiInstance = EndpointApi(client);
 
   //
-  // Standard no task based inference query using the gpt2 model
+  // List enpoints
   //
   print('');
-  print('*** Inference API standard query ***');
+  print('*** Endpoint API list endpoints ***');
   print('');
   try {
-    await apiInstance.listEndpoint();
+    final result = await apiInstance.listEndpoint();
+    print(result);
   } catch (e) {
-    print('Exception when calling Inference API standard query: $e - exiting');
+    print('Exception when calling Endpoint API List Endpoints: $e - exiting');
     return;
   }
 
