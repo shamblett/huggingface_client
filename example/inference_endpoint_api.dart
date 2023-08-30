@@ -20,7 +20,7 @@ void main() async {
   final apiInstance = EndpointApi(client);
 
   //
-  // List enpoints
+  // List endpoints
   //
   print('');
   print('*** Endpoint API list endpoints ***');
