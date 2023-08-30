@@ -27,7 +27,7 @@ class V2endpointApi {
   ///   Either your user name or one of your organization name
   ///
   /// * [Endpoint] endpoint (required):
-  Future<Response> createEndpointWithHttpInfo(
+  Future<Response> _createEndpointWithHttpInfo(
     String endpointScope,
     Endpoint endpoint,
   ) async {
@@ -65,7 +65,7 @@ class V2endpointApi {
   Future<EndpointWithStatus?> createEndpoint(
     Endpoint endpoint,
   ) async {
-    final response = await createEndpointWithHttpInfo(
+    final response = await _createEndpointWithHttpInfo(
       apiClient.endpointScope,
       endpoint,
     );
@@ -98,7 +98,7 @@ class V2endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> deleteEndpointWithHttpInfo(
+  Future<Response> _deleteEndpointWithHttpInfo(
     endpointScope,
     String name,
   ) async {
@@ -139,7 +139,7 @@ class V2endpointApi {
   Future<Object?> deleteEndpoint(
     String name,
   ) async {
-    final response = await deleteEndpointWithHttpInfo(
+    final response = await _deleteEndpointWithHttpInfo(
       apiClient.endpointScope,
       name,
     );
@@ -172,7 +172,7 @@ class V2endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> getEndpointWithHttpInfo(
+  Future<Response> _getEndpointWithHttpInfo(
     endpointScope,
     String name,
   ) async {
@@ -212,7 +212,7 @@ class V2endpointApi {
   Future<EndpointWithStatus?> getEndpoint(
     String name,
   ) async {
-    final response = await getEndpointWithHttpInfo(
+    final response = await _getEndpointWithHttpInfo(
       apiClient.endpointScope,
       name,
     );
@@ -254,7 +254,7 @@ class V2endpointApi {
   ///
   /// * [int] tail:
   ///   Tail at most this number of lines
-  Future<Response> getEndpointLogsWithHttpInfo(
+  Future<Response> _getEndpointLogsWithHttpInfo(
     endpointScope,
     String name, {
     int? from,
@@ -319,7 +319,7 @@ class V2endpointApi {
     int? to,
     int? tail,
   }) async {
-    final response = await getEndpointLogsWithHttpInfo(
+    final response = await _getEndpointLogsWithHttpInfo(
       apiClient.endpointScope,
       name,
       from: from,
@@ -358,7 +358,7 @@ class V2endpointApi {
   ///
   /// * [String] metric (required):
   ///   Metrics name
-  Future<Response> getEndpointMetricWithHttpInfo(
+  Future<Response> _getEndpointMetricWithHttpInfo(
     endpointScope,
     String name,
     String metric,
@@ -404,7 +404,7 @@ class V2endpointApi {
     String name,
     String metric,
   ) async {
-    final response = await getEndpointMetricWithHttpInfo(
+    final response = await _getEndpointMetricWithHttpInfo(
       apiClient.endpointScope,
       name,
       metric,
@@ -424,7 +424,7 @@ class V2endpointApi {
   ///
   /// *[endpointScope] (required):
   ///   Either your user name or one of your organization name
-  Future<Response> listEndpointWithHttpInfo(
+  Future<Response> _listEndpointWithHttpInfo(
     endpointScope,
   ) async {
     // ignore: prefer_const_declarations
@@ -456,7 +456,7 @@ class V2endpointApi {
   /// List endpoints
   ///
   Future<EndpointWithStatusList?> listEndpoint() async {
-    final response = await listEndpointWithHttpInfo(
+    final response = await _listEndpointWithHttpInfo(
       apiClient.endpointScope,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -488,7 +488,7 @@ class V2endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> pauseEndpointWithHttpInfo(
+  Future<Response> _pauseEndpointWithHttpInfo(
     endpointScope,
     String name,
   ) async {
@@ -528,7 +528,7 @@ class V2endpointApi {
   Future<EndpointWithStatus?> pauseEndpoint(
     String name,
   ) async {
-    final response = await pauseEndpointWithHttpInfo(
+    final response = await _pauseEndpointWithHttpInfo(
       apiClient.endpointScope,
       name,
     );
@@ -561,7 +561,7 @@ class V2endpointApi {
   ///
   /// * [String] name (required):
   ///   Endpoint name
-  Future<Response> resumeEndpointWithHttpInfo(
+  Future<Response> _resumeEndpointWithHttpInfo(
     endpointScope,
     String name,
   ) async {
@@ -601,7 +601,7 @@ class V2endpointApi {
   Future<EndpointWithStatus?> resumeEndpoint(
     String name,
   ) async {
-    final response = await resumeEndpointWithHttpInfo(
+    final response = await _resumeEndpointWithHttpInfo(
       apiClient.endpointScope,
       name,
     );
@@ -636,7 +636,7 @@ class V2endpointApi {
   ///   Endpoint name
   ///
   /// * [EndpointUpdate] endpointUpdate (required):
-  Future<Response> updateEndpointWithHttpInfo(
+  Future<Response> _updateEndpointWithHttpInfo(
     endpointScope,
     String name,
     EndpointUpdate endpointUpdate,
@@ -680,7 +680,7 @@ class V2endpointApi {
     String name,
     EndpointUpdate endpointUpdate,
   ) async {
-    final response = await updateEndpointWithHttpInfo(
+    final response = await _updateEndpointWithHttpInfo(
       apiClient.endpointScope,
       name,
       endpointUpdate,
