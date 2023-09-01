@@ -33,5 +33,36 @@ void main() async {
     return;
   }
 
+  //
+  // Create an endpoint
+  //
+  print('');
+  print('*** Endpoint API create endpoint ***');
+  print('');
+  try {
+    final compute = EndpointCompute(
+        accelerator: EndpointAccelerator.cpu,
+        instanceSize: 'small',
+        instanceType: 'c6i',
+        scaling: EndpointScaling(maxReplica: 8, minReplica: 2));
+    final endpointModelImage = EndpointModelImage(
+        huggingface: Object(), custom: EndpointModelImageOneOf1Custom(url: ''));
+    final model = EndpointModel(
+        framework: EndpointFramework.custom,
+        image: endpointModelImage,
+        repository: 'gpt2');
+    final endpoint = Endpoint(
+        compute: compute,
+        model: model,
+        name: 'SJH Test',
+        provider: EndpointProvider(region: 'us-east-1', vendor: 'aws'),
+        type: EndpointType.private);
+    final result = await apiInstance.createEndpoint(endpoint);
+    print(result);
+  } catch (e) {
+    print('Exception when calling Endpoint API Create Endpoint: $e - exiting');
+    return;
+  }
+
   return;
 }
