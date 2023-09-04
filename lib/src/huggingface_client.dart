@@ -28,6 +28,17 @@ class HuggingFaceClient {
           endpointScope: endpointScope,
           basePath: basePath);
 
+  /// Get an Inference Endpoint Provider API client with API Key authentication.
+  /// [endpointScope] is either your user name or one of your organization name.
+  /// [basePath] the API base path i.e. [endpointBasePath]
+  static EndpointProviderApiClient getEndpointProviderClient(
+          String apiKey, String endpointScope, String basePath) =>
+      EndpointProviderApiClient(
+          authentication: ApiKeyAuth('header', 'Authorization')
+            ..apiKey = apiKey,
+          endpointScope: endpointScope,
+          basePath: basePath);
+
   /// Get an Inference API client with API Key authentication.
   /// [basePath] the API base path i.e. [inferenceBasePath]
   static InferenceApiClient getInferenceClient(
@@ -40,6 +51,5 @@ class HuggingFaceClient {
 
   static String inferenceBasePath =
       'https://api-inference.huggingface.co/models';
-  static String endpointBasePath =
-      'https://api.endpoints.huggingface.cloud';
+  static String endpointBasePath = 'https://api.endpoints.huggingface.cloud';
 }

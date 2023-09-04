@@ -8,8 +8,8 @@
 part of huggingface_client;
 
 ///
-/// The inference endpoint API
+/// The inference endpoint provider API
 ///
-class EndpointApi extends V2endpointApi {
-  EndpointApi(EndpointApiClient? apiClient) : super(apiClient);
+class EndpointProviderApi extends V2providerApi {
+  EndpointProviderApi(EndpointProviderApiClient? apiClient) : super(apiClient);
 }
