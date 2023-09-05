@@ -66,11 +66,11 @@ class Endpoint {
     } else {
       json[r'accountId'] = null;
     }
-    json[r'compute'] = compute;
-    json[r'model'] = model;
+    json[r'compute'] = compute.toJson();
+    json[r'model'] = model.toJson();
     json[r'name'] = name;
-    json[r'provider'] = provider;
-    json[r'type'] = type;
+    json[r'provider'] = provider.toJson();
+    json[r'type'] = type.toJson();
     return json;
   }
 

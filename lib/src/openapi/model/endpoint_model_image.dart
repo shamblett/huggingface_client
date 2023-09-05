@@ -39,8 +39,8 @@ class EndpointModelImage {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'huggingface'] = huggingface;
-    json[r'custom'] = custom;
+    json[r'huggingface'] = {};
+    json[r'custom'] = custom.toJson();
     return json;
   }
 

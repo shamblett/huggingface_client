@@ -33,7 +33,6 @@ void main() async {
     return;
   }
 
-  return;
 
   //
   // Create an endpoint
@@ -80,6 +79,8 @@ void main() async {
     print('Exception when calling Endpoint API List Endpoints: $e - exiting');
     return;
   }
+
+  return;
 
   //
   // Get endpoint information

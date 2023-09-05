@@ -32,6 +32,10 @@ class HuggingFaceClient {
   /// Get an Inference Endpoint Provider API client with API Key authentication.
   /// [endpointScope] is either your user name or one of your organization name.
   /// [basePath] the API base path i.e. [endpointBasePath]
+  ///
+  /// Note: according to the API spec for this call endpoint scope and authorization
+  /// are not needed, however it does no harm to include them and it keeps the interface
+  /// consistent across clients.
   static EndpointProviderApiClient getEndpointProviderClient(
           String apiKey, String endpointScope, String basePath) =>
       EndpointProviderApiClient(

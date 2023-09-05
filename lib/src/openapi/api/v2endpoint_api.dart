@@ -36,7 +36,7 @@ class V2endpointApi {
         r'/v2/endpoint/{namespace}'.replaceAll('{namespace}', endpointScope);
 
     // ignore: prefer_final_locals
-    Object? postBody = endpoint;
+    Object? postBody = endpoint.toJson();
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
