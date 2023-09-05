@@ -14,10 +14,26 @@ import 'api_key.dart';
 void main() async {
   // Get an inference endpoint API client with your Hugging Face API key as authentication.
   final client = HuggingFaceClient.getEndpointClient(
-      apiKey, 'shamblett', HuggingFaceClient.endpointBasePath);
+      endpointApiKey, 'shamblett', HuggingFaceClient.endpointBasePath);
 
   // Get an instance of the inference endpoint API using our client
   final apiInstance = EndpointApi(client);
+
+  //
+  // List endpoints
+  //
+  print('');
+  print('*** Endpoint API list endpoints ***');
+  print('');
+  try {
+    final result = await apiInstance.listEndpoint();
+    print(result);
+  } catch (e) {
+    print('Exception when calling Endpoint API List Endpoints: $e - exiting');
+    return;
+  }
+
+  return;
 
   //
   // Create an endpoint

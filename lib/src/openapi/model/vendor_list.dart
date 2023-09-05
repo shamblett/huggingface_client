@@ -57,7 +57,7 @@ class VendorList {
       }());
 
       return VendorList(
-        items: Vendor.listFromJson(json[r'items']),
+        items: Vendor.listFromJson(json[r'vendors']),
       );
     }
     return null;
@@ -114,6 +114,6 @@ class VendorList {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'items',
+    'vendors',
   };
 }

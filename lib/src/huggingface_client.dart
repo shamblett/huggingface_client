@@ -24,7 +24,8 @@ class HuggingFaceClient {
           String apiKey, String endpointScope, String basePath) =>
       EndpointApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
-            ..apiKey = apiKey,
+            ..apiKey = apiKey
+            ..apiKeyPrefix = 'Bearer',
           endpointScope: endpointScope,
           basePath: basePath);
 
@@ -35,7 +36,8 @@ class HuggingFaceClient {
           String apiKey, String endpointScope, String basePath) =>
       EndpointProviderApiClient(
           authentication: ApiKeyAuth('header', 'Authorization')
-            ..apiKey = apiKey,
+            ..apiKey = apiKey
+            ..apiKeyPrefix = 'Bearer',
           endpointScope: endpointScope,
           basePath: basePath);
 
