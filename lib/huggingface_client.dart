@@ -11,9 +11,10 @@ import 'dart:io' if (dart.library.html) 'dart:html';
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:http/http.dart';
 import 'package:huggingface_client/src/openapi/api.dart';
 export 'package:huggingface_client/src/openapi/api.dart';
+import 'package:huggingface_client/src/http/http.dart';
+export 'package:huggingface_client/src/http/http.dart';
 
 part 'src/huggingface_client.dart';
 part 'src/api/endpoint_api_client.dart';
