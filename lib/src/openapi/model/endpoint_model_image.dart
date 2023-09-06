@@ -13,13 +13,13 @@ class EndpointModelImage {
   /// Returns a new [EndpointModelImage] instance.
   EndpointModelImage({
     required this.huggingface,
-    required this.custom,
+    this.custom,
   });
 
   /// Model served by an Hugging Face container
   Object huggingface;
 
-  EndpointModelImageOneOf1Custom custom;
+  EndpointModelImageOneOf1Custom? custom;
 
   @override
   bool operator ==(Object other) =>
@@ -40,7 +40,9 @@ class EndpointModelImage {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'huggingface'] = {};
-    json[r'custom'] = custom.toJson();
+    if (custom != null) {
+      json[r'custom'] = custom?.toJson();
+    }
     return json;
   }
 

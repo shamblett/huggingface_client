@@ -33,7 +33,6 @@ void main() async {
     return;
   }
 
-
   //
   // Create an endpoint
   //
@@ -43,22 +42,22 @@ void main() async {
   try {
     final compute = EndpointCompute(
         accelerator: EndpointAccelerator.cpu,
-        instanceSize: 'small',
+        instanceSize: 'large',
         instanceType: 'c6i',
         scaling: EndpointScaling(maxReplica: 8, minReplica: 2));
-    final endpointModelImage = EndpointModelImage(
-        huggingface: Object(), custom: EndpointModelImageOneOf1Custom(url: ''));
+    final endpointModelImage = EndpointModelImage(huggingface: Object());
     final model = EndpointModel(
         framework: EndpointFramework.custom,
         image: endpointModelImage,
         repository: 'gpt2',
-        revision: 'REV 1');
+        revision: 'REV 1',
+        task: EndpointTask.textClassification);
     final endpoint = Endpoint(
         compute: compute,
         model: model,
-        name: 'SJH Test',
+        name: 'SJH-Test',
         provider: EndpointProvider(region: 'us-east-1', vendor: 'aws'),
-        type: EndpointType.protected);
+        type: EndpointType.public);
     final result = await apiInstance.createEndpoint(endpoint);
     print(result);
   } catch (e) {
