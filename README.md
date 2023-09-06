@@ -18,12 +18,4 @@ See the [examples.md](example/example.md) document in the examples folder for us
 A Hugging Face API key is needed for authentication, see [here](https://huggingface.co/docs/api-inference/quicktour) for
 instructions on how to obtain this.
 
-# Road Map
-
-Client functionality will be added across several version releases, see below :-
-
-Version 1.0.0 contains inference query and NLP inference task queries.
-
-Version 1.1.0(this one) adds Audio and Vision inference task queries.
-
-Version 1.2.0 will add the inference endpoint API.
+/// TODO add how to use inference endpoints with inference queries ///
