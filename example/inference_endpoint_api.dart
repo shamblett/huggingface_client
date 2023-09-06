@@ -12,18 +12,26 @@ import 'api_key.dart';
 /// inference endpoint tasks.
 
 void main() async {
+  // Client [parameters
+  const userName = 'shamblett';
   // Get an inference endpoint API client with your Hugging Face API key as authentication.
   final client = HuggingFaceClient.getEndpointClient(
-      endpointApiKey, 'shamblett', HuggingFaceClient.endpointBasePath);
+      endpointApiKey, userName, HuggingFaceClient.endpointBasePath);
 
   // Get an instance of the inference endpoint API using our client
   final apiInstance = EndpointApi(client);
+
+  // Endpoint parameters
+  const endpointName = 'client-test-endpoint';
+  const revision =
+      '11c5a3d5811f50298f278a704980280950aedb10'; // Will change from model to model
+  const repository = 'gpt2';
 
   //
   // List endpoints
   //
   print('');
-  print('*** Endpoint API list endpoints ***');
+  print('*** Endpoint API list endpoints initially ***');
   print('');
   try {
     final result = await apiInstance.listEndpoint();
@@ -49,13 +57,14 @@ void main() async {
     final model = EndpointModel(
         framework: EndpointFramework.custom,
         image: endpointModelImage,
-        repository: 'gpt2',
-        revision: 'REV 1',
+        repository: repository,
+        revision: revision,
         task: EndpointTask.textClassification);
     final endpoint = Endpoint(
         compute: compute,
         model: model,
-        name: 'SJH-Test',
+        name:
+            endpointName, //  lowercase alphanumeric characters or '-' and have a length of 32 characters
         provider: EndpointProvider(region: 'us-east-1', vendor: 'aws'),
         type: EndpointType.public);
     final result = await apiInstance.createEndpoint(endpoint);
@@ -69,7 +78,7 @@ void main() async {
   // List endpoints
   //
   print('');
-  print('*** Endpoint API list endpoints ***');
+  print('*** Endpoint API list endpoints post create ***');
   print('');
   try {
     final result = await apiInstance.listEndpoint();
@@ -79,8 +88,6 @@ void main() async {
     return;
   }
 
-  return;
-
   //
   // Get endpoint information
   //
@@ -88,7 +95,7 @@ void main() async {
   print('*** Endpoint API get endpoint information ***');
   print('');
   try {
-    final result = await apiInstance.getEndpoint('SJH Test');
+    final result = await apiInstance.getEndpoint(endpointName);
     print(result);
   } catch (e) {
     print(
@@ -103,10 +110,11 @@ void main() async {
   print('*** Endpoint API update endpoint ***');
   print('');
   try {
-    final compute = EndpointComputeUpdate(instanceType: 'c5i');
-    final model = EndpointModelUpdate(revision: 'REV 2');
+    final compute =
+        EndpointComputeUpdate(instanceType: 'c6i', instanceSize: 'small');
+    final model = EndpointModelUpdate(revision: revision);
     final endpoint = EndpointUpdate(compute: compute, model: model);
-    final result = await apiInstance.updateEndpoint('SJH Test', endpoint);
+    final result = await apiInstance.updateEndpoint(endpointName, endpoint);
     print(result);
   } catch (e) {
     print('Exception when calling Endpoint API Update Endpoint: $e - exiting');
@@ -120,7 +128,7 @@ void main() async {
   print('*** Endpoint API get endpoint logs ***');
   print('');
   try {
-    final result = await apiInstance.getEndpointLogs('SJH Test', tail: 20);
+    final result = await apiInstance.getEndpointLogs(endpointName, tail: 20);
     print(result);
   } catch (e) {
     print(
@@ -135,7 +143,7 @@ void main() async {
   print('*** Endpoint API get endpoint metric ***');
   print('');
   try {
-    await apiInstance.getEndpointMetric('SJH Test', 'request-count');
+    await apiInstance.getEndpointMetric(endpointName, 'request-count');
     print('Endpoint aggregated metrics returned successfully');
   } catch (e) {
     print(
@@ -150,7 +158,7 @@ void main() async {
   print('*** Endpoint API pause endpoint ***');
   print('');
   try {
-    final result = await apiInstance.pauseEndpoint('SJH Test');
+    final result = await apiInstance.pauseEndpoint(endpointName);
     print(result);
   } catch (e) {
     print('Exception when calling Endpoint API Pause Endpoint: $e - exiting');
@@ -164,7 +172,7 @@ void main() async {
   print('*** Endpoint API resume endpoint ***');
   print('');
   try {
-    final result = await apiInstance.resumeEndpoint('SJH Test');
+    final result = await apiInstance.resumeEndpoint(endpointName);
     print(result);
   } catch (e) {
     print('Exception when calling Endpoint API Resume Endpoint: $e - exiting');
@@ -193,7 +201,7 @@ void main() async {
   print('*** Endpoint API delete endpoint ***');
   print('');
   try {
-    await apiInstance.deleteEndpoint('SJH Test');
+    await apiInstance.deleteEndpoint(endpointName);
     print('Endpoint deleted successfully');
   } catch (e) {
     print('Exception when calling Endpoint API Delete Endpoint : $e - exiting');

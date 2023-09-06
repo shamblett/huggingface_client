@@ -68,7 +68,7 @@ class EndpointModelImage {
 
       return EndpointModelImage(
         huggingface: mapValueOfType<Object>(json, r'huggingface')!,
-        custom: EndpointModelImageOneOf1Custom.fromJson(json[r'custom'])!,
+        custom: EndpointModelImageOneOf1Custom.fromJson(json[r'custom']),
       );
     }
     return null;
@@ -124,8 +124,5 @@ class EndpointModelImage {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-    'huggingface',
-    'custom',
-  };
+  static const requiredKeys = <String>{'huggingface'};
 }
