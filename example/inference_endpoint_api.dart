@@ -22,7 +22,7 @@ void main() async {
   final apiInstance = EndpointApi(client);
 
   // Endpoint parameters
-  const endpointName = 'client-test-endpoint';
+  const endpointName = 'client-test';
   const revision =
       '11c5a3d5811f50298f278a704980280950aedb10'; // Will change from model to model
   const repository = 'gpt2';
@@ -75,7 +75,9 @@ void main() async {
   }
 
   //
-  // List endpoints
+  // List endpoints.
+  // Note that the 'url' parameter of the endpoint status field is only populated when the
+  // endpoint is 'running', not while it is 'initialising';
   //
   print('');
   print('*** Endpoint API list endpoints post create ***');
@@ -129,7 +131,7 @@ void main() async {
   print('');
   try {
     final result = await apiInstance.getEndpointLogs(endpointName, tail: 20);
-    print(result);
+    print('${result?.substring(0, 100)}....');
   } catch (e) {
     print(
         'Exception when calling Endpoint API Get Endpoint Logs: $e - exiting');
@@ -139,6 +141,8 @@ void main() async {
   //
   // Get endpoint metric
   //
+  // Note this always seems to return a 500 error no matter what state the
+  // endpoint is in.
   print('');
   print('*** Endpoint API get endpoint metric ***');
   print('');
@@ -148,7 +152,6 @@ void main() async {
   } catch (e) {
     print(
         'Exception when calling Endpoint API Get Endpoint Metric: $e - exiting');
-    return;
   }
 
   //

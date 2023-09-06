@@ -149,8 +149,7 @@ class V2endpointApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.ok) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Object',
@@ -370,13 +369,18 @@ class V2endpointApi {
         .replaceAll('{metric}', metric);
 
     // ignore: prefer_final_locals
-    Object? postBody;
+    final postBody = <String, dynamic>{
+      'dnsPrefix': 'string',
+      'from': 0,
+      'step': 'string',
+      'to': 0
+    };
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
       path,
