@@ -23,13 +23,20 @@ class InferenceApi {
     final path = '/$model';
 
     Object? postBody;
-    postBody = json.encode(queryString);
+    // Check for an inference endpoint
+    if (model.isEmpty) {
+      final text = <String, String>{'text': queryString};
+      final body = <String, dynamic>{'inputs': text};
+      postBody = body;
+    } else {
+      postBody = json.encode(queryString);
+    }
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
       path,
@@ -354,7 +361,13 @@ class InferenceApi {
       postBody = taskParameters[r'mediaFile'];
       contentTypes.add('application/octet-stream');
     } else {
-      postBody = taskParameters;
+      contentTypes.add('application/json');
+      if (model.isEmpty) {
+        final inputs = <String, dynamic>{'inputs': taskParameters};
+        postBody = inputs;
+      } else {
+        postBody = taskParameters;
+      }
     }
 
     return apiClient.invokeAPI(
