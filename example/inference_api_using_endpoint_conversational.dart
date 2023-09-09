@@ -12,15 +12,19 @@ import 'api_key.dart';
 /// model queries against an existing inference endpoint.
 
 void main() async {
-  // Get an inference client with your Hugging Face API key as authentication.
+  // Create an inference endpoint with the 'gpt2' model and the
+  // conversational task.
+
+  // Get an inference client with your Hugging Face API key as authentication and
+  // your created inference endpoint
   final client = HuggingFaceClient.getInferenceClient(inferenceApiKey,
-      'https://dg5upiurbdhh5dci.us-east-1.aws.endpoints.huggingface.cloud');
+      'https://dqup5z4dnzemzw6u.us-east-1.aws.endpoints.huggingface.cloud');
 
   // Get an instance of the inference API using our client
   final apiInstance = InferenceApi(client);
 
   //
-  // Conversational  task
+  // Conversational  task.
   //
   print('');
   print('*** Conversational Task ***');
@@ -33,6 +37,7 @@ void main() async {
         text: text,
         pastUserInputs: [pastUserInputs],
         generatedResponses: [generatedResponses]);
+    // Leave the model empty, the inference endpoint already has the model.
     final result = await apiInstance.queryNLPConversational(
         taskParameters: params, model: '');
     if (result!.isNotEmpty) {

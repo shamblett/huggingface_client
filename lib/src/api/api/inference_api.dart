@@ -362,9 +362,14 @@ class InferenceApi {
       contentTypes.add('application/octet-stream');
     } else {
       contentTypes.add('application/json');
+      // Check for inference endpoint
       if (model.isEmpty) {
-        final inputs = <String, dynamic>{'inputs': taskParameters};
-        postBody = inputs;
+        if (!taskParameters.containsKey('inputs')) {
+          final inputs = <String, dynamic>{'inputs': taskParameters};
+          postBody = inputs;
+        } else {
+          postBody = taskParameters;
+        }
       } else {
         postBody = taskParameters;
       }
