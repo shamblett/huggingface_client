@@ -18,7 +18,7 @@ void main() async {
   // Get an inference client with your Hugging Face API key as authentication and
   // your created inference endpoint
   final client = HuggingFaceClient.getInferenceClient(inferenceApiKey,
-      'https://dqup5z4dnzemzw6u.us-east-1.aws.endpoints.huggingface.cloud');
+      'https://xxxxxxxxxxx.us-east-1.aws.endpoints.huggingface.cloud');
 
   // Get an instance of the inference API using our client
   final apiInstance = InferenceApi(client);
