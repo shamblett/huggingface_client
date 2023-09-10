@@ -13,13 +13,13 @@ class EndpointModelImage {
   /// Returns a new [EndpointModelImage] instance.
   EndpointModelImage({
     required this.huggingface,
-    required this.custom,
+    this.custom,
   });
 
   /// Model served by an Hugging Face container
   Object huggingface;
 
-  EndpointModelImageOneOf1Custom custom;
+  EndpointModelImageOneOf1Custom? custom;
 
   @override
   bool operator ==(Object other) =>
@@ -39,8 +39,10 @@ class EndpointModelImage {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'huggingface'] = huggingface;
-    json[r'custom'] = custom;
+    json[r'huggingface'] = {};
+    if (custom != null) {
+      json[r'custom'] = custom?.toJson();
+    }
     return json;
   }
 
@@ -66,7 +68,7 @@ class EndpointModelImage {
 
       return EndpointModelImage(
         huggingface: mapValueOfType<Object>(json, r'huggingface')!,
-        custom: EndpointModelImageOneOf1Custom.fromJson(json[r'custom'])!,
+        custom: EndpointModelImageOneOf1Custom.fromJson(json[r'custom']),
       );
     }
     return null;
@@ -122,8 +124,5 @@ class EndpointModelImage {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-    'huggingface',
-    'custom',
-  };
+  static const requiredKeys = <String>{'huggingface'};
 }

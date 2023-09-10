@@ -7,6 +7,9 @@
 
 part of huggingface_client;
 
+///
+/// The inference endpoint API
+///
 class EndpointApi extends V2endpointApi {
   EndpointApi(EndpointApiClient? apiClient) : super(apiClient);
 }

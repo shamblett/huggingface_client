@@ -20,7 +20,7 @@ class V2providerApi {
   /// List vendors, regions and compute resources available
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> listVendorsWithHttpInfo() async {
+  Future<Response> _listVendorsWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/v2/provider';
 
@@ -31,7 +31,7 @@ class V2providerApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
       path,
@@ -48,7 +48,7 @@ class V2providerApi {
   ///
   /// List vendors, regions and compute resources available
   Future<VendorList?> listVendors() async {
-    final response = await listVendorsWithHttpInfo();
+    final response = await _listVendorsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

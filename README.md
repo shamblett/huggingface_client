@@ -4,7 +4,8 @@
 A server and browser based [Hugging Face](https://huggingface.co/) REST API client for the inference and inference endpoint APIs.
 
 The client supports standard query based inference and inference tasks for Natural Language Processing(NLP),
-Audio and Vision. It also supports the inference endpoint API for creation and control of inference endpoints.
+Audio and Vision. It also supports the inference endpoint API for creation and control of inference endpoints
+and the provider endpoint.
 
 The bindings for the inference endpoint API are generated from the [Hugging Face Inference Endpoint OpenApi specification](lib/src/openapi/spec/openapi.json)
 using the [OpenAPI Generator](https://openapi-generator.tech) project.
@@ -18,12 +19,10 @@ See the [examples.md](example/example.md) document in the examples folder for us
 A Hugging Face API key is needed for authentication, see [here](https://huggingface.co/docs/api-inference/quicktour) for
 instructions on how to obtain this.
 
-# Road Map
+Using the inference API with your own inference endpoint is a simple matter of substituting
+the hugging face base path with your inference endpoint URL and setting the model parameter to '' as
+the inference endpoints are created on a per model(repository) basis, see [here](https://huggingface.co/docs/inference-endpoints/guides/create_endpoint)
+for more details. Two examples of this are included in the example directory.
 
-Client functionality will be added across several version releases, see below :-
-
-Version 1.0.0 contains inference query and NLP inference task queries.
-
-Version 1.1.0(this one) adds Audio and Vision inference task queries.
-
-Version 1.2.0 will add the inference endpoint API.
+Note that the inference endpoint and provider APIs use the V2 version of the Hugging Face API. The V1 version is
+deprecated by Hugging Face and should not be used, see [here](https://huggingface.co/docs/inference-endpoints/api_reference).
