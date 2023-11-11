@@ -4,7 +4,7 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
+// ignore_for_file: type=lint
 part of huggingface_client;
 
 /// This task is super useful to try out classification with zero code, you simply

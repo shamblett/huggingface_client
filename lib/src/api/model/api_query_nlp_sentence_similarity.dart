@@ -4,7 +4,7 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
+// ignore_for_file: type=lint
 part of huggingface_client;
 
 /// Calculate the semantic similarity between one text and a list of other
