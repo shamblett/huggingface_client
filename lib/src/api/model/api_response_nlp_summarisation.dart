@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of huggingface_client;
+part of api.api;
 
 class ApiResponseNLPSummarisation {
   /// Returns a new [ApiResponseNLPSummarisation] instance.

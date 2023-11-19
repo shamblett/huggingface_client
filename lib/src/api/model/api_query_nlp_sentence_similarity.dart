@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of huggingface_client;
+part of api.api;
 
 /// Calculate the semantic similarity between one text and a list of other
 /// sentences by comparing their embeddings.

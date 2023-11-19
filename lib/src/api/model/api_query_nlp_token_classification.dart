@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of huggingface_client;
+part of api.api;
 
 /// Usually used for sentence parsing, either grammatical, or Named Entity
 /// Recognition (NER) to understand keywords contained within text.
