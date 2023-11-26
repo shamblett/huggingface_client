@@ -10,6 +10,7 @@ library api.api;
 import 'dart:async';
 import 'dart:convert';
 
+import '../../huggingface_client.dart';
 import '../http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
