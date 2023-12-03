@@ -4,12 +4,12 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
+// ignore_for_file: type=lint
 part of huggingface_client;
 
 ///
 /// The inference endpoint provider API
 ///
 class EndpointProviderApi extends V2providerApi {
-  EndpointProviderApi(EndpointProviderApiClient? apiClient) : super(apiClient);
+  EndpointProviderApi(EndpointProviderApiClient? super.apiClient);
 }

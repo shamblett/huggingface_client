@@ -1,3 +1,6 @@
+# 1.2.1
+Issue 5
+
 # 1.2.0
 Inference and provider endpoints
 

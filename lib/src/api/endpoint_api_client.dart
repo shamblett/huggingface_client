@@ -4,8 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-part of huggingface_client;
+// ignore_for_file: type=lint
+part of api.api;
 
 ///
 /// The Inference endpoint API client just extends the Open API client

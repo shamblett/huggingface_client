@@ -4,8 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-part of huggingface_client;
+// ignore_for_file: type=lint
+part of api.api;
 
 ///
 /// Represents the bounding box of a detected object.

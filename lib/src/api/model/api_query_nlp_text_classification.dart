@@ -4,8 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-part of huggingface_client;
+// ignore_for_file: type=lint
+part of api.api;
 
 /// Usually used for sentiment-analysis this will output the likelihood of
 /// classes of an input.

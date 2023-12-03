@@ -4,8 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-part of huggingface_client;
+// ignore_for_file: type=lint
+part of api.api;
 
 /// This task corresponds to any chatbot like structure. Models tend to have shorter max_length,
 /// so please check with caution when using a given model if you need long range

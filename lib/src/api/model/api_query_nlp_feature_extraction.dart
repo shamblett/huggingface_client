@@ -4,8 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-part of huggingface_client;
+// ignore_for_file: type=lint
+part of api.api;
 
 /// This task reads some text and outputs raw float values, that are usually consumed
 /// as part of a semantic database/semantic search.

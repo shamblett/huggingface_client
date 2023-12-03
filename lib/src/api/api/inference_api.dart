@@ -5,7 +5,9 @@
  * Copyright :  S.Hamblett
  */
 
-part of huggingface_client;
+
+// ignore_for_file: type=lint
+part of api.api;
 
 class InferenceApi {
   InferenceApi([InferenceApiClient? apiClient])
