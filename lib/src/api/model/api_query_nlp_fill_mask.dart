@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 /// Tries to fill in a hole with a missing word (token to be precise).
 /// That’s the base task for BERT models.

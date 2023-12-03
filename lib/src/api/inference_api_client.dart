@@ -4,10 +4,8 @@
  * Date   : 02/08/2023
  * Copyright :  S.Hamblett
  */
-
-
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 class InferenceApiClient {
   InferenceApiClient({this.basePath = 'http://localhost', this.authentication});

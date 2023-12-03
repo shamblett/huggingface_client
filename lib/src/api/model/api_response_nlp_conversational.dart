@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 /// A facility dictionary to send back for the next input (with the new
 /// user input addition).

@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 class ApiResponseQueryStandard {
   /// Returns a new [ApiResponseQueryStandard] instance.

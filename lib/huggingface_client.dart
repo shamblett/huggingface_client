@@ -7,6 +7,7 @@
 
 library huggingface_client;
 
+import 'dart:io' if (dart.library.html) 'dart:html';
 import 'dart:convert';
 import 'dart:typed_data';
 

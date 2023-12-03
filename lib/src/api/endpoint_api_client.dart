@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 ///
 /// The Inference endpoint API client just extends the Open API client

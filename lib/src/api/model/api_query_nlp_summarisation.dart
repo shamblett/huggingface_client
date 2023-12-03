@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 /// This task is well known to summarize longer text into shorter text. Be careful, some models
 /// have a maximum length of input. That means that the summary cannot handle full books for instance.

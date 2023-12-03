@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 // ignore_for_file: type=lint
-part of api.api;
+part of huggingface_client;
 
 /// This task is super useful to try out classification with zero code, you simply
 /// pass a sentence/paragraph and the possible labels for that sentence,
