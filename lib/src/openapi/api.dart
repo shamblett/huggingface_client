@@ -11,7 +11,8 @@ library openapi.api;
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
+import '../../api_dart_io_import.dart'
+    if (dart.library.html) '../../api_html_import.dart';
 
 import '../http/http.dart';
 import 'package:intl/intl.dart';
