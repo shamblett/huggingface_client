@@ -1,6 +1,6 @@
-SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: huggingface_clientDocumentNamespace: https://pub.dev/packages/huggingface_clientLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2024-01-02T14:43:03Z
+SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: huggingface_clientDocumentNamespace: https://pub.dev/packages/huggingface_clientLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2024-02-21T10:52:06Z
 
-PackageName: huggingface-clientSPDXID: SPDXRef-Package-huggingface-clientPackageVersion: 1.2.2PackageFileName: huggingface_clientPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/huggingface_clientFilesAnalyzed: truePackageVerificationCode: 91bef72e8650d44575a231c550f85b39372396bbPackageHomePage: https://pub.dev/packages/huggingface_clientPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>A server and browser based Hugging Face inference and inference endpoint API REST client</text>
+PackageName: huggingface-clientSPDXID: SPDXRef-Package-huggingface-clientPackageVersion: 1.2.3PackageFileName: huggingface_clientPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/huggingface_clientFilesAnalyzed: truePackageVerificationCode: 17903d0cda91fed2f62c45d10a635fe9d329adc4PackageHomePage: https://pub.dev/packages/huggingface_clientPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>A server and browser based Hugging Face inference and inference endpoint API REST client</text>
 
 FileName: /lib/api_dart_io_import.dartSPDXID: SPDXRef-api-dart-io-import-0FileType: SOURCEFileChecksum: SHA1: 6342ab2acd573313904330a64b5c137dcc433af3LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
@@ -240,7 +240,7 @@ FileName: /lib/src/openapi/model/vendor_list.dartSPDXID: SPDXRef-vendor-list-11
 
 FileName: /lib/src/openapi/model/vendors.dartSPDXID: SPDXRef-vendors-118FileType: SOURCEFileChecksum: SHA1: d53c00d8e0e63196c12c0cebec3b187b5fb83458LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-119FileType: TEXTFileChecksum: SHA1: 2325fdea178075630503a35fb7b0c9c81d3b0d1fLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-119FileType: TEXTFileChecksum: SHA1: e74063e81344b264eb6351f088199a6964152edaLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 Relationship: SPDXRef-pubspec-119 DEPENDENCY_MANIFEST_OF SPDXRef-Package-huggingface-client
 
