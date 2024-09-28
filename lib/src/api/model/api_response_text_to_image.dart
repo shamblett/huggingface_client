@@ -7,25 +7,17 @@
 // ignore_for_file: type=lint
 part of huggingface_client;
 
-/// This task reads some text and outputs raw float values, that are usually consumed
-/// as part of a semantic database/semantic search.
-///
-class ApiQueryNLPFeatureExtraction {
-  /// Returns a new [ApiQueryNLPFeatureExtraction] instance.
-  ApiQueryNLPFeatureExtraction({required this.inputs, this.options});
+class ApiResponseTextToImage {
+  /// Returns a new [ApiResponseTextToImage] instance.
+  ApiResponseTextToImage({required this.inputs});
 
-  /// String to be classified
-  /// Deprecate by hugging face
-  // List<String> inputs;
+  /// The input image genration;
   String inputs;
-
-  /// Common inference options
-  InferenceOptions? options = InferenceOptions();
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiQueryNLPFeatureExtraction && other.inputs == inputs;
+      other is ApiResponseTextToImage && other.inputs == inputs;
 
   @override
   int get hashCode =>
@@ -33,20 +25,19 @@ class ApiQueryNLPFeatureExtraction {
       (inputs.hashCode);
 
   @override
-  String toString() =>
-      'ApiQueryNLPFeatureExtraction - [Inputs=$inputs, Options=$options}]';
+  String toString() => 'ApiResponseTextToImage - [Inputs=$inputs]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'inputs'] = inputs;
-    json[r'options'] = options?.toJson();
+
     return json;
   }
 
-  /// Returns a new [ApiQueryNLPFeatureExtraction] instance and imports its values from
+  /// Returns a new [ApiResponseTextToImage] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ApiQueryNLPFeatureExtraction? fromJson(dynamic value) {
+  static ApiResponseTextToImage? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -63,22 +54,21 @@ class ApiQueryNLPFeatureExtraction {
         return true;
       }());
 
-      return ApiQueryNLPFeatureExtraction(
-          inputs: mapValueOfType<String>(json, r'inputs')!,
-          options: mapValueOfTypeWithDefault<InferenceOptions>(
-              json, r'options', InferenceOptions())!);
+      return ApiResponseTextToImage(
+        inputs: mapValueOfType<String>(json, r'inputs')!,
+      );
     }
     return null;
   }
 
-  static List<ApiQueryNLPFeatureExtraction> listFromJson(
+  static List<ApiResponseTextToImage> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ApiQueryNLPFeatureExtraction>[];
+    final result = <ApiResponseTextToImage>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ApiQueryNLPFeatureExtraction.fromJson(row);
+        final value = ApiResponseTextToImage.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -87,12 +77,12 @@ class ApiQueryNLPFeatureExtraction {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ApiQueryNLPFeatureExtraction> mapFromJson(dynamic json) {
-    final map = <String, ApiQueryNLPFeatureExtraction>{};
+  static Map<String, ApiResponseTextToImage> mapFromJson(dynamic json) {
+    final map = <String, ApiResponseTextToImage>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApiQueryNLPFeatureExtraction.fromJson(entry.value);
+        final value = ApiResponseTextToImage.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -101,17 +91,17 @@ class ApiQueryNLPFeatureExtraction {
     return map;
   }
 
-  // maps a json object with a list of ApiQueryNLPFeatureExtraction-objects as value to a dart map
-  static Map<String, List<ApiQueryNLPFeatureExtraction>> mapListFromJson(
+  // maps a json object with a list of ApiResponseVisionImageClassification-objects as value to a dart map
+  static Map<String, List<ApiResponseTextToImage>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ApiQueryNLPFeatureExtraction>>{};
+    final map = <String, List<ApiResponseTextToImage>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ApiQueryNLPFeatureExtraction.listFromJson(
+        map[entry.key] = ApiResponseTextToImage.listFromJson(
           entry.value,
           growable: growable,
         );

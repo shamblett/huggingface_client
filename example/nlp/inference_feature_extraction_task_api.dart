@@ -30,14 +30,14 @@ void main() async {
   try {
     final input = 'A string of text from which to extract the features.';
     final params = ApiQueryNLPFeatureExtraction(
-        inputs: [input], options: InferenceOptions(waitForModel: true));
+        inputs: input, options: InferenceOptions(waitForModel: true));
     final result = await apiInstance.queryNLPFeatureExtraction(
-        taskParameters: params,
-        model: 'sentence-transformers/paraphrase-xlm-r-multilingual-v1');
+        taskParameters: params, model: 'facebook/bart-base');
     if (result!.isNotEmpty) {
       for (final row in result) {
         print(row?.representationFeatures);
       }
+      print('Complete');
     } else {
       print('Inference task API Feature Extraction returned empty result');
     }
