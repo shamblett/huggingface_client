@@ -5,6 +5,8 @@
  * Copyright :  S.Hamblett
  */
 
+import 'dart:io';
+
 import 'package:huggingface_client/huggingface_client.dart';
 import '../api_key.dart';
 
@@ -26,22 +28,17 @@ void main() async {
   print('*** Conversational Task ***');
   print('');
   try {
-    final pastUserInputs = 'Which movie is the best ?';
-    final generatedResponses = 'It is Die Hard for sure.';
-    final text = 'Can you explain why ?';
-    final params = ApiQueryNLPConversational(
-        text: text,
-        pastUserInputs: [pastUserInputs],
-        generatedResponses: [generatedResponses]);
-    final result = await apiInstance.queryNLPConversational(
-        taskParameters: params, model: 'google/gemma-2-2b-it');
-    if (result!.isNotEmpty) {
-      for (final row in result) {
-        print(row);
-      }
-    } else {
-      print('Inference task API Conversational  returned empty result');
-    }
+    final imageFilePath =
+        '${Directory.current.path}${Platform.pathSeparator}example${Platform.pathSeparator}'
+        'audio${Platform.pathSeparator}test${Platform.pathSeparator}textToImage.jpeg';
+    final file = File(imageFilePath);
+    final input = 'Astronaut riding a horse';
+    final params = ApiResponseTextToImage(inputs: input);
+    final result = await apiInstance.textToImage(
+        textToImageParam: params, model: "black-forest-labs/FLUX.1-dev");
+
+    print(result);
+    await file.writeAsBytes(result);
   } catch (e) {
     print(
         'Exception when calling Inference task API Conversational: $e - exiting');
