@@ -172,9 +172,6 @@ class InferenceApiClient {
 
   static dynamic _deserialize(dynamic value, String targetType,
       {bool growable = false}) {
-    // if (targetType == "List<QueryNLPFeatureExtractionTask>") {
-    //   return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
-    // }
     try {
       switch (targetType) {
         case 'String':
@@ -244,7 +241,7 @@ class InferenceApiClient {
           return ApiResponseNLPZeroShotClassification.listFromJson(value);
         case 'List<QueryNLPConversationalTask>':
           return ApiResponseNLPConversational.fromJson(value);
-        case "List<QueryNLPFeatureExtractionTask>":
+        case 'List<QueryNLPFeatureExtractionTask>':
           return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
         case 'List<QueryAudioASRTask>':
           return ApiResponseAudioASR.fromJson(value);
@@ -256,7 +253,7 @@ class InferenceApiClient {
           return ApiResponseVisionObjectDetection.listFromJson(value);
         case 'List<QueryVisionImageSegmentationTask>':
           return ApiResponseVisionImageSegmentation.listFromJson(value);
-        case "imageToText":
+        case 'imageToText':
           if (value.headers['content-type'] == "image/jpeg") {
             return value.bodyBytes;
           }
@@ -304,7 +301,7 @@ class InferenceApiClient {
     }
     throw ApiException(
       HttpStatus.internalServerError,
-      'Could not find a suitable class for deserialization $targetType',
+      'Could not find a suitable class for deserialization of $targetType',
     );
   }
 }
