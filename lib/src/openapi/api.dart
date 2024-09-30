@@ -7,6 +7,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
+// ignore: unnecessary_library_name
 library openapi.api;
 
 import 'dart:async';

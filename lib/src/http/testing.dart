@@ -22,6 +22,7 @@
 ///           200,
 ///           headers: {'content-type': 'application/json'});
 ///     });
+// ignore: unnecessary_library_name
 library http.testing;
 
 import 'src/mock_client.dart';
