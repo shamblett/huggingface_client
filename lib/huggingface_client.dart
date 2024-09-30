@@ -5,6 +5,7 @@
  * Copyright :  S.Hamblett
  */
 
+// ignore: unnecessary_library_name
 library huggingface_client;
 
 import 'api_dart_io_import.dart' if (dart.library.html) 'api_html_import.dart';
@@ -37,6 +38,7 @@ part 'src/api/model/api_query_nlp_text_classification.dart';
 part 'src/api/model/api_response_nlp_text_classification.dart';
 part 'src/api/model/api_query_nlp_text_generation.dart';
 part 'src/api/model/api_response_nlp_text_generation.dart';
+part 'src/api/model/api_response_text_to_image.dart';
 part 'src/api/model/api_query_nlp_token_classification.dart';
 part 'src/api/model/api_response_nlp_token_classification.dart';
 part 'src/api/model/api_query_nlp_translation.dart';
