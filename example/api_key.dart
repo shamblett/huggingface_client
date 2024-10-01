@@ -6,5 +6,5 @@
  */
 
 /// Your Hugging Face API key
-const inferenceApiKey = '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';
+const inferenceApiKey = 'hf_xxxxxxxxxxxxxxxxx...';
 const endpointApiKey = 'hf_xxxxxxxxxxxxxxxxx...';
