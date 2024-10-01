@@ -25,7 +25,7 @@ class ApiQueryNLPTextGeneration {
       this.options});
 
   /// Strings to be generated from
-  List<String> inputs;
+  String inputs;
 
   /// (Default: None). Integer to define the top tokens considered within the sample operation to create new text.
   int topK = 0;
@@ -149,7 +149,7 @@ class ApiQueryNLPTextGeneration {
       }());
 
       return ApiQueryNLPTextGeneration(
-          inputs: mapValueOfType<List<String>>(json, r'inputs')!,
+          inputs: mapValueOfType<String>(json, r'inputs')!,
           topK: mapValueOfTypeWithDefault<int>(json, r'top_k', 0)!,
           topP: mapValueOfTypeWithDefault<double>(json, r'top_p', 0.0)!,
           temperature:

@@ -218,7 +218,7 @@ class InferenceApiClient {
         case 'List<QueryNLPTextGenerationTask>':
           if (value is List) {
             if ((value).isNotEmpty) {
-              return ApiResponseNLPTextGeneration.listFromJson(value[0]);
+              return ApiResponseNLPTextGeneration.listFromJson(value);
             } else {
               throw Exception(
                   'Invalid response from NLP Text Generation query');
