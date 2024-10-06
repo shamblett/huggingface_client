@@ -12,12 +12,10 @@ part of huggingface_client;
 ///
 class ApiQueryNLPFeatureExtraction {
   /// Returns a new [ApiQueryNLPFeatureExtraction] instance.
-  ApiQueryNLPFeatureExtraction({required this.inputs, this.options});
+  ApiQueryNLPFeatureExtraction({required this.input, this.options});
 
   /// String to be classified
-  /// Deprecate by hugging face
-  // List<String> inputs;
-  String inputs;
+  String input;
 
   /// Common inference options
   InferenceOptions? options = InferenceOptions();
@@ -25,20 +23,20 @@ class ApiQueryNLPFeatureExtraction {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ApiQueryNLPFeatureExtraction && other.inputs == inputs;
+      other is ApiQueryNLPFeatureExtraction && other.input == input;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (inputs.hashCode);
+      (input.hashCode);
 
   @override
   String toString() =>
-      'ApiQueryNLPFeatureExtraction - [Inputs=$inputs, Options=$options}]';
+      'ApiQueryNLPFeatureExtraction - [Inputs=$input, Options=$options}]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'inputs'] = inputs;
+    json[r'inputs'] = input;
     json[r'options'] = options?.toJson();
     return json;
   }
@@ -64,7 +62,7 @@ class ApiQueryNLPFeatureExtraction {
       }());
 
       return ApiQueryNLPFeatureExtraction(
-          inputs: mapValueOfType<String>(json, r'inputs')!,
+          input: mapValueOfType<String>(json, r'inputs')!,
           options: mapValueOfTypeWithDefault<InferenceOptions>(
               json, r'options', InferenceOptions())!);
     }

@@ -5,6 +5,7 @@
  * Copyright :  S.Hamblett
  */
 
+// ignore: unnecessary_library_name
 library huggingface_client;
 
 import 'api_dart_io_import.dart' if (dart.library.html) 'api_html_import.dart';
