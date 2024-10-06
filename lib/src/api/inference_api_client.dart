@@ -246,8 +246,6 @@ class InferenceApiClient {
           return ApiResponseNLPConversational.fromJson(value);
         case "List<QueryNLPFeatureExtractionTask>":
           return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
-        case 'List<QueryNLPFeatureExtractionTask>':
-          return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
         case 'List<QueryAudioASRTask>':
           return ApiResponseAudioASR.fromJson(value);
         case 'List<QueryAudioClassificationTask>':
