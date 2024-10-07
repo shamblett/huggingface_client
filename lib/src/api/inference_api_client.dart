@@ -172,9 +172,6 @@ class InferenceApiClient {
 
   static dynamic _deserialize(dynamic value, String targetType,
       {bool growable = false}) {
-    // if (targetType == "List<QueryNLPFeatureExtractionTask>") {
-    //   return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
-    // }
     try {
       switch (targetType) {
         case 'String':
