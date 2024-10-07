@@ -215,7 +215,7 @@ class InferenceApiClient {
         case 'List<QueryNLPTextGenerationTask>':
           if (value is List) {
             if ((value).isNotEmpty) {
-              return ApiResponseNLPTextGeneration.listFromJson(value[0]);
+              return ApiResponseNLPTextGeneration.listFromJson(value);
             } else {
               throw Exception(
                   'Invalid response from NLP Text Generation query');
@@ -241,7 +241,7 @@ class InferenceApiClient {
           return ApiResponseNLPZeroShotClassification.listFromJson(value);
         case 'List<QueryNLPConversationalTask>':
           return ApiResponseNLPConversational.fromJson(value);
-        case 'List<QueryNLPFeatureExtractionTask>':
+        case "List<QueryNLPFeatureExtractionTask>":
           return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
         case 'List<QueryAudioASRTask>':
           return ApiResponseAudioASR.fromJson(value);
@@ -253,7 +253,7 @@ class InferenceApiClient {
           return ApiResponseVisionObjectDetection.listFromJson(value);
         case 'List<QueryVisionImageSegmentationTask>':
           return ApiResponseVisionImageSegmentation.listFromJson(value);
-        case 'imageToText':
+        case "imageToText":
           if (value.headers['content-type'] == "image/jpeg") {
             return value.bodyBytes;
           }
@@ -301,7 +301,7 @@ class InferenceApiClient {
     }
     throw ApiException(
       HttpStatus.internalServerError,
-      'Could not find a suitable class for deserialization of $targetType',
+      'Could not find a suitable class for deserialization $targetType',
     );
   }
 }

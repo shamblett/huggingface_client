@@ -76,7 +76,7 @@ class InferenceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty &&
         response.statusCode != HttpStatus.noContent) {
-      if (response.headers['content-type'] == 'image/jpeg') {
+      if (response.headers['content-type'] == "image/jpeg") {
         return response.bodyBytes;
       }
 

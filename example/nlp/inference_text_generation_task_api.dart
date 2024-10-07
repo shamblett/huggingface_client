@@ -27,7 +27,7 @@ void main() async {
   print('');
   try {
     final input = 'The answer to the universe is';
-    final params = ApiQueryNLPTextGeneration(inputs: [input]);
+    final params = ApiQueryNLPTextGeneration(inputs: input);
     final result = await apiInstance.queryNLPTextGeneration(
         taskParameters: params, model: 'gpt2');
     if (result!.isNotEmpty) {
