@@ -246,8 +246,7 @@ class InferenceApiClient {
           return ApiResponseNLPConversational.fromJson(value);
         case "List<QueryNLPFeatureExtractionTask>":
           return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
-        case 'List<QueryNLPFeatureExtractionTask>':
-          return ApiResponseNLPFeatureExtraction.listFromJson(value[0]);
+
         case 'List<QueryAudioASRTask>':
           return ApiResponseAudioASR.fromJson(value);
         case 'List<QueryAudioClassificationTask>':
@@ -258,6 +257,8 @@ class InferenceApiClient {
           return ApiResponseVisionObjectDetection.listFromJson(value);
         case 'List<QueryVisionImageSegmentationTask>':
           return ApiResponseVisionImageSegmentation.listFromJson(value);
+        case 'ChatCompletions':
+          return ApiResponseNLPChatCompletion.fromJson(value);
         case "imageToText":
           if (value.headers['content-type'] == "image/jpeg") {
             return value.bodyBytes;

@@ -87,6 +87,48 @@ class InferenceApi {
     return null;
   }
 
+//Chat Completion
+  Future<ApiResponseNLPChatCompletion?> chatCompletion(
+      {required ApiQueryChatCompletion query}) async {
+    final response = await _withHttpInfo(query.toJson(), query.model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    //   if (query.stream) {
+    //  return   ByteStream.fromBytes(response.bodyBytes)
+    //         .transform(StreamResponseTransformer())
+    //         .map((e) => ChatStreamResponse.fromJson(e["choices"][0]["delta"]));
+    //   }
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return await apiClient.deserializeAsync(responseBody, 'ChatCompletions');
+    }
+    return null;
+  }
+
+  Stream<ChatStreamResponse> chatStreamCompletion(
+      {required ApiQueryChatCompletion query}) async* {
+    query.stream = true;
+    final response = await _withHttpInfo(query.toJson(), query.model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (query.stream) {
+      yield* ByteStream.fromBytes(response.bodyBytes)
+          .transform(StreamResponseTransformer())
+          .map((e) => ChatStreamResponse.fromJson(e));
+    }
+  }
+
   ///
   ///
   // Future<dynamic> textToImage(
@@ -402,7 +444,11 @@ class InferenceApi {
   ///
   Future<Response> _withHttpInfo(
       Map<String, dynamic> taskParameters, String model) async {
-    final path = '/$model';
+    var path = '/$model';
+    final chatPath = '/$model/v1/chat/completions';
+    if (taskParameters.containsKey("messages")) {
+      path = chatPath;
+    }
 
     final headerParams = <String, String>{};
     final contentTypes = <String>[];
@@ -520,6 +566,10 @@ class InferenceApi {
   /// [model
   /// The model to use for the task
   ///
+  ///@
+
+  @Deprecated(
+      "Hugging face is not support Conversational API instead use Chat Completion")
   Future<List<ApiResponseNLPConversational?>?> queryNLPConversational(
       {required ApiQueryNLPConversational taskParameters,
       required String model}) async {
