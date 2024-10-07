@@ -31,12 +31,14 @@ void main() async {
     final input = 'A string of text from which to extract the features.';
     final params = ApiQueryNLPFeatureExtraction(
         input: input, options: InferenceOptions(waitForModel: true));
+
     final result = await apiInstance.queryNLPFeatureExtraction(
         taskParameters: params, model: 'facebook/bart-base');
     if (result!.isNotEmpty) {
       for (final row in result) {
         print(row?.representationFeatures);
       }
+      print('Complete');
       print('Complete');
     } else {
       print('Inference task API Feature Extraction returned empty result');

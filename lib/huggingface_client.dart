@@ -8,6 +8,8 @@
 // ignore: unnecessary_library_name
 library huggingface_client;
 
+import 'package:huggingface_client/src/api/api/response_transformers.dart';
+
 import 'api_dart_io_import.dart' if (dart.library.html) 'api_html_import.dart';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -46,6 +48,8 @@ part 'src/api/model/api_response_nlp_translation.dart';
 part 'src/api/model/api_query_nlp_zero_shot_classification.dart';
 part 'src/api/model/api_response_nlp_zero_shot_classification.dart';
 part 'src/api/model/api_query_nlp_conversational.dart';
+part 'src/api/model/api_query_nlp_chat_completion.dart';
+part 'src/api/model/api_response_chat_completion.dart';
 part 'src/api/model/api_response_nlp_conversational.dart';
 part 'src/api/model/api_query_nlp_feature_extraction.dart';
 part 'src/api/model/api_response_nlp_feature_extraction.dart';
