@@ -1,3 +1,10 @@
+/*
+ * Package : huggingface_client
+ * Author : S. Hamblett <steve.hamblett@linux.com>
+ * Date   : 13/10/2024
+ * Copyright :  Huzaif ansari
+ */
+
 import 'dart:async';
 import 'dart:convert';
 
