@@ -38,6 +38,7 @@ void main() async {
         print(row?.representationFeatures);
       }
       print('Complete');
+      print('Complete');
     } else {
       print('Inference task API Feature Extraction returned empty result');
     }
