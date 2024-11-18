@@ -87,7 +87,15 @@ class InferenceApi {
     return null;
   }
 
-//Chat Completion
+  ///
+  /// chat
+  ///
+  /// Simple chat completion query.
+  ///
+  /// [query]
+  /// The chat completion query string
+  ///
+  ///
   Future<ApiResponseNLPChatCompletion?> chatCompletion(
       {required ApiQueryChatCompletion query}) async {
     final response = await _withHttpInfo(query.toJson(), query.model);
@@ -129,32 +137,26 @@ class InferenceApi {
     }
   }
 
-  ///
-  ///
-  // Future<dynamic> textToImage(
-  //     {required ApiResponseTextToImage textToImageParam,
-  //     required String model}) async {
-  //   final taskParameters = textToImageParam.toJson();
-  //   final response = await _withHttpInfo(taskParameters, model);
+  Stream<TextGenerationStreamResponse> textStreamGeneration(
+      {required ApiQueryNLPTextGeneration query,
+      required String model}) async* {
+    query.stream = true;
+    final response = await _withHttpInfo(query.toJson(), model);
 
-  //   if (response.statusCode >= HttpStatus.badRequest) {
-  //     throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-  //   }
-  //   // When a remote server returns no body with a status of 204, we shall not decode it.
-  //   // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-  //   // FormatException when trying to decode an empty string.
-  //   if (response.body.isNotEmpty &&
-  //       response.statusCode != HttpStatus.noContent) {
-  //     if (response.headers['content-type'] == 'image/jpeg') {
-  //       return response.bodyBytes;
-  //     }
-
-  //     final responseBody = await _decodeBodyBytes(response);
-
-  //     return (await apiClient.deserializeAsync(responseBody, 'imageToText'));
-  //   }
-  //   return null;
-  // }
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (query.stream) {
+      yield* ByteStream.fromBytes(response.bodyBytes)
+          .transform(StreamResponseTransformer())
+          .map((e) {
+        return TextGenerationStreamResponse.fromJson(e);
+      });
+    }
+  }
 
   Future<String?> query(
       {required String queryString, required String model}) async {
@@ -388,6 +390,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTextGeneration?>?> queryNLPTextGeneration(
       {required ApiQueryNLPTextGeneration taskParameters,
       required String model}) async {
+    taskParameters.stream = false;
     final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {

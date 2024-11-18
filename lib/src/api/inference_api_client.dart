@@ -257,8 +257,10 @@ class InferenceApiClient {
           return ApiResponseVisionObjectDetection.listFromJson(value);
         case 'List<QueryVisionImageSegmentationTask>':
           return ApiResponseVisionImageSegmentation.listFromJson(value);
+
         case 'ChatCompletions':
           return ApiResponseNLPChatCompletion.fromJson(value);
+
         case "imageToText":
           if (value.headers['content-type'] == "image/jpeg") {
             return value.bodyBytes;
