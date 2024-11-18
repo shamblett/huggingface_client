@@ -9,6 +9,7 @@
 library huggingface_client;
 
 import 'package:huggingface_client/src/api/api/response_transformers.dart';
+import 'package:meta/meta.dart';
 
 import 'api_dart_io_import.dart' if (dart.library.html) 'api_html_import.dart';
 import 'dart:convert';

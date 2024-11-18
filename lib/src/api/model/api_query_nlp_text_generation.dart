@@ -63,6 +63,8 @@ class ApiQueryNLPTextGeneration {
   /// (Optional: True). Bool. Whether or not to use sampling, use greedy
   /// decoding otherwise
   bool doSample = true;
+  // for stream response
+  bool stream = false;
 
   /// Common inference options
   InferenceOptions? options = InferenceOptions();
@@ -125,6 +127,7 @@ class ApiQueryNLPTextGeneration {
       json[r'parameters'] = parameters;
     }
     json[r'options'] = options?.toJson();
+    json[r'stream'] = stream;
     return json;
   }
 

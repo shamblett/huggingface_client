@@ -137,6 +137,27 @@ class InferenceApi {
     }
   }
 
+  Stream<TextGenerationStreamResponse> textStreamGeneration(
+      {required ApiQueryNLPTextGeneration query,
+      required String model}) async* {
+    query.stream = true;
+    final response = await _withHttpInfo(query.toJson(), model);
+
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (query.stream) {
+      yield* ByteStream.fromBytes(response.bodyBytes)
+          .transform(StreamResponseTransformer())
+          .map((e) {
+        return TextGenerationStreamResponse.fromJson(e);
+      });
+    }
+  }
+
   Future<String?> query(
       {required String queryString, required String model}) async {
     final response = await _queryWithHttpInfo(queryString, model);
@@ -369,6 +390,8 @@ class InferenceApi {
   Future<List<ApiResponseNLPTextGeneration?>?> queryNLPTextGeneration(
       {required ApiQueryNLPTextGeneration taskParameters,
       required String model}) async {
+    // dev : client might be set stream response true which cause issue
+    taskParameters.stream = false;
     final response = await _withHttpInfo(taskParameters.toJson(), model);
 
     if (response.statusCode >= HttpStatus.badRequest) {
