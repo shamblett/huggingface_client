@@ -390,6 +390,7 @@ class InferenceApi {
   Future<List<ApiResponseNLPTextGeneration?>?> queryNLPTextGeneration(
       {required ApiQueryNLPTextGeneration taskParameters,
       required String model}) async {
+    // dev : client might be set stream response true which cause issue
     taskParameters.stream = false;
     final response = await _withHttpInfo(taskParameters.toJson(), model);
 

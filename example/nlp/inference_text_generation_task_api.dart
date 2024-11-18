@@ -28,18 +28,20 @@ void main() async {
   try {
     final input = 'How are you?';
     final params = ApiQueryNLPTextGeneration(inputs: input);
-    // final result = await apiInstance.queryNLPTextGeneration(
-    //     taskParameters: params, model: 'gpt2');
-    // if (result!.isNotEmpty) {
-    //   for (final row in result) {
-    //     print(row);
-    //   }
-    // } else {
-    //   print('Inference task API Text Generation returned empty result');
-    // }
+    final result = await apiInstance.queryNLPTextGeneration(
+        taskParameters: params, model: 'gpt2');
+    if (result!.isNotEmpty) {
+      for (final row in result) {
+        print(row);
+      }
+    } else {
+      print('Inference task API Text Generation returned empty result');
+    }
+    print('stream response start......');
     final sreamResult =
         apiInstance.textStreamGeneration(query: params, model: "gpt2");
     sreamResult.listen(print);
+    print('stream response end......');
   } catch (e) {
     print(
         'Exception when calling Inference task API Text Generation: $e - exiting');
