@@ -38,9 +38,9 @@ void main() async {
       print('Inference task API Text Generation returned empty result');
     }
     print('stream response start......');
-    final sreamResult =
+    final streamResult =
         apiInstance.textStreamGeneration(query: params, model: "gpt2");
-    sreamResult.listen(print);
+    streamResult.listen(print);
     print('stream response end......');
   } catch (e) {
     print(

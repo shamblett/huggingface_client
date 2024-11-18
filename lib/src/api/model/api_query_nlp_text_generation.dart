@@ -63,7 +63,8 @@ class ApiQueryNLPTextGeneration {
   /// (Optional: True). Bool. Whether or not to use sampling, use greedy
   /// decoding otherwise
   bool doSample = true;
-  // for stream response
+
+  /// (optional: False) Request stream response
   bool stream = false;
 
   /// Common inference options
