@@ -26,7 +26,7 @@ void main() async {
   print('*** Text Generation Task ***');
   print('');
   try {
-    final input = 'The answer to the universe is';
+    final input = 'How are you?';
     final params = ApiQueryNLPTextGeneration(inputs: input);
     final result = await apiInstance.queryNLPTextGeneration(
         taskParameters: params, model: 'gpt2');
@@ -37,6 +37,11 @@ void main() async {
     } else {
       print('Inference task API Text Generation returned empty result');
     }
+    print('stream response start......');
+    final streamResult =
+        apiInstance.textStreamGeneration(query: params, model: "gpt2");
+    streamResult.listen(print);
+    print('stream response end......');
   } catch (e) {
     print(
         'Exception when calling Inference task API Text Generation: $e - exiting');

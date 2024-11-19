@@ -152,3 +152,21 @@ class ApiQueryNLPTokenClassification {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{'inputs'};
 }
+
+@immutable
+final class TextGenerationStreamResponse {
+  final num id;
+  final num index;
+  final String text;
+
+  const TextGenerationStreamResponse(this.index,
+      {required this.id, required this.text});
+  factory TextGenerationStreamResponse.fromJson(Map<String, dynamic> json) =>
+      TextGenerationStreamResponse(json["index"],
+          id: json["token"]["id"], text: json["token"]["text"]);
+
+  @override
+  String toString() {
+    return "id: $id index: $index response text: $text  ";
+  }
+}

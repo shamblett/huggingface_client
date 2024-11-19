@@ -33,6 +33,7 @@ void main() async {
         text: text,
         pastUserInputs: [pastUserInputs],
         generatedResponses: [generatedResponses]);
+
     final result = await apiInstance.queryNLPConversational(
         taskParameters: params, model: 'google/gemma-2-2b-it');
     if (result!.isNotEmpty) {

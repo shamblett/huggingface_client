@@ -64,6 +64,9 @@ class ApiQueryNLPTextGeneration {
   /// decoding otherwise
   bool doSample = true;
 
+  /// (optional: False) Request stream response
+  bool stream = false;
+
   /// Common inference options
   InferenceOptions? options = InferenceOptions();
 
@@ -125,6 +128,7 @@ class ApiQueryNLPTextGeneration {
       json[r'parameters'] = parameters;
     }
     json[r'options'] = options?.toJson();
+    json[r'stream'] = stream;
     return json;
   }
 
