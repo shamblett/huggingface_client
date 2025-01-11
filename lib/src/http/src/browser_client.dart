@@ -3,8 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:html';
-import 'dart:typed_data';
+import 'dart:js_interop';
+
+import 'package:web/web.dart';
 
 import 'base_client.dart';
 import 'base_request.dart';
@@ -23,7 +24,7 @@ BaseClient createClient() {
   return BrowserClient();
 }
 
-/// A `dart:html`-based HTTP client that runs in the browser and is backed by
+/// A `package:web`-based HTTP client that runs in the browser and is backed by
 /// XMLHttpRequests.
 ///
 /// This client inherits some of the limitations of XMLHttpRequest. It ignores
@@ -35,7 +36,7 @@ class BrowserClient extends BaseClient {
   /// The currently active XHRs.
   ///
   /// These are aborted if the client is closed.
-  final _xhrs = <HttpRequest>{};
+  final _xhrs = <XMLHttpRequest>{};
 
   /// Whether to send credentials such as cookies or authorization headers for
   /// cross-site requests.
@@ -53,10 +54,10 @@ class BrowserClient extends BaseClient {
           'HTTP request failed. Client is already closed.', request.url);
     }
     var bytes = await request.finalize().toBytes();
-    var xhr = HttpRequest();
+    var xhr = XMLHttpRequest();
     _xhrs.add(xhr);
     xhr
-      ..open(request.method, '${request.url}', async: true)
+      ..open(request.method, '${request.url}', true)
       ..responseType = 'arraybuffer'
       ..withCredentials = withCredentials;
     request.headers.forEach(xhr.setRequestHeader);
@@ -64,9 +65,9 @@ class BrowserClient extends BaseClient {
     var completer = Completer<StreamedResponse>();
 
     unawaited(xhr.onLoad.first.then((_) {
-      var body = (xhr.response as ByteBuffer).asUint8List();
+      var body = (xhr.response as JSArrayBuffer).toDart.asUint8List();
       completer.complete(StreamedResponse(
-          ByteStream.fromBytes(body), xhr.status!,
+          ByteStream.fromBytes(body), xhr.status,
           contentLength: body.length,
           request: request,
           headers: xhr.responseHeaders,
@@ -81,7 +82,7 @@ class BrowserClient extends BaseClient {
           StackTrace.current);
     }));
 
-    xhr.send(bytes);
+    xhr.send(bytes.jsify());
 
     try {
       return await completer.future;
