@@ -60,12 +60,11 @@ class BrowserClient extends BaseClient {
       ..open(request.method, '${request.url}', true)
       ..responseType = 'arraybuffer'
       ..withCredentials = withCredentials;
-    
-    //request.headers.forEach(xhr.setRequestHeader);
-    for (MapEntry<String, String> entry in request.headers.entries) {
+
+    for (final MapEntry<String, String> entry in request.headers.entries) {
       xhr.setRequestHeader(entry.key, entry.value);
     }
-    
+
     var completer = Completer<StreamedResponse>();
 
     unawaited(xhr.onLoad.first.then((_) {

@@ -5,18 +5,18 @@ DocumentName: huggingface_client
 DocumentNamespace: https://pub.dev/packages/huggingface_client
 LicenseListVersion: 3.8
 Creator: Tool: https://pub.dev/packages/sbom
-Created: 2025-01-11T14:08:05Z
+Created: 2025-04-18T10:20:03Z
 
 
 PackageName: huggingface-client
 SPDXID: SPDXRef-Package-huggingface-client
-PackageVersion: 1.6.1
+PackageVersion: 1.6.2
 PackageFileName: huggingface_client
 PackageSupplier: NOASSERTION
 PackageOriginator: NOASSERTION
 PackageDownloadLocation: https://pub.dev/packages/huggingface_client
 FilesAnalyzed: true
-PackageVerificationCode: bd956afc611834e4844c4bbdab70a17a83a35c10
+PackageVerificationCode: 9c489159a1a3eae74a9d1562103cf431b93cdcd2
 PackageHomePage: https://pub.dev/packages/huggingface_client
 PackageLicenseConcluded: MIT
 PackageLicenseInfoFromFiles: NOASSERTION
@@ -577,7 +577,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/http/src/multipart_request.dart
 SPDXID: SPDXRef-multipart-request-61
 FileType: SOURCE
-FileChecksum: SHA1: 6faded414b277329becdbbddaef9857b5538f808
+FileChecksum: SHA1: d587224d98258a0b698fc36708e2d75b4f23cee1
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -586,7 +586,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/http/src/request.dart
 SPDXID: SPDXRef-request-62
 FileType: SOURCE
-FileChecksum: SHA1: d587224d98258a0b698fc36708e2d75b4f23cee1
+FileChecksum: SHA1: f3ab904a8128bafe8029681a37caa3630e69f316
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -595,7 +595,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/http/src/response.dart
 SPDXID: SPDXRef-response-63
 FileType: SOURCE
-FileChecksum: SHA1: f3ab904a8128bafe8029681a37caa3630e69f316
+FileChecksum: SHA1: cfafe5e46c24a1d4d000fa88399007b6d2b71551
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -1135,7 +1135,7 @@ FileCopyrightText: NOASSERTION
 FileName: pubspec.yaml
 SPDXID: SPDXRef-pubspec-123
 FileType: TEXT
-FileChecksum: SHA1: 4a5a1cb610f9bf3322c7892532bfed0e4b8edfb0
+FileChecksum: SHA1: 21be6cb4e96521b05306a381af29bf58d12c95be
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
